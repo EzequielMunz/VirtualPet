@@ -19,6 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [self setTitle:@"Name"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,13 +42,50 @@
 {
     //[self setPetName:self.txtPetName.text];
     self.petName = self.txtPetName.text;
-    SelectImgViewController *selectImgView = [[SelectImgViewController alloc] initWithNibName:@"SelectImgViewController" bundle:[NSBundle mainBundle] andPetName:self.petName];
-    [self.navigationController pushViewController:selectImgView animated:YES];
+    
+    if([self validateName:self.petName])
+    {
+        SelectImgViewController *selectImgView = [[SelectImgViewController alloc] initWithNibName:@"SelectImgViewController" bundle:[NSBundle mainBundle] andPetName:self.petName];
+        [self.navigationController pushViewController:selectImgView animated:YES];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Invalid pet name" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+
+}
+
+- (BOOL) validateName :(NSString* ) name
+{
+    BOOL validated = NO;
+    
+    // Validamos si tiene mas de 6 Caracteres.
+    int longitud = [name length];
+    if(longitud > 5)
+    {
+        validated = YES;
+    }
+    
+    // Validamos que sean solo letras.
+    
+    if([name rangeOfCharacterFromSet:[NSCharacterSet letterCharacterSet]].length == longitud)
+    {
+        validated = YES;
+    }
+    
+    return validated;
 }
 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self.view endEditing:YES];
+}
+
+- (BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    [self.view endEditing:YES];
+    return YES;
 }
 
 @end

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
+@interface FirstViewController : UIViewController <UITextFieldDelegate>
 
 @property (nonatomic, strong) NSString *petName;
 

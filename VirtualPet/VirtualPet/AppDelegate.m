@@ -28,6 +28,8 @@
     MainMenuViewController* home = [[MainMenuViewController alloc] initWithNibName:@"MainMenuViewController" bundle:nil];
     UINavigationController* navControllerHome = [[UINavigationController alloc] initWithRootViewController:home];
     
+    [navControllerHome.navigationBar setBarStyle:UIBarStyleBlackTranslucent];
+    
     [self.window setRootViewController:navControllerHome];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

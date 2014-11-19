@@ -42,7 +42,7 @@
     
     switch (self.imageTag) {
         case PET_CIERVO:
-            self.petImageView.image = [UIImage imageNamed:@"ciervo_comiendo_1"];
+            [self.petImageView setImage:[UIImage imageNamed:@"ciervo_comiendo_1"]];
             break;
         case PET_GATO:
             [self.petImageView setImage:[UIImage imageNamed:@"gato_comiendo_1"]];
@@ -57,6 +57,8 @@
         default:
             break;
     }
+    
+    [self setTitle:[NSString stringWithFormat:@"%@", self.myPetName]];
     
 }
 
