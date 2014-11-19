@@ -10,6 +10,6 @@
 
 @interface SelectImgViewController : UIViewController
 
-- (void) setPetImage: (UIImage*) image;
+- (IBAction)setImage:(UIButton*)sender;
 
 @end

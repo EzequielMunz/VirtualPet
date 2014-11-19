@@ -24,6 +24,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [self.scrollImages setScrollEnabled:YES];
+    [self.scrollImages setContentSize:CGSizeMake(self.scrollImages.frame.size.width + self.scrollImage4.frame.size.width, self.scrollImages.frame.size.height)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,35 +44,27 @@
 }
 */
 
-- (void) setPetImage:(UIImage *)image
+- (IBAction)setImage:(UIButton*)sender
 {
-    self.petImageView.image = image;
-}
-
-- (IBAction)scrollImageTouched:(UIButton*)sender
-{
-    UIImage *myImage;
-    
     switch (sender.tag) {
         case 0:
-            myImage=self.scrollImage1.imageView.image;
+            self.petImageView.image = [UIImage imageNamed:@"ciervo_comiendo_1"];
             break;
         case 1:
-            myImage=self.scrollImage2.imageView.image;
+            self.petImageView.image = [UIImage imageNamed:@"gato_comiendo_1"];
             break;
         case 2:
-            myImage=self.scrollImage3.imageView.image;
+            self.petImageView.image = [UIImage imageNamed:@"jirafa_comiendo_1"];
             break;
         case 3:
-            myImage=self.scrollImage4.imageView.image;
+            self.petImageView.image = [UIImage imageNamed:@"leon_comiendo_1"];
             break;
             
         default:
             break;
     }
-    
-    [self setPetImage:myImage];
 }
+
 
 - (IBAction)buttonContinueTouched:(id)sender
 {

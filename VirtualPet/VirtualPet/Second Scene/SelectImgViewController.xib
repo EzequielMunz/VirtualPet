@@ -19,47 +19,12 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WdT-BF-DZk">
-                    <rect key="frame" x="40" y="342" width="240" height="128"/>
-                    <subviews>
-                        <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GeS-qg-oea">
-                            <rect key="frame" x="79" y="26" width="66" height="76"/>
-                            <state key="normal" backgroundImage="gato_comiendo_1">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="scrollImageTouched:" destination="-1" eventType="touchUpInside" id="3tG-El-cPI"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7w2-b7-Zqj">
-                            <rect key="frame" x="16" y="17" width="80" height="79"/>
-                            <state key="normal" backgroundImage="ciervo_comiendo_1">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="scrollImageTouched:" destination="-1" eventType="touchUpInside" id="ic4-uB-Np9"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qa-Vs-D8g">
-                            <rect key="frame" x="145" y="26" width="61" height="62"/>
-                            <state key="normal" backgroundImage="jirafa_comiendo_1">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="scrollImageTouched:" destination="-1" eventType="touchUpInside" id="fMU-5e-imX"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfV-R9-ee0">
-                            <rect key="frame" x="201" y="17" width="71" height="79"/>
-                            <state key="normal" backgroundImage="leon_comiendo_1">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="scrollImageTouched:" destination="-1" eventType="touchUpInside" id="bRg-Gh-pgT"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                </scrollView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wolverine" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jKY-9J-Kag">
+                    <rect key="frame" x="91" y="70" width="139" height="35"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ciervo_comiendo_1" translatesAutoresizingMaskIntoConstraints="NO" id="e8q-Vc-FaC">
                     <rect key="frame" x="40" y="106" width="240" height="207"/>
                 </imageView>
@@ -73,15 +38,51 @@
                         <action selector="buttonContinueTouched:" destination="-1" eventType="touchUpInside" id="iGB-Ed-VSH"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wolverine" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jKY-9J-Kag">
-                    <rect key="frame" x="91" y="70" width="139" height="35"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WdT-BF-DZk">
+                    <rect key="frame" x="40" y="313" width="240" height="121"/>
+                    <subviews>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GeS-qg-oea">
+                            <rect key="frame" x="80" y="24" width="66" height="76"/>
+                            <state key="normal" backgroundImage="gato_comiendo_1">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="setImage:" destination="-1" eventType="touchUpInside" id="Ffs-Cx-emr"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7w2-b7-Zqj">
+                            <rect key="frame" x="8" y="21" width="80" height="79"/>
+                            <state key="normal" backgroundImage="ciervo_comiendo_1">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="setImage:" destination="-1" eventType="touchUpInside" id="RC4-PR-D7I"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qa-Vs-D8g">
+                            <rect key="frame" x="146" y="31" width="61" height="62"/>
+                            <state key="normal" backgroundImage="jirafa_comiendo_1">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="setImage:" destination="-1" eventType="touchUpInside" id="iqK-ll-aHW"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfV-R9-ee0">
+                            <rect key="frame" x="210" y="21" width="71" height="79"/>
+                            <state key="normal" backgroundImage="leon_comiendo_1">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="setImage:" destination="-1" eventType="touchUpInside" id="K4P-4y-9y7"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.86552285569999998" green="0.99576246749999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                </scrollView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <point key="canvasLocation" x="348" y="415"/>
+            <point key="canvasLocation" x="397" y="414"/>
         </view>
     </objects>
     <resources>
