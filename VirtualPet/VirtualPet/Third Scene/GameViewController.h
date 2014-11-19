@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PetConfig.h"
 
 @interface GameViewController : UIViewController
 
 @property (nonatomic, strong) NSNumber  *petEnergyValue;
+
+- (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andPetName:(NSString*) name andImageTag:(PetImageTag)tag;
 
 - (void) updatePetEnergy;
 

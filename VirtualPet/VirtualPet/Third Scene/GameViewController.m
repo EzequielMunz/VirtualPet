@@ -9,16 +9,55 @@
 #import "GameViewController.h"
 
 @interface GameViewController ()
-@property (strong, nonatomic) IBOutlet UIImageView *petImage;
+
+@property (strong, nonatomic) NSString *myPetName;
+@property (nonatomic) PetImageTag imageTag;
+
+@property (strong, nonatomic) IBOutlet UILabel *lblPetName;
+@property (strong, nonatomic) IBOutlet UIImageView *petImageView;
 @property (strong, nonatomic) IBOutlet UIProgressView *petEnergyBar;
 
 @end
 
 @implementation GameViewController
 
+- (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andPetName:(NSString *)name andImageTag:(PetImageTag)tag
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    
+    if (self)
+    {
+        self.myPetName = name;
+        self.imageTag = tag;
+    }
+    
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [self.lblPetName setText:self.myPetName];
+    
+    switch (self.imageTag) {
+        case PET_CIERVO:
+            self.petImageView.image = [UIImage imageNamed:@"ciervo_comiendo_1"];
+            break;
+        case PET_GATO:
+            [self.petImageView setImage:[UIImage imageNamed:@"gato_comiendo_1"]];
+            break;
+        case PET_JIRAFA:
+            [self.petImageView setImage:[UIImage imageNamed:@"jirafa_comiendo_1"]];
+            break;
+        case PET_LEON:
+            [self.petImageView setImage:[UIImage imageNamed:@"leon_comiendo_1"]];
+            break;
+            
+        default:
+            break;
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {

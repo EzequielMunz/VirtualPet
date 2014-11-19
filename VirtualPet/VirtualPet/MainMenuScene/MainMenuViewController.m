@@ -1,20 +1,19 @@
 //
-//  FirstViewController.m
+//  MainMenuViewController.m
 //  VirtualPet
 //
-//  Created by Ezequiel on 11/18/14.
+//  Created by Ezequiel on 11/19/14.
 //  Copyright (c) 2014 Ezequiel. All rights reserved.
 //
 
+#import "MainMenuViewController.h"
 #import "FirstViewController.h"
-#import "SelectImgViewController.h"
 
-@interface FirstViewController ()
-@property (strong, nonatomic) IBOutlet UITextField *txtPetName;
+@interface MainMenuViewController ()
 
 @end
 
-@implementation FirstViewController
+@implementation MainMenuViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,18 +34,10 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-- (IBAction)btnContinueTouch:(id)sender
+- (IBAction)btnPlayTouched:(id)sender
 {
-    //[self setPetName:self.txtPetName.text];
-    self.petName = self.txtPetName.text;
-    SelectImgViewController *selectImgView = [[SelectImgViewController alloc] initWithNibName:@"SelectImgViewController" bundle:[NSBundle mainBundle] andPetName:self.petName];
-    [self.navigationController pushViewController:selectImgView animated:YES];
-}
-
-- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    [self.view endEditing:YES];
+    FirstViewController *firstView = [[FirstViewController alloc] initWithNibName:@"FirstViewController" bundle:[NSBundle mainBundle]];
+    [self.navigationController pushViewController:firstView animated:YES];
 }
 
 @end

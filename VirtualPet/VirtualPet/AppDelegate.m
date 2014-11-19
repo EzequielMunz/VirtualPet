@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "SelectImgViewController.h"
+#import "MainMenuViewController.h"
 
 @interface AppDelegate ()
 
@@ -25,7 +25,7 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    SelectImgViewController* home = [[SelectImgViewController alloc] initWithNibName:@"SelectImgViewController" bundle:nil];
+    MainMenuViewController* home = [[MainMenuViewController alloc] initWithNibName:@"MainMenuViewController" bundle:nil];
     UINavigationController* navControllerHome = [[UINavigationController alloc] initWithRootViewController:home];
     
     [self.window setRootViewController:navControllerHome];

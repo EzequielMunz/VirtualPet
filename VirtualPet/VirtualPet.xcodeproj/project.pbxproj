@@ -18,6 +18,8 @@
 		377A636E1A1BCD1D00CE8C74 /* SelectImgViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 377A636C1A1BCD1D00CE8C74 /* SelectImgViewController.xib */; };
 		377A63721A1BD12A00CE8C74 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377A63701A1BD12A00CE8C74 /* GameViewController.m */; };
 		377A63731A1BD12A00CE8C74 /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 377A63711A1BD12A00CE8C74 /* GameViewController.xib */; };
+		3782E76E1A1CF716009A4C10 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3782E76C1A1CF716009A4C10 /* MainMenuViewController.m */; };
+		3782E76F1A1CF716009A4C10 /* MainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3782E76D1A1CF716009A4C10 /* MainMenuViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,10 @@
 		377A636F1A1BD12A00CE8C74 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		377A63701A1BD12A00CE8C74 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		377A63711A1BD12A00CE8C74 /* GameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
+		3782E76B1A1CF716009A4C10 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
+		3782E76C1A1CF716009A4C10 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
+		3782E76D1A1CF716009A4C10 /* MainMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenuViewController.xib; sourceTree = "<group>"; };
+		3782E7701A1CFD37009A4C10 /* PetConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PetConfig.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,8 +99,10 @@
 			children = (
 				377A633B1A1BCA4900CE8C74 /* AppDelegate.h */,
 				377A633C1A1BCA4900CE8C74 /* AppDelegate.m */,
+				3782E7701A1CFD37009A4C10 /* PetConfig.h */,
 				377A63441A1BCA4900CE8C74 /* Images.xcassets */,
 				377A63461A1BCA4900CE8C74 /* LaunchScreen.xib */,
+				3782E76A1A1CF6DE009A4C10 /* MainMenuScene */,
 				377A63681A1BCC7D00CE8C74 /* Second Scene */,
 				377A63691A1BCC8800CE8C74 /* Third Scene */,
 				377A63621A1BCC2800CE8C74 /* First Scene */,
@@ -158,6 +166,16 @@
 				377A63711A1BD12A00CE8C74 /* GameViewController.xib */,
 			);
 			path = "Third Scene";
+			sourceTree = "<group>";
+		};
+		3782E76A1A1CF6DE009A4C10 /* MainMenuScene */ = {
+			isa = PBXGroup;
+			children = (
+				3782E76B1A1CF716009A4C10 /* MainMenuViewController.h */,
+				3782E76C1A1CF716009A4C10 /* MainMenuViewController.m */,
+				3782E76D1A1CF716009A4C10 /* MainMenuViewController.xib */,
+			);
+			path = MainMenuScene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +262,7 @@
 				377A63481A1BCA4900CE8C74 /* LaunchScreen.xib in Resources */,
 				377A63451A1BCA4900CE8C74 /* Images.xcassets in Resources */,
 				377A63671A1BCC2800CE8C74 /* FirstViewController.xib in Resources */,
+				3782E76F1A1CF716009A4C10 /* MainMenuViewController.xib in Resources */,
 				377A63731A1BD12A00CE8C74 /* GameViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,6 +285,7 @@
 				377A636D1A1BCD1D00CE8C74 /* SelectImgViewController.m in Sources */,
 				377A633D1A1BCA4900CE8C74 /* AppDelegate.m in Sources */,
 				377A633A1A1BCA4900CE8C74 /* main.m in Sources */,
+				3782E76E1A1CF716009A4C10 /* MainMenuViewController.m in Sources */,
 				377A63661A1BCC2800CE8C74 /* FirstViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,6 +469,7 @@
 				377A63591A1BCA4900CE8C74 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		377A635A1A1BCA4900CE8C74 /* Build configuration list for PBXNativeTarget "VirtualPetTests" */ = {
 			isa = XCConfigurationList;
@@ -457,6 +478,7 @@
 				377A635C1A1BCA4900CE8C74 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

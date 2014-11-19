@@ -7,8 +7,14 @@
 //
 
 #import "SelectImgViewController.h"
+#import "PetConfig.h"
+#import "GameViewController.h"
 
 @interface SelectImgViewController ()
+
+@property (strong, nonatomic) NSString *myPetName;
+
+@property (strong, nonatomic) IBOutlet UILabel *lblPetName;
 @property (strong, nonatomic) IBOutlet UIImageView *petImageView;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollImages;
 
@@ -17,9 +23,24 @@
 @property (strong, nonatomic) IBOutlet UIButton *scrollImage3;
 @property (strong, nonatomic) IBOutlet UIButton *scrollImage4;
 
+@property (nonatomic) PetImageTag myTag;
+
 @end
 
 @implementation SelectImgViewController
+
+- (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andPetName:(NSString *)name
+{
+    
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    
+    if(self)
+    {
+        self.myPetName = name;
+        
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,6 +48,8 @@
     
     [self.scrollImages setScrollEnabled:YES];
     [self.scrollImages setContentSize:CGSizeMake(self.scrollImages.frame.size.width + self.scrollImage4.frame.size.width, self.scrollImages.frame.size.height)];
+    
+    [self.lblPetName setText:self.myPetName];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,28 +69,33 @@
 
 - (IBAction)setImage:(UIButton*)sender
 {
-    switch (sender.tag) {
-        case 0:
+    PetImageTag enumTag = (PetImageTag) sender.tag;
+    switch (enumTag) {
+        case PET_CIERVO:
             self.petImageView.image = [UIImage imageNamed:@"ciervo_comiendo_1"];
             break;
-        case 1:
+        case PET_GATO:
             self.petImageView.image = [UIImage imageNamed:@"gato_comiendo_1"];
             break;
-        case 2:
+        case PET_JIRAFA:
             self.petImageView.image = [UIImage imageNamed:@"jirafa_comiendo_1"];
             break;
-        case 3:
+        case PET_LEON:
             self.petImageView.image = [UIImage imageNamed:@"leon_comiendo_1"];
             break;
             
         default:
             break;
     }
+    
+    self.myTag = enumTag;
 }
 
 
 - (IBAction)buttonContinueTouched:(id)sender
 {
+    GameViewController *gameView = [[GameViewController alloc] initWithNibName:@"GameViewController" bundle:[NSBundle mainBundle] andPetName:self.myPetName andImageTag:self.myTag];
+    [self.navigationController pushViewController:gameView animated:YES];
     
 }
 
