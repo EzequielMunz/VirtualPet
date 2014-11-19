@@ -65,13 +65,17 @@
     if(longitud > 5)
     {
         validated = YES;
-    }
-    
-    // Validamos que sean solo letras.
-    
-    if([name rangeOfCharacterFromSet:[NSCharacterSet letterCharacterSet]].length == longitud)
-    {
-        validated = YES;
+        
+        // Validamos que sean solo letras.
+        
+        /*if([name rangeOfCharacterFromSet:[NSCharacterSet letterCharacterSet]].length == 1)
+        {
+            validated = YES;
+        }
+        else
+        {
+            validated = NO;
+        }*/
     }
     
     return validated;
@@ -86,6 +90,20 @@
 {
     [self.view endEditing:YES];
     return YES;
+}
+
+// Valida los caracterres del TextField
+- (BOOL) textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if([string rangeOfCharacterFromSet:[NSCharacterSet letterCharacterSet]].length)
+    {
+        return YES;
+    }
+    else if(!string.length){
+        return YES;
+    }
+    
+    return NO;
 }
 
 @end
