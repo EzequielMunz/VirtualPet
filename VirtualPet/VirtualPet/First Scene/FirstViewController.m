@@ -20,7 +20,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
     [self setTitle:@"Name"];
+}
+
+- (void) viewWillDisappear:(BOOL)animated
+{
+    [self setTitle:@"---"];
 }
 
 - (void)didReceiveMemoryWarning {

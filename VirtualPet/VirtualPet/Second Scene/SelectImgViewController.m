@@ -50,13 +50,21 @@
     [self.scrollImages setContentSize:CGSizeMake(self.scrollImages.frame.size.width + self.scrollImage4.frame.size.width, self.scrollImages.frame.size.height)];
     
     [self.lblPetName setText:self.myPetName];
-    
-    [self setTitle:@"Image"];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    [self setTitle:@"Image"];
+}
+
+- (void) viewWillDisappear:(BOOL)animated
+{
+    [self setTitle:@"---"];
 }
 
 /*

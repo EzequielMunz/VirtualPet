@@ -18,6 +18,11 @@
 		377A636E1A1BCD1D00CE8C74 /* SelectImgViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 377A636C1A1BCD1D00CE8C74 /* SelectImgViewController.xib */; };
 		377A63721A1BD12A00CE8C74 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377A63701A1BD12A00CE8C74 /* GameViewController.m */; };
 		377A63731A1BD12A00CE8C74 /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 377A63711A1BD12A00CE8C74 /* GameViewController.xib */; };
+		377FA8E21A1E545800E9A07D /* FoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377FA8E01A1E545800E9A07D /* FoodViewController.m */; };
+		377FA8E31A1E545800E9A07D /* FoodViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 377FA8E11A1E545800E9A07D /* FoodViewController.xib */; };
+		377FA8E61A1E59E500E9A07D /* PetFood.m in Sources */ = {isa = PBXBuildFile; fileRef = 377FA8E51A1E59E500E9A07D /* PetFood.m */; };
+		377FA8EA1A1E5F5200E9A07D /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 377FA8E81A1E5F5200E9A07D /* TableViewCell.m */; };
+		377FA8EB1A1E5F5200E9A07D /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 377FA8E91A1E5F5200E9A07D /* TableViewCell.xib */; };
 		3782E76E1A1CF716009A4C10 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3782E76C1A1CF716009A4C10 /* MainMenuViewController.m */; };
 		3782E76F1A1CF716009A4C10 /* MainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3782E76D1A1CF716009A4C10 /* MainMenuViewController.xib */; };
 /* End PBXBuildFile section */
@@ -52,6 +57,14 @@
 		377A636F1A1BD12A00CE8C74 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		377A63701A1BD12A00CE8C74 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		377A63711A1BD12A00CE8C74 /* GameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
+		377FA8DF1A1E545800E9A07D /* FoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodViewController.h; sourceTree = "<group>"; };
+		377FA8E01A1E545800E9A07D /* FoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodViewController.m; sourceTree = "<group>"; };
+		377FA8E11A1E545800E9A07D /* FoodViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodViewController.xib; sourceTree = "<group>"; };
+		377FA8E41A1E59E500E9A07D /* PetFood.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetFood.h; sourceTree = "<group>"; };
+		377FA8E51A1E59E500E9A07D /* PetFood.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetFood.m; sourceTree = "<group>"; };
+		377FA8E71A1E5F5200E9A07D /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
+		377FA8E81A1E5F5200E9A07D /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
+		377FA8E91A1E5F5200E9A07D /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		3782E76B1A1CF716009A4C10 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
 		3782E76C1A1CF716009A4C10 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
 		3782E76D1A1CF716009A4C10 /* MainMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenuViewController.xib; sourceTree = "<group>"; };
@@ -100,8 +113,11 @@
 				377A633B1A1BCA4900CE8C74 /* AppDelegate.h */,
 				377A633C1A1BCA4900CE8C74 /* AppDelegate.m */,
 				3782E7701A1CFD37009A4C10 /* PetConfig.h */,
+				377FA8E41A1E59E500E9A07D /* PetFood.h */,
+				377FA8E51A1E59E500E9A07D /* PetFood.m */,
 				377A63441A1BCA4900CE8C74 /* Images.xcassets */,
 				377A63461A1BCA4900CE8C74 /* LaunchScreen.xib */,
+				377FA8DE1A1E544400E9A07D /* Food Scene */,
 				3782E76A1A1CF6DE009A4C10 /* MainMenuScene */,
 				377A63681A1BCC7D00CE8C74 /* Second Scene */,
 				377A63691A1BCC8800CE8C74 /* Third Scene */,
@@ -166,6 +182,19 @@
 				377A63711A1BD12A00CE8C74 /* GameViewController.xib */,
 			);
 			path = "Third Scene";
+			sourceTree = "<group>";
+		};
+		377FA8DE1A1E544400E9A07D /* Food Scene */ = {
+			isa = PBXGroup;
+			children = (
+				377FA8DF1A1E545800E9A07D /* FoodViewController.h */,
+				377FA8E01A1E545800E9A07D /* FoodViewController.m */,
+				377FA8E11A1E545800E9A07D /* FoodViewController.xib */,
+				377FA8E71A1E5F5200E9A07D /* TableViewCell.h */,
+				377FA8E81A1E5F5200E9A07D /* TableViewCell.m */,
+				377FA8E91A1E5F5200E9A07D /* TableViewCell.xib */,
+			);
+			path = "Food Scene";
 			sourceTree = "<group>";
 		};
 		3782E76A1A1CF6DE009A4C10 /* MainMenuScene */ = {
@@ -263,7 +292,9 @@
 				377A63451A1BCA4900CE8C74 /* Images.xcassets in Resources */,
 				377A63671A1BCC2800CE8C74 /* FirstViewController.xib in Resources */,
 				3782E76F1A1CF716009A4C10 /* MainMenuViewController.xib in Resources */,
+				377FA8EB1A1E5F5200E9A07D /* TableViewCell.xib in Resources */,
 				377A63731A1BD12A00CE8C74 /* GameViewController.xib in Resources */,
+				377FA8E31A1E545800E9A07D /* FoodViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +316,10 @@
 				377A636D1A1BCD1D00CE8C74 /* SelectImgViewController.m in Sources */,
 				377A633D1A1BCA4900CE8C74 /* AppDelegate.m in Sources */,
 				377A633A1A1BCA4900CE8C74 /* main.m in Sources */,
+				377FA8EA1A1E5F5200E9A07D /* TableViewCell.m in Sources */,
 				3782E76E1A1CF716009A4C10 /* MainMenuViewController.m in Sources */,
+				377FA8E61A1E59E500E9A07D /* PetFood.m in Sources */,
+				377FA8E21A1E545800E9A07D /* FoodViewController.m in Sources */,
 				377A63661A1BCC2800CE8C74 /* FirstViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

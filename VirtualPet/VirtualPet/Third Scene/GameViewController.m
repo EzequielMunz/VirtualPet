@@ -8,18 +8,23 @@
 
 #import "GameViewController.h"
 
+
 @interface GameViewController ()
 
 @property (strong, nonatomic) NSString *myPetName;
 @property (nonatomic) PetImageTag imageTag;
+@property (nonatomic, strong) PetFood* myFood;
 
 @property (strong, nonatomic) IBOutlet UILabel *lblPetName;
 @property (strong, nonatomic) IBOutlet UIImageView *petImageView;
 @property (strong, nonatomic) IBOutlet UIProgressView *petEnergyBar;
+@property (strong, nonatomic) IBOutlet UIImageView *imgViewFood;
 
 @end
 
 @implementation GameViewController
+
+#pragma mark - Constructor
 
 - (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andPetName:(NSString *)name andImageTag:(PetImageTag)tag
 {
@@ -33,6 +38,8 @@
     
     return self;
 }
+
+#pragma mark - Ciclo de Vida
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -62,6 +69,16 @@
     
 }
 
+- (void) viewWillAppear:(BOOL)animated
+{
+    [self setTitle:[NSString stringWithFormat:@"%@", self.myPetName]];
+}
+
+- (void) viewWillDisappear:(BOOL)animated
+{
+    [self setTitle:@"---"];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -77,9 +94,26 @@
 }
 */
 
+#pragma mark - Metodos Privados
+
+- (IBAction)btnFoodClicked:(id)sender
+{
+    FoodViewController *myFoodView = [[FoodViewController alloc] initWithNibName:@"FoodViewController" bundle:[NSBundle mainBundle]];
+    [myFoodView setFoodDelegate:self];
+    [self.navigationController pushViewController:myFoodView animated:YES];
+}
+
 -(void) updatePetEnergy
 {
     
+}
+
+#pragma mark - Food Delegate Metodos
+
+- (void) didSelectFood:(PetFood *)food
+{
+    self.myFood = food;
+    [self.imgViewFood setImage:[UIImage imageNamed:self.myFood.imagePath]];
 }
 
 @end

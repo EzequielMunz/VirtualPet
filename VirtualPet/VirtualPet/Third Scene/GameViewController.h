@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "PetConfig.h"
+#import "FoodViewController.h"
 
-@interface GameViewController : UIViewController
+@interface GameViewController : UIViewController <FoodDelegate>
 
 @property (nonatomic, strong) NSNumber  *petEnergyValue;
 
