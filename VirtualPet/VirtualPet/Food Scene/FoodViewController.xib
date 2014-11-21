@@ -32,7 +32,7 @@
                     </connections>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.91226577009999998" green="1" blue="0.91367501070000001" alpha="1" colorSpace="calibratedRGB"/>
             <point key="canvasLocation" x="280" y="424"/>
         </view>
     </objects>

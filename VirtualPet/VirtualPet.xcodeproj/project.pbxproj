@@ -23,6 +23,10 @@
 		377FA8E61A1E59E500E9A07D /* PetFood.m in Sources */ = {isa = PBXBuildFile; fileRef = 377FA8E51A1E59E500E9A07D /* PetFood.m */; };
 		377FA8EA1A1E5F5200E9A07D /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 377FA8E81A1E5F5200E9A07D /* TableViewCell.m */; };
 		377FA8EB1A1E5F5200E9A07D /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 377FA8E91A1E5F5200E9A07D /* TableViewCell.xib */; };
+		377FA8EF1A1E76BE00E9A07D /* TableViewCellExtra.m in Sources */ = {isa = PBXBuildFile; fileRef = 377FA8ED1A1E76BE00E9A07D /* TableViewCellExtra.m */; };
+		377FA8F01A1E76BE00E9A07D /* TableViewCellExtra.xib in Resources */ = {isa = PBXBuildFile; fileRef = 377FA8EE1A1E76BE00E9A07D /* TableViewCellExtra.xib */; };
+		377FA8F31A1FA8D600E9A07D /* Pet.m in Sources */ = {isa = PBXBuildFile; fileRef = 377FA8F21A1FA8D600E9A07D /* Pet.m */; };
+		377FA8F61A1FB90600E9A07D /* ImagesLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 377FA8F51A1FB90600E9A07D /* ImagesLoader.m */; };
 		3782E76E1A1CF716009A4C10 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3782E76C1A1CF716009A4C10 /* MainMenuViewController.m */; };
 		3782E76F1A1CF716009A4C10 /* MainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3782E76D1A1CF716009A4C10 /* MainMenuViewController.xib */; };
 /* End PBXBuildFile section */
@@ -65,6 +69,13 @@
 		377FA8E71A1E5F5200E9A07D /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
 		377FA8E81A1E5F5200E9A07D /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
 		377FA8E91A1E5F5200E9A07D /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		377FA8EC1A1E76BE00E9A07D /* TableViewCellExtra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCellExtra.h; sourceTree = "<group>"; };
+		377FA8ED1A1E76BE00E9A07D /* TableViewCellExtra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCellExtra.m; sourceTree = "<group>"; };
+		377FA8EE1A1E76BE00E9A07D /* TableViewCellExtra.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCellExtra.xib; sourceTree = "<group>"; };
+		377FA8F11A1FA8D600E9A07D /* Pet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pet.h; sourceTree = "<group>"; };
+		377FA8F21A1FA8D600E9A07D /* Pet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pet.m; sourceTree = "<group>"; };
+		377FA8F41A1FB90600E9A07D /* ImagesLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagesLoader.h; sourceTree = "<group>"; };
+		377FA8F51A1FB90600E9A07D /* ImagesLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesLoader.m; sourceTree = "<group>"; };
 		3782E76B1A1CF716009A4C10 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
 		3782E76C1A1CF716009A4C10 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
 		3782E76D1A1CF716009A4C10 /* MainMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenuViewController.xib; sourceTree = "<group>"; };
@@ -112,6 +123,10 @@
 			children = (
 				377A633B1A1BCA4900CE8C74 /* AppDelegate.h */,
 				377A633C1A1BCA4900CE8C74 /* AppDelegate.m */,
+				377FA8F41A1FB90600E9A07D /* ImagesLoader.h */,
+				377FA8F51A1FB90600E9A07D /* ImagesLoader.m */,
+				377FA8F11A1FA8D600E9A07D /* Pet.h */,
+				377FA8F21A1FA8D600E9A07D /* Pet.m */,
 				3782E7701A1CFD37009A4C10 /* PetConfig.h */,
 				377FA8E41A1E59E500E9A07D /* PetFood.h */,
 				377FA8E51A1E59E500E9A07D /* PetFood.m */,
@@ -193,6 +208,9 @@
 				377FA8E71A1E5F5200E9A07D /* TableViewCell.h */,
 				377FA8E81A1E5F5200E9A07D /* TableViewCell.m */,
 				377FA8E91A1E5F5200E9A07D /* TableViewCell.xib */,
+				377FA8EC1A1E76BE00E9A07D /* TableViewCellExtra.h */,
+				377FA8ED1A1E76BE00E9A07D /* TableViewCellExtra.m */,
+				377FA8EE1A1E76BE00E9A07D /* TableViewCellExtra.xib */,
 			);
 			path = "Food Scene";
 			sourceTree = "<group>";
@@ -290,6 +308,7 @@
 				377A636E1A1BCD1D00CE8C74 /* SelectImgViewController.xib in Resources */,
 				377A63481A1BCA4900CE8C74 /* LaunchScreen.xib in Resources */,
 				377A63451A1BCA4900CE8C74 /* Images.xcassets in Resources */,
+				377FA8F01A1E76BE00E9A07D /* TableViewCellExtra.xib in Resources */,
 				377A63671A1BCC2800CE8C74 /* FirstViewController.xib in Resources */,
 				3782E76F1A1CF716009A4C10 /* MainMenuViewController.xib in Resources */,
 				377FA8EB1A1E5F5200E9A07D /* TableViewCell.xib in Resources */,
@@ -312,14 +331,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				377FA8F31A1FA8D600E9A07D /* Pet.m in Sources */,
 				377A63721A1BD12A00CE8C74 /* GameViewController.m in Sources */,
 				377A636D1A1BCD1D00CE8C74 /* SelectImgViewController.m in Sources */,
 				377A633D1A1BCA4900CE8C74 /* AppDelegate.m in Sources */,
 				377A633A1A1BCA4900CE8C74 /* main.m in Sources */,
 				377FA8EA1A1E5F5200E9A07D /* TableViewCell.m in Sources */,
+				377FA8F61A1FB90600E9A07D /* ImagesLoader.m in Sources */,
 				3782E76E1A1CF716009A4C10 /* MainMenuViewController.m in Sources */,
 				377FA8E61A1E59E500E9A07D /* PetFood.m in Sources */,
 				377FA8E21A1E545800E9A07D /* FoodViewController.m in Sources */,
+				377FA8EF1A1E76BE00E9A07D /* TableViewCellExtra.m in Sources */,
 				377A63661A1BCC2800CE8C74 /* FirstViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

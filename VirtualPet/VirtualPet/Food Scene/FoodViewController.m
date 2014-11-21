@@ -9,6 +9,7 @@
 #import "FoodViewController.h"
 #import "PetFood.h"
 #import "TableViewCell.h"
+#import "TableViewCellExtra.h"
 
 @interface FoodViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *foodTableView;
@@ -28,6 +29,7 @@
     [self initFoodArray];
     
     [self.foodTableView registerNib:[UINib nibWithNibName:@"TableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"TableViewCell"];
+    [self.foodTableView registerNib:[UINib nibWithNibName:@"TableViewCellExtra" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"TableViewCellExtra"];
     [self.foodTableView reloadData];
 }
 
@@ -76,7 +78,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString* simpleTableIdentifier = @"TableViewCell";
+    static NSString* simpleTableIdentifier;
+    if(indexPath.row % 2)
+    {
+        simpleTableIdentifier = @"TableViewCellExtra";
+    }
+    else
+    {
+        simpleTableIdentifier = @"TableViewCell";
+    }
     
     TableViewCell* newCell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     

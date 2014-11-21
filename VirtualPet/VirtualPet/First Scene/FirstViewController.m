@@ -72,20 +72,9 @@
     
     // Validamos si tiene mas de 6 Caracteres.
     int longitud = [name length];
-    if(longitud > 5)
+    if(longitud > 3)
     {
         validated = YES;
-        
-        // Validamos que sean solo letras.
-        
-        /*if([name rangeOfCharacterFromSet:[NSCharacterSet letterCharacterSet]].length == 1)
-        {
-            validated = YES;
-        }
-        else
-        {
-            validated = NO;
-        }*/
     }
     
     return validated;

@@ -7,18 +7,25 @@
 //
 
 #import "GameViewController.h"
+#import "ImagesLoader.h"
 
+float const eatAnimationTime = 0.5f;
+int const eatAnimationIterations = 4;
 
 @interface GameViewController ()
 
-@property (strong, nonatomic) NSString *myPetName;
+@property (strong, nonatomic) Pet *myPet;
 @property (nonatomic) PetImageTag imageTag;
 @property (nonatomic, strong) PetFood* myFood;
+@property (nonatomic) CGPoint imageViewFoodPosition;
 
 @property (strong, nonatomic) IBOutlet UILabel *lblPetName;
 @property (strong, nonatomic) IBOutlet UIImageView *petImageView;
 @property (strong, nonatomic) IBOutlet UIProgressView *petEnergyBar;
 @property (strong, nonatomic) IBOutlet UIImageView *imgViewFood;
+@property (strong, nonatomic) IBOutlet UIView *mouthFrame;
+
+@property (strong, nonatomic) ImagesLoader* imgLoader;
 
 @end
 
@@ -26,13 +33,13 @@
 
 #pragma mark - Constructor
 
-- (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andPetName:(NSString *)name andImageTag:(PetImageTag)tag
+- (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andPet:(Pet *)pet andImageTag:(PetImageTag)tag
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     
     if (self)
     {
-        self.myPetName = name;
+        self.myPet = pet;
         self.imageTag = tag;
     }
     
@@ -45,7 +52,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [self.lblPetName setText:self.myPetName];
+    [self.lblPetName setText:self.myPet.petName];
     
     switch (self.imageTag) {
         case PET_CIERVO:
@@ -65,18 +72,30 @@
             break;
     }
     
-    [self setTitle:[NSString stringWithFormat:@"%@", self.myPetName]];
+    [self setTitle:[NSString stringWithFormat:@"%@", self.myPet.petName]];
     
+    self.imageViewFoodPosition = CGPointMake(self.imgViewFood.frame.origin.x, self.imgViewFood.frame.origin.y);
+    
+    [self.mouthFrame setAlpha:0];
+    
+    self.imgLoader = [[ImagesLoader alloc] init];
+    [self.imgLoader loadPetComiendoArrayWithTag:self.imageTag];
 }
 
 - (void) viewWillAppear:(BOOL)animated
 {
-    [self setTitle:[NSString stringWithFormat:@"%@", self.myPetName]];
+    [self setTitle:[NSString stringWithFormat:@"%@", self.myPet.petName]];
 }
 
 - (void) viewWillDisappear:(BOOL)animated
 {
     [self setTitle:@"---"];
+}
+
+- (void) viewDidDisappear:(BOOL)animated
+{
+    //self.imageViewFoodPosition = CGPointMake(246, 427);
+    [self.imgViewFood setCenter:self.imageViewFoodPosition];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -103,9 +122,50 @@
     [self.navigationController pushViewController:myFoodView animated:YES];
 }
 
--(void) updatePetEnergy
+- (IBAction)handleTap:(UITapGestureRecognizer*)sender
 {
+    if(self.myFood)
+    {
+        CGPoint tapPoint = [sender locationInView:self.view];
+        [UIView animateWithDuration:1.0 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^(void){
+            
+            
+            [self.imgViewFood setCenter:tapPoint];
+         }completion:^(BOOL finished){
+             if(finished)
+             {
+                 if(CGRectContainsPoint([self.mouthFrame frame], tapPoint))
+                 {
+                     self.imgViewFood.image = nil;
+                     [self animateEatingPet];
+                     NSLog(@"Morfando como un Campeon");
+                 }
+             }
+             
+         }];
+    }
+}
+
+-(void) animateEatingPet
+{
+    NSArray *img = @[[UIImage imageNamed:self.imgLoader.imgPetComiendo[0]],
+                     [UIImage imageNamed:self.imgLoader.imgPetComiendo[1]],
+                     [UIImage imageNamed:self.imgLoader.imgPetComiendo[2]],
+                     [UIImage imageNamed:self.imgLoader.imgPetComiendo[3]]];
+    [self.petImageView setAnimationImages:img];
+    [self.petImageView setAnimationDuration:eatAnimationTime];
+    [self.petImageView setAnimationRepeatCount:eatAnimationIterations];
+    [self.petImageView startAnimating];
+    [self updatePetEnergyInTime];
+}
+
+-(void) updatePetEnergyInTime
+{
+    [UIView animateWithDuration:eatAnimationTime*eatAnimationIterations delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^(void){
+        [self.petEnergyBar setProgress:1 animated:YES];
+    } completion:^(BOOL finished){
     
+    }];
 }
 
 #pragma mark - Food Delegate Metodos
