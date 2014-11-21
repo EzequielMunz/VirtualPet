@@ -8,13 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "PetConfig.h"
+#import "FoodViewController.h"
+#import "Pet.h"
 
-@interface GameViewController : UIViewController
+@interface GameViewController : UIViewController <FoodDelegate, UIGestureRecognizerDelegate>
+
+extern float const eatAnimationTime;
+extern int const eatAnimationIterations;
 
 @property (nonatomic, strong) NSNumber  *petEnergyValue;
 
-- (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andPetName:(NSString*) name andImageTag:(PetImageTag)tag;
+- (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andPet:(Pet*) pet andImageTag:(PetImageTag)tag;
 
-- (void) updatePetEnergy;
+- (void) updatePetEnergyInTime;
 
 @end

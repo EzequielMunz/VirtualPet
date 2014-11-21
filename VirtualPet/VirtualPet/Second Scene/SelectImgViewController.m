@@ -8,11 +8,13 @@
 
 #import "SelectImgViewController.h"
 #import "PetConfig.h"
+#import "Pet.h"
 #import "GameViewController.h"
 
 @interface SelectImgViewController ()
 
 @property (strong, nonatomic) NSString *myPetName;
+@property (nonatomic, strong) Pet* myPet;
 
 @property (strong, nonatomic) IBOutlet UILabel *lblPetName;
 @property (strong, nonatomic) IBOutlet UIImageView *petImageView;
@@ -50,13 +52,21 @@
     [self.scrollImages setContentSize:CGSizeMake(self.scrollImages.frame.size.width + self.scrollImage4.frame.size.width, self.scrollImages.frame.size.height)];
     
     [self.lblPetName setText:self.myPetName];
-    
-    [self setTitle:@"Image"];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    [self setTitle:@"Image"];
+}
+
+- (void) viewWillDisappear:(BOOL)animated
+{
+    [self setTitle:@"---"];
 }
 
 /*
@@ -72,33 +82,43 @@
 - (IBAction)setImage:(UIButton*)sender
 {
     PetImageTag enumTag = (PetImageTag) sender.tag;
+    Pet* myPet;
+    
     switch (enumTag) {
         case PET_CIERVO:
-            self.petImageView.image = [UIImage imageNamed:@"ciervo_comiendo_1"];
+            myPet = [[Pet alloc] initWithType:@"Ciervo" petName:self.myPetName ImageNamed:@"ciervo_comiendo_1"];
             break;
         case PET_GATO:
-            self.petImageView.image = [UIImage imageNamed:@"gato_comiendo_1"];
+            myPet = [[Pet alloc] initWithType:@"Gato" petName:self.myPetName ImageNamed:@"gato_comiendo_1"];
             break;
         case PET_JIRAFA:
-            self.petImageView.image = [UIImage imageNamed:@"jirafa_comiendo_1"];
+            myPet = [[Pet alloc] initWithType:@"Jirafa" petName:self.myPetName ImageNamed:@"jirafa_comiendo_1"];
             break;
         case PET_LEON:
-            self.petImageView.image = [UIImage imageNamed:@"leon_comiendo_1"];
+            myPet = [[Pet alloc] initWithType:@"Leon" petName:self.myPetName ImageNamed:@"leon_comiendo_1" ];
             break;
             
         default:
             break;
     }
-    
+    self.petImageView.image = [UIImage imageNamed:myPet.petImageName];
     self.myTag = enumTag;
+    self.myPet = myPet;
 }
 
 
 - (IBAction)buttonContinueTouched:(id)sender
 {
-    GameViewController *gameView = [[GameViewController alloc] initWithNibName:@"GameViewController" bundle:[NSBundle mainBundle] andPetName:self.myPetName andImageTag:self.myTag];
-    [self.navigationController pushViewController:gameView animated:YES];
-    
+    if(self.myPet)
+    {
+        GameViewController *gameView = [[GameViewController alloc] initWithNibName:@"GameViewController" bundle:[NSBundle mainBundle] andPet: self.myPet andImageTag:self.myTag];
+        [self.navigationController pushViewController:gameView animated:YES];
+    }
+    else
+    {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Select Image" message:@"Plis, select a luc for ior pet. Inglish lesons bai maiself" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
 }
 
 @end
