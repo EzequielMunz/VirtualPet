@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 #import "PetConfig.h"
 #import "FoodViewController.h"
 #import "Pet.h"
 
-@interface GameViewController : UIViewController <FoodDelegate, UIGestureRecognizerDelegate>
+@interface GameViewController : UIViewController <FoodDelegate, UIGestureRecognizerDelegate, MFMailComposeViewControllerDelegate>
 
 extern float const eatAnimationTime;
 extern int const eatAnimationIterations;

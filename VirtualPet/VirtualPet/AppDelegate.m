@@ -29,6 +29,7 @@
     UINavigationController* navControllerHome = [[UINavigationController alloc] initWithRootViewController:home];
     
     [navControllerHome.navigationBar setBarStyle:UIBarStyleBlackTranslucent];
+    [navControllerHome.navigationBar setTintColor:[UIColor whiteColor]];
     
     [self.window setRootViewController:navControllerHome];
     self.window.backgroundColor = [UIColor whiteColor];

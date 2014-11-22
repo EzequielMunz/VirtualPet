@@ -29,7 +29,7 @@
         default:
             break;
     }
-    self.imgPetComiendo = [NSMutableArray arrayWithArray:aux];
+    self.imgPetComiendo = [NSArray arrayWithArray:aux];
 }
 
 @end
