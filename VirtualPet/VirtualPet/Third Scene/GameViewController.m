@@ -9,6 +9,9 @@
 #import "GameViewController.h"
 #import "ImagesLoader.h"
 
+#define MAIL_SUBJECT_MESSAGE @"Que app copada"
+#define MAIL_BODY_MESSAGE @"Buenas! Soy %@, cómo va? Quería comentarte que estuve usando la App <Nombre_de_la_app> para comerme todo y está genial. Bajatela YA!!   Saludos!"
+
 float const eatAnimationTime = 0.5f;
 int const eatAnimationIterations = 4;
 
@@ -26,6 +29,8 @@ int const eatAnimationIterations = 4;
 @property (strong, nonatomic) IBOutlet UIView *mouthFrame;
 
 @property (strong, nonatomic) ImagesLoader* imgLoader;
+
+@property (nonatomic, strong) MFMailComposeViewController *myMailView;
 
 @end
 
@@ -80,6 +85,14 @@ int const eatAnimationIterations = 4;
     
     self.imgLoader = [[ImagesLoader alloc] init];
     [self.imgLoader loadPetComiendoArrayWithTag:self.imageTag];
+    
+    //UIBarButtonItem* mailButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:self action:@selector(sendEMail)];
+    UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+    [button addTarget:self action:@selector(sendEMail) forControlEvents:UIControlEventTouchUpInside];
+    [button setBackgroundImage:[UIImage imageNamed:@"mail-button"] forState:UIControlStateNormal];
+    UIBarButtonItem* mailButton = [[UIBarButtonItem alloc] initWithCustomView:button];
+    self.navigationItem.rightBarButtonItem = mailButton;
+    
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -159,6 +172,7 @@ int const eatAnimationIterations = 4;
     [self updatePetEnergyInTime];
 }
 
+// Metodo para actualizar la barra de energia
 -(void) updatePetEnergyInTime
 {
     [UIView animateWithDuration:eatAnimationTime*eatAnimationIterations delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^(void){
@@ -166,6 +180,47 @@ int const eatAnimationIterations = 4;
     } completion:^(BOOL finished){
     
     }];
+}
+
+#pragma mark - Mail system
+
+// Metodo para abrir la pantalla de MAIL
+- (void) sendEMail
+{
+    NSString* mailBody = [NSString stringWithFormat:@"Buenas! Soy %@, cómo va? Quería comentarte que estuve usando la App <Nombre_de_la_app> para comerme todo y está genial. Bajatela YA!!   Saludos!", self.myPet.petName];
+    NSString* mailSubject = MAIL_SUBJECT_MESSAGE;
+    
+    self.myMailView = [[MFMailComposeViewController alloc] init];
+    self.myMailView.mailComposeDelegate = self;
+    [self.myMailView setSubject:mailSubject];
+    [self.myMailView setMessageBody:mailBody isHTML:NO];
+    [self.myMailView setTitle:@"EMAIL"];
+    
+    [self presentViewController:self.myMailView animated:YES completion:nil];
+}
+
+- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    UIAlertView* alert;
+    switch (result) {
+        case MFMailComposeResultSent:
+            alert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Messagge sent succesfully" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            break;
+        case MFMailComposeResultCancelled:
+            alert = [[UIAlertView alloc] initWithTitle:@"Cancelled" message:@"Mail has been cancelled" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            break;
+        case MFMailComposeResultFailed:
+            alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an error sending the E-Mail" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            break;
+        case MFMailComposeResultSaved:
+            alert = [[UIAlertView alloc] initWithTitle:@"Save" message:@"Messagge saved" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            break;
+        default:
+            break;
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [alert show];
+    
 }
 
 #pragma mark - Food Delegate Metodos
