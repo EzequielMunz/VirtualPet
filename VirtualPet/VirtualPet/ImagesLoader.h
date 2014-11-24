@@ -17,4 +17,6 @@
 
 - (void) loadPetComiendoArrayWithTag: (PetImageTag)tag;
 
++ (instancetype) sharedInstance;
+
 @end

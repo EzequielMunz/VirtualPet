@@ -18,4 +18,11 @@ typedef enum{
     
 } PetImageTag;
 
+typedef enum{
+    TYPE_CIERVO,
+    TYPE_GATO,
+    TYPE_JIRAFA,
+    TYPE_LEON
+} PetType;
+
 #endif
