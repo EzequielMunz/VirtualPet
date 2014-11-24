@@ -14,7 +14,7 @@
 @interface SelectImgViewController ()
 
 @property (strong, nonatomic) NSString *myPetName;
-@property (nonatomic, strong) Pet* myPet;
+@property (nonatomic) BOOL imgSelected;
 
 @property (strong, nonatomic) IBOutlet UILabel *lblPetName;
 @property (strong, nonatomic) IBOutlet UIImageView *petImageView;
@@ -39,6 +39,7 @@
     if(self)
     {
         self.myPetName = name;
+        self.imgSelected = NO;
         
     }
     return self;
@@ -82,36 +83,46 @@
 - (IBAction)setImage:(UIButton*)sender
 {
     PetImageTag enumTag = (PetImageTag) sender.tag;
-    Pet* myPet;
     
     switch (enumTag) {
         case PET_CIERVO:
-            myPet = [[Pet alloc] initWithType:@"Ciervo" petName:self.myPetName ImageNamed:@"ciervo_comiendo_1"];
+            [[Pet sharedInstance] setPetType:TYPE_CIERVO];
+            [[Pet sharedInstance] setPetName:self.myPetName];
+            [[Pet sharedInstance] setPetImageName:@"ciervo_comiendo_1"];
             break;
         case PET_GATO:
-            myPet = [[Pet alloc] initWithType:@"Gato" petName:self.myPetName ImageNamed:@"gato_comiendo_1"];
+            [[Pet sharedInstance] setPetType:TYPE_GATO];
+            [[Pet sharedInstance] setPetName:self.myPetName];
+            [[Pet sharedInstance] setPetImageName:@"gato_comiendo_1"];
             break;
         case PET_JIRAFA:
-            myPet = [[Pet alloc] initWithType:@"Jirafa" petName:self.myPetName ImageNamed:@"jirafa_comiendo_1"];
+            [[Pet sharedInstance] setPetType:TYPE_JIRAFA];
+            [[Pet sharedInstance] setPetName:self.myPetName];
+            [[Pet sharedInstance] setPetImageName:@"jirafa_comiendo_1"];
             break;
         case PET_LEON:
-            myPet = [[Pet alloc] initWithType:@"Leon" petName:self.myPetName ImageNamed:@"leon_comiendo_1" ];
+            [[Pet sharedInstance] setPetType:TYPE_LEON];
+            [[Pet sharedInstance] setPetName:self.myPetName];
+            [[Pet sharedInstance] setPetImageName:@"leon_comiendo_1"];
             break;
             
         default:
             break;
     }
-    self.petImageView.image = [UIImage imageNamed:myPet.petImageName];
+    self.petImageView.image = [UIImage imageNamed:[Pet sharedInstance].petImageName];
     self.myTag = enumTag;
-    self.myPet = myPet;
+    self.imgSelected = YES;
 }
 
 
 - (IBAction)buttonContinueTouched:(id)sender
 {
-    if(self.myPet)
+    if(self.imgSelected)
     {
-        GameViewController *gameView = [[GameViewController alloc] initWithNibName:@"GameViewController" bundle:[NSBundle mainBundle] andPet: self.myPet andImageTag:self.myTag];
+        GameViewController *gameView = [[GameViewController alloc] initWithNibName:@"GameViewController" bundle:[NSBundle mainBundle] andImageTag:self.myTag];
+        
+        // Seteamos el delegate al Pet
+        [[Pet sharedInstance] setDelegate:gameView];
         [self.navigationController pushViewController:gameView animated:YES];
     }
     else
