@@ -8,9 +8,12 @@
 
 #import "GameViewController.h"
 #import "ImagesLoader.h"
+#import "NSTimer+TimerWithAutoInvalidate.h"
 
 float const eatAnimationTime = 0.5f;
+float const exhaustAnimationTime = 1.2f;
 int const eatAnimationIterations = 4;
+
 
 NSString* const MAIL_BODY_MESSAGE = @"Buenas! Soy %@, cómo va? Quería comentarte que estuve usando la App <Nombre_de_la_app> para comerme todo y está genial. Bajatela YA!!   Saludos!";
 NSString* const MAIL_SUBJECT = @"Que app copada";
@@ -71,6 +74,8 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
     UIBarButtonItem* mailButton = [[UIBarButtonItem alloc] initWithCustomView:button];
     self.navigationItem.rightBarButtonItem = mailButton;
     
+    // Personalizacion de progress bar
+     [self.petEnergyBar setTransform:CGAffineTransformMakeScale(1.0, 7.0)];
     
     // Cargamos las imagenes en el loader
     [[ImagesLoader sharedInstance] loadPetComiendoArrayWithTag:self.imageTag];
@@ -82,6 +87,12 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
 - (void) viewWillAppear:(BOOL)animated
 {
     [self setTitle:[NSString stringWithFormat:@"%@", [Pet sharedInstance].petName]];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatePetEnergyInProgressBar:) name:EVENT_UPDATE_ENERGY object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatePetExhaust) name:EVENT_SET_EXHAUST object:nil];
+    
+    // Esto va en la proxima vista. Aca esta por test
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showLevelUp:) name:EVENT_LEVEL_UP object:nil];
 }
 
 - (void) viewWillDisappear:(BOOL)animated
@@ -89,11 +100,9 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
     [self setTitle:@"---"];
     
     // Invalidamos el Timer
-    if(self.energyTimer && [self.energyTimer isValid])
-    {
-        [self.energyTimer invalidate];
-        self.energyTimer = nil;
-    }
+    [self.energyTimer autoInvalidate];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void) viewDidDisappear:(BOOL)animated
@@ -148,6 +157,7 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
                  if(CGRectContainsPoint([self.mouthFrame frame], tapPoint))
                  {
                      self.imgViewFood.image = nil;
+                     [self.btnExcercise setEnabled:NO];
                      [self animateEatingPet];
                      NSLog(@"Morfando como un Campeon");
                  }
@@ -156,6 +166,12 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
          }];
     }
 }
+
+//***************************************************************************
+// Animaciones
+//***************************************************************************
+
+#pragma mark - Animations
 
 -(void) animateEatingPet
 {
@@ -166,6 +182,7 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
     [self.petImageView setAnimationImages:img];
     [self.petImageView setAnimationDuration:eatAnimationTime];
     [self.petImageView setAnimationRepeatCount:eatAnimationIterations];
+    [self setNormalStatePetImage];
     [self.petImageView startAnimating];
     [[Pet sharedInstance] doEat];
 }
@@ -187,11 +204,7 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
         [self.petImageView stopAnimating];
         
         // Invalidamos el Timer
-        if(self.energyTimer && [self.energyTimer isValid])
-        {
-            [self.energyTimer invalidate];
-            self.energyTimer = nil;
-        }
+        [self.energyTimer autoInvalidate];
         [Pet sharedInstance].doingExcercise = NO;
     }
     else
@@ -202,11 +215,27 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
     }
 }
 
+- (void) animateExhaustPet
+{
+    NSArray *img = @[[UIImage imageNamed:[ImagesLoader sharedInstance].imgPetExhausto[0]],
+                     [UIImage imageNamed:[ImagesLoader sharedInstance].imgPetExhausto[1]],
+                     [UIImage imageNamed:[ImagesLoader sharedInstance].imgPetExhausto[2]],
+                     [UIImage imageNamed:[ImagesLoader sharedInstance].imgPetExhausto[3]]];
+    
+    [self.petImageView setAnimationImages:img];
+    [self.petImageView setAnimationDuration:exhaustAnimationTime];
+    [self.petImageView setAnimationRepeatCount:1];
+    [self setExhaustFinishImage];
+    [self.petImageView startAnimating];
+    
+}
+
 #pragma mark - Update Energy
 
 - (void) updateEnergyByExcercise
 {
     [[Pet sharedInstance] doExcercise];
+    [[Pet sharedInstance] gainExperience];
 }
 
 
@@ -218,40 +247,47 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
     [self.imgViewFood setImage:[UIImage imageNamed:self.myFood.imagePath]];
 }
 
-#pragma  mark - Pet Delegate Methods
+#pragma  mark - Eventos del Pet
 
-- (void) updateEnergyBarByExcercise:(int)value
+- (void) updatePetEnergyInProgressBar :(NSNotification*) notif
 {
-    float barValue = value;
-    barValue = barValue/100;
-    [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^(void){
-        [self.petEnergyBar setProgress:barValue animated:YES];
-    } completion:^(BOOL finished){
-        
-    }];
-    if(value == 0)
+    float varValue = ((NSNumber*)notif.object).intValue;
+    varValue = varValue / 100;
+    
+    [UIView animateWithDuration:1.0 delay:0.0 options:UIViewAnimationOptionCurveLinear animations:^(void)
     {
-        [self.petImageView stopAnimating];
-        [self.btnExcercise setEnabled:NO];
-        [self.btnExcercise setTitle:@"Do Excercise" forState:UIControlStateNormal];
-        [Pet sharedInstance].doingExcercise = NO;
-        // Invalidamos el Timer
-        if(self.energyTimer && [self.energyTimer isValid])
+        [self.petEnergyBar setProgress:varValue animated:YES];
+    }completion:^(BOOL finished)
+    {
+        if(finished)
         {
-            [self.energyTimer invalidate];
-            self.energyTimer = nil;
+            [self.btnExcercise setEnabled:YES];
         }
-    }
+    }];
 }
 
-- (void) updateEnergyBarByEating:(int)value
+- (void) updatePetExhaust
 {
-    [UIView animateWithDuration:eatAnimationTime*eatAnimationIterations delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^(void){
-        [self.petEnergyBar setProgress:value/100 animated:YES];
-    } completion:^(BOOL finished){
-        
-    }];
-    [self.btnExcercise setEnabled:YES];
+    [self.energyTimer autoInvalidate];
+    [self.btnExcercise setEnabled:NO];
+    [self.btnExcercise setTitle:@"Do Excercise" forState:UIControlStateNormal];
+    [self animateExhaustPet];
+}
+
+- (void) setExhaustFinishImage
+{
+    [self.petImageView setImage:[UIImage imageNamed:[ImagesLoader sharedInstance].imgPetExhausto[3]]];
+}
+
+- (void) setNormalStatePetImage
+{
+    [self.petImageView setImage:[UIImage imageNamed:[ImagesLoader sharedInstance].imgPetComiendo[0]]];
+}
+
+- (void) showLevelUp :(NSNotification*) notification
+{
+    int level = ((NSNumber*)notification.object).intValue;
+    [[[UIAlertView alloc] initWithTitle:@"Congrats" message:[NSString stringWithFormat:@"You raised level %d", level] delegate:self cancelButtonTitle:@"Wiiiiii" otherButtonTitles:nil, nil] show];
 }
 
 #pragma mark - E-Mail Methods

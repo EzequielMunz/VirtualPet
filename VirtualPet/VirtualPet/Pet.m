@@ -8,9 +8,16 @@
 
 #import "Pet.h"
 
+NSString* const EVENT_UPDATE_ENERGY = @"UPDATE_ENERGY";
+NSString* const EVENT_SET_EXHAUST = @"SET_EXHAUST";
+NSString* const EVENT_LEVEL_UP = @"LEVEL_UP";
+NSString* const EVENT_UPDATE_EXPERIENCE = @"UPDATE_EXPERIENCE";
+
 @interface Pet ()
 @property (nonatomic) int petEnergy;
 @property (nonatomic) int petLevel;
+@property (nonatomic) int petNeededExperience;
+@property (nonatomic) int petActualExperience;
 
 @end
 
@@ -24,6 +31,8 @@
     {
         self.petEnergy = energy;
         self.petLevel = 1;
+        self.petActualExperience = 0;
+        self.petNeededExperience = 100;
         self.doingExcercise = NO;
     }
     
@@ -49,19 +58,49 @@
     if(self.petEnergy > 0)
     {
         self.petEnergy -= 10;
+        [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_UPDATE_ENERGY object:[NSNumber numberWithInt:self.petEnergy]];
     }
-    if ([self.delegate respondsToSelector:@selector(updateEnergyBarByExcercise:)]){
-        [self.delegate updateEnergyBarByExcercise:self.petEnergy];
+    else
+    {
+        self.doingExcercise = NO;
+        [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_SET_EXHAUST object:[NSNumber numberWithInt:self.petEnergy]];
     }
 }
 
 // Actualizar energia (Comer)
 - (void) doEat
 {
-    self.petEnergy = 100;
-    if ([self.delegate respondsToSelector:@selector(updateEnergyBarByEating:)]){
-        [self.delegate updateEnergyBarByEating:self.petEnergy];
+    self.petEnergy += 50;
+    [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_UPDATE_ENERGY object:[NSNumber numberWithInt:self.petEnergy]];
+}
+
+//********************************************************************
+// Level Methods
+//********************************************************************
+
+- (void) levelUp
+{
+    self.petLevel++;
+    [self calculateNeededExperience];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_LEVEL_UP object:[NSNumber numberWithInt:self.petLevel]];
+}
+
+- (void) calculateNeededExperience
+{
+    // Formula de experiencia : exp = 100 * petLevel ^ 2;
+    self.petNeededExperience = 100 * (int) pow (self.petLevel ,2);
+}
+
+- (void) gainExperience
+{
+    self.petActualExperience += 15;
+    if(self.petActualExperience > self.petNeededExperience)
+    {
+        [self levelUp];
     }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_UPDATE_EXPERIENCE object:@[[NSNumber numberWithInt:self.petActualExperience], [NSNumber numberWithInt:self.petNeededExperience]]];
 }
 
 /*- (instancetype) initWithType: (NSString*) type petName:(NSString *)name ImageNamed:(NSString *)imageName

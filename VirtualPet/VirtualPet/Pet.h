@@ -9,13 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "PetConfig.h"
 
-@protocol PetDelegate <NSObject>
-
-@required
-- (void) updateEnergyBarByExcercise: (int) value;
-- (void) updateEnergyBarByEating: (int) value;
-
-@end
+extern NSString* const EVENT_UPDATE_ENERGY;
+extern NSString* const EVENT_SET_EXHAUST;
+extern NSString* const EVENT_LEVEL_UP;
+extern NSString* const EVENT_UPDATE_EXPERIENCE;
 
 @interface Pet : NSObject
 
@@ -23,7 +20,6 @@
 @property (nonatomic, strong) NSString* petImageName;
 @property (nonatomic) PetType petType;
 @property (nonatomic) BOOL doingExcercise;
-@property (nonatomic, weak) id <PetDelegate> delegate;
 
 //- (instancetype) initWithType: (NSString*) type petName: (NSString*)name ImageNamed:(NSString*)imageName;
 
@@ -31,5 +27,6 @@
 
 - (void) doExcercise;
 - (void) doEat;
+- (void) gainExperience;
 
 @end

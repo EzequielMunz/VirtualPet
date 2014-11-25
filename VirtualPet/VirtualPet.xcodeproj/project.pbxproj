@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3743DC011A25004800270C68 /* NSTimer+TimerWithAutoInvalidate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3743DC001A25004800270C68 /* NSTimer+TimerWithAutoInvalidate.m */; };
 		377A633A1A1BCA4900CE8C74 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 377A63391A1BCA4900CE8C74 /* main.m */; };
 		377A633D1A1BCA4900CE8C74 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 377A633C1A1BCA4900CE8C74 /* AppDelegate.m */; };
 		377A63451A1BCA4900CE8C74 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 377A63441A1BCA4900CE8C74 /* Images.xcassets */; };
@@ -42,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3743DBFF1A25004800270C68 /* NSTimer+TimerWithAutoInvalidate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSTimer+TimerWithAutoInvalidate.h"; path = "../NSTimer+TimerWithAutoInvalidate.h"; sourceTree = "<group>"; };
+		3743DC001A25004800270C68 /* NSTimer+TimerWithAutoInvalidate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSTimer+TimerWithAutoInvalidate.m"; path = "../NSTimer+TimerWithAutoInvalidate.m"; sourceTree = "<group>"; };
 		377A63341A1BCA4900CE8C74 /* VirtualPet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirtualPet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		377A63381A1BCA4900CE8C74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		377A63391A1BCA4900CE8C74 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -123,6 +126,8 @@
 			children = (
 				377A633B1A1BCA4900CE8C74 /* AppDelegate.h */,
 				377A633C1A1BCA4900CE8C74 /* AppDelegate.m */,
+				3743DBFF1A25004800270C68 /* NSTimer+TimerWithAutoInvalidate.h */,
+				3743DC001A25004800270C68 /* NSTimer+TimerWithAutoInvalidate.m */,
 				377FA8F41A1FB90600E9A07D /* ImagesLoader.h */,
 				377FA8F51A1FB90600E9A07D /* ImagesLoader.m */,
 				377FA8F11A1FA8D600E9A07D /* Pet.h */,
@@ -337,6 +342,7 @@
 				377A633D1A1BCA4900CE8C74 /* AppDelegate.m in Sources */,
 				377A633A1A1BCA4900CE8C74 /* main.m in Sources */,
 				377FA8EA1A1E5F5200E9A07D /* TableViewCell.m in Sources */,
+				3743DC011A25004800270C68 /* NSTimer+TimerWithAutoInvalidate.m in Sources */,
 				377FA8F61A1FB90600E9A07D /* ImagesLoader.m in Sources */,
 				3782E76E1A1CF716009A4C10 /* MainMenuViewController.m in Sources */,
 				377FA8E61A1E59E500E9A07D /* PetFood.m in Sources */,

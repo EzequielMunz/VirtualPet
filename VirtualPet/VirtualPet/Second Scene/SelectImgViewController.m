@@ -121,8 +121,6 @@
     {
         GameViewController *gameView = [[GameViewController alloc] initWithNibName:@"GameViewController" bundle:[NSBundle mainBundle] andImageTag:self.myTag];
         
-        // Seteamos el delegate al Pet
-        [[Pet sharedInstance] setDelegate:gameView];
         [self.navigationController pushViewController:gameView animated:YES];
     }
     else
