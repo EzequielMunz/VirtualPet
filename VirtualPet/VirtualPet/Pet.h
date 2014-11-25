@@ -26,7 +26,7 @@ extern NSString* const EVENT_UPDATE_EXPERIENCE;
 + (instancetype) sharedInstance;
 
 - (void) doExcercise;
-- (void) doEat;
+- (void) doEat: (int) value;
 - (void) gainExperience;
 
 @end

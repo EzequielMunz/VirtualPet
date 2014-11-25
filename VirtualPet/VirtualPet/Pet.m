@@ -68,9 +68,13 @@ NSString* const EVENT_UPDATE_EXPERIENCE = @"UPDATE_EXPERIENCE";
 }
 
 // Actualizar energia (Comer)
-- (void) doEat
+- (void) doEat: (int) value
 {
-    self.petEnergy += 50;
+    self.petEnergy += value;
+    if(self.petEnergy > 100)
+    {
+        self.petEnergy = 100;
+    }
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_UPDATE_ENERGY object:[NSNumber numberWithInt:self.petEnergy]];
 }
 

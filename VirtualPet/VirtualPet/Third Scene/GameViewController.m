@@ -184,7 +184,7 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
     [self.petImageView setAnimationRepeatCount:eatAnimationIterations];
     [self setNormalStatePetImage];
     [self.petImageView startAnimating];
-    [[Pet sharedInstance] doEat];
+    [[Pet sharedInstance] doEat: self.myFood.foodEnergyValue];
 }
 
 -(void) animateExcercisingPet

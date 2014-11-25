@@ -56,15 +56,15 @@
 
 - (void) initFoodArray
 {
-    PetFood* food1 = [[PetFood alloc] initWithFood:@"Cake" andImagePath:@"comida_0"];
-    PetFood* food2 = [[PetFood alloc] initWithFood:@"Pie" andImagePath:@"comida_1"];
-    PetFood* food3 = [[PetFood alloc] initWithFood:@"Ice Cream" andImagePath:@"comida_2"];
-    PetFood* food4 = [[PetFood alloc] initWithFood:@"Chicken" andImagePath:@"comida_3"];
-    PetFood* food5 = [[PetFood alloc] initWithFood:@"Burger" andImagePath:@"comida_4"];
-    PetFood* food6 = [[PetFood alloc] initWithFood:@"Fish" andImagePath:@"comida_5"];
-    PetFood* food7 = [[PetFood alloc] initWithFood:@"Fruit" andImagePath:@"comida_6"];
-    PetFood* food8 = [[PetFood alloc] initWithFood:@"Hot Dog" andImagePath:@"comida_7"];
-    PetFood* food9 = [[PetFood alloc] initWithFood:@"Meat" andImagePath:@"comida_8"];
+    PetFood* food1 = [[PetFood alloc] initWithFood:@"Cake" andImagePath:@"comida_0" andEnergyValue:10];
+    PetFood* food2 = [[PetFood alloc] initWithFood:@"Pie" andImagePath:@"comida_1" andEnergyValue:20];
+    PetFood* food3 = [[PetFood alloc] initWithFood:@"Ice Cream" andImagePath:@"comida_2" andEnergyValue:30];
+    PetFood* food4 = [[PetFood alloc] initWithFood:@"Chicken" andImagePath:@"comida_3" andEnergyValue:40];
+    PetFood* food5 = [[PetFood alloc] initWithFood:@"Burger" andImagePath:@"comida_4" andEnergyValue:50];
+    PetFood* food6 = [[PetFood alloc] initWithFood:@"Fish" andImagePath:@"comida_5" andEnergyValue:60];
+    PetFood* food7 = [[PetFood alloc] initWithFood:@"Fruit" andImagePath:@"comida_6" andEnergyValue:70];
+    PetFood* food8 = [[PetFood alloc] initWithFood:@"Hot Dog" andImagePath:@"comida_7" andEnergyValue:80];
+    PetFood* food9 = [[PetFood alloc] initWithFood:@"Meat" andImagePath:@"comida_8" andEnergyValue:90];
     
     self.foodArray = [NSMutableArray arrayWithArray:@[food1, food2, food3, food4, food5, food6, food7, food8, food9]];
 }
