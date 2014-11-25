@@ -30,6 +30,8 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
 @property (strong, nonatomic) IBOutlet UIImageView *imgViewFood;
 @property (strong, nonatomic) IBOutlet UIView *mouthFrame;
 @property (strong, nonatomic) IBOutlet UIButton *btnExcercise;
+@property (strong, nonatomic) IBOutlet UIProgressView *petExpProgressBar;
+@property (strong, nonatomic) IBOutlet UILabel *lblExperience;
 
 @property (strong, nonatomic) NSTimer* energyTimer;
 
@@ -59,10 +61,10 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [self.lblPetName setText:[Pet sharedInstance].petName];
+    [self.lblPetName setText:[NSString stringWithFormat:@"%@ Lvl: %d", [Pet sharedInstance].petName, [Pet sharedInstance].petLevel]];
     [self.petImageView setImage:[UIImage imageNamed:[Pet sharedInstance].petImageName]];
 
-    [self setTitle:[NSString stringWithFormat:@"%@", [Pet sharedInstance].petName]];
+    [self setTitle: [Pet sharedInstance].petName];
     
     self.imageViewFoodPosition = CGPointMake(self.imgViewFood.frame.origin.x, self.imgViewFood.frame.origin.y);
     
@@ -82,6 +84,11 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
     
     // Inicializar la energia en la progress bar.
     [self.petEnergyBar setProgress:1];
+    
+    [self.lblExperience setText:[NSString stringWithFormat:@"%d / %d", [[Pet sharedInstance] getActualExp], [[Pet sharedInstance] getNeededExp]]];
+    float actualExp = [[Pet sharedInstance] getActualExp];
+    float barValue = actualExp/[[Pet sharedInstance] getNeededExp];
+    [self.petExpProgressBar setProgress:barValue];
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -93,6 +100,7 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
     
     // Esto va en la proxima vista. Aca esta por test
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showLevelUp:) name:EVENT_LEVEL_UP object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateExperience) name:EVENT_UPDATE_EXPERIENCE object:nil];
 }
 
 - (void) viewWillDisappear:(BOOL)animated
@@ -284,10 +292,20 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
     [self.petImageView setImage:[UIImage imageNamed:[ImagesLoader sharedInstance].imgPetComiendo[0]]];
 }
 
+- (void) updateExperience
+{
+    [self.lblExperience setText:[NSString stringWithFormat:@"%d / %d", [[Pet sharedInstance] getActualExp], [[Pet sharedInstance] getNeededExp]]];
+    float actualExp = [[Pet sharedInstance] getActualExp];
+    float barValue = actualExp/[[Pet sharedInstance] getNeededExp];
+    [self.petExpProgressBar setProgress:barValue];
+}
+
 - (void) showLevelUp :(NSNotification*) notification
 {
     int level = ((NSNumber*)notification.object).intValue;
-    [[[UIAlertView alloc] initWithTitle:@"Congrats" message:[NSString stringWithFormat:@"You raised level %d", level] delegate:self cancelButtonTitle:@"Wiiiiii" otherButtonTitles:nil, nil] show];
+    [[[UIAlertView alloc] initWithTitle:@"Congratulations" message:[NSString stringWithFormat:@"You raised level %d", level] delegate:self cancelButtonTitle:@"CONTINUE" otherButtonTitles:nil, nil] show];
+    
+    [self.lblPetName setText:[NSString stringWithFormat:@"%@ Lvl: %d", [Pet sharedInstance].petName, level]];
 }
 
 #pragma mark - E-Mail Methods

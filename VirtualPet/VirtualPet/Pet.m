@@ -15,7 +15,6 @@ NSString* const EVENT_UPDATE_EXPERIENCE = @"UPDATE_EXPERIENCE";
 
 @interface Pet ()
 @property (nonatomic) int petEnergy;
-@property (nonatomic) int petLevel;
 @property (nonatomic) int petNeededExperience;
 @property (nonatomic) int petActualExperience;
 
@@ -86,6 +85,7 @@ NSString* const EVENT_UPDATE_EXPERIENCE = @"UPDATE_EXPERIENCE";
 {
     self.petLevel++;
     [self calculateNeededExperience];
+    self.petActualExperience = 0;
     
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_LEVEL_UP object:[NSNumber numberWithInt:self.petLevel]];
 }
@@ -105,6 +105,16 @@ NSString* const EVENT_UPDATE_EXPERIENCE = @"UPDATE_EXPERIENCE";
     }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_UPDATE_EXPERIENCE object:@[[NSNumber numberWithInt:self.petActualExperience], [NSNumber numberWithInt:self.petNeededExperience]]];
+}
+
+- (int) getActualExp
+{
+    return self.petActualExperience;
+}
+
+- (int) getNeededExp
+{
+    return self.petNeededExperience;
 }
 
 /*- (instancetype) initWithType: (NSString*) type petName:(NSString *)name ImageNamed:(NSString *)imageName

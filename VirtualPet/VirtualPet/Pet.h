@@ -21,6 +21,8 @@ extern NSString* const EVENT_UPDATE_EXPERIENCE;
 @property (nonatomic) PetType petType;
 @property (nonatomic) BOOL doingExcercise;
 
+@property (nonatomic) int petLevel;
+
 //- (instancetype) initWithType: (NSString*) type petName: (NSString*)name ImageNamed:(NSString*)imageName;
 
 + (instancetype) sharedInstance;
@@ -28,5 +30,8 @@ extern NSString* const EVENT_UPDATE_EXPERIENCE;
 - (void) doExcercise;
 - (void) doEat: (int) value;
 - (void) gainExperience;
+
+- (int) getActualExp;
+- (int) getNeededExp;
 
 @end
