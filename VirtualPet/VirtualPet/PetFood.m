@@ -10,7 +10,7 @@
 
 @implementation PetFood
 
-- (instancetype) initWithFood:(NSString *)name andImagePath:(NSString *)path
+- (instancetype) initWithFood:(NSString *)name andImagePath:(NSString *)path andEnergyValue: (int) value
 {
     self = [super init];
     
@@ -18,6 +18,7 @@
     {
         self.foodName = name;
         self.imagePath = path;
+        self.foodEnergyValue = value;
     }
     
     return self;

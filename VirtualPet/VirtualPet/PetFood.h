@@ -12,7 +12,8 @@
 
 @property (nonatomic, strong) NSString *foodName;
 @property (nonatomic, strong) NSString *imagePath;
+@property (nonatomic) int foodEnergyValue;
 
-- (instancetype) initWithFood:(NSString*) name andImagePath:(NSString*) path;
+- (instancetype) initWithFood:(NSString*) name andImagePath:(NSString*) path andEnergyValue: (int) value;
 
 @end
