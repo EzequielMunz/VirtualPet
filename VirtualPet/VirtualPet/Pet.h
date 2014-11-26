@@ -33,5 +33,6 @@ extern NSString* const EVENT_UPDATE_EXPERIENCE;
 
 - (int) getActualExp;
 - (int) getNeededExp;
+- (int) getEnergy;
 
 @end

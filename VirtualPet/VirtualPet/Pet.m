@@ -7,6 +7,7 @@
 //
 
 #import "Pet.h"
+#import "NetworkAccessObject.h"
 
 NSString* const EVENT_UPDATE_ENERGY = @"UPDATE_ENERGY";
 NSString* const EVENT_SET_EXHAUST = @"SET_EXHAUST";
@@ -17,6 +18,7 @@ NSString* const EVENT_UPDATE_EXPERIENCE = @"UPDATE_EXPERIENCE";
 @property (nonatomic) int petEnergy;
 @property (nonatomic) int petNeededExperience;
 @property (nonatomic) int petActualExperience;
+@property (nonatomic, strong) NetworkAccessObject* daoObject;
 
 @end
 
@@ -33,6 +35,7 @@ NSString* const EVENT_UPDATE_EXPERIENCE = @"UPDATE_EXPERIENCE";
         self.petActualExperience = 0;
         self.petNeededExperience = 100;
         self.doingExcercise = NO;
+        self.daoObject = [[NetworkAccessObject alloc] init];
     }
     
     return self;
@@ -88,6 +91,8 @@ NSString* const EVENT_UPDATE_EXPERIENCE = @"UPDATE_EXPERIENCE";
     self.petActualExperience = 0;
     
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_LEVEL_UP object:[NSNumber numberWithInt:self.petLevel]];
+    
+    [self.daoObject doPOSTPetLevelUp];
 }
 
 - (void) calculateNeededExperience
@@ -115,6 +120,11 @@ NSString* const EVENT_UPDATE_EXPERIENCE = @"UPDATE_EXPERIENCE";
 - (int) getNeededExp
 {
     return self.petNeededExperience;
+}
+
+- (int) getEnergy
+{
+    return self.petEnergy;
 }
 
 /*- (instancetype) initWithType: (NSString*) type petName:(NSString *)name ImageNamed:(NSString *)imageName

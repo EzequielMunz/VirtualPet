@@ -57,6 +57,10 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
 
 #pragma mark - Ciclo de Vida
 
+//*************************************************************
+// Ciclo de Vida
+//*************************************************************
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -101,6 +105,7 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
     // Esto va en la proxima vista. Aca esta por test
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showLevelUp:) name:EVENT_LEVEL_UP object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateExperience) name:EVENT_UPDATE_EXPERIENCE object:nil];
+    
 }
 
 - (void) viewWillDisappear:(BOOL)animated
@@ -111,6 +116,10 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
     [self.energyTimer autoInvalidate];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    [self.petImageView stopAnimating];
+    [self.btnExcercise setTitle:@"Do Excercise" forState:UIControlStateNormal];
+    [Pet sharedInstance].doingExcercise = false;
 }
 
 - (void) viewDidDisappear:(BOOL)animated
@@ -135,6 +144,10 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
 */
 
 #pragma mark - Metodos Privados
+
+//*************************************************************
+// Eventos de Touch
+//*************************************************************
 
 - (IBAction)btnFoodClicked:(id)sender
 {
@@ -246,15 +259,19 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
     [[Pet sharedInstance] gainExperience];
 }
 
-
 #pragma mark - Food Delegate Metodos
+//*************************************************************
+// Food Delegate
+//*************************************************************
 
 - (void) didSelectFood:(PetFood *)food
 {
     self.myFood = food;
     [self.imgViewFood setImage:[UIImage imageNamed:self.myFood.imagePath]];
 }
-
+//*************************************************************
+// Metodos del Pet
+//*************************************************************
 #pragma  mark - Eventos del Pet
 
 - (void) updatePetEnergyInProgressBar :(NSNotification*) notif
