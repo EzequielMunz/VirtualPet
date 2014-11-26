@@ -16,7 +16,6 @@
 		377A63661A1BCC2800CE8C74 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377A63641A1BCC2800CE8C74 /* FirstViewController.m */; };
 		377A63671A1BCC2800CE8C74 /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 377A63651A1BCC2800CE8C74 /* FirstViewController.xib */; };
 		377A636D1A1BCD1D00CE8C74 /* SelectImgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377A636B1A1BCD1D00CE8C74 /* SelectImgViewController.m */; };
-		377A636E1A1BCD1D00CE8C74 /* SelectImgViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 377A636C1A1BCD1D00CE8C74 /* SelectImgViewController.xib */; };
 		377A63721A1BD12A00CE8C74 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377A63701A1BD12A00CE8C74 /* GameViewController.m */; };
 		377A63731A1BD12A00CE8C74 /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 377A63711A1BD12A00CE8C74 /* GameViewController.xib */; };
 		377FA8E21A1E545800E9A07D /* FoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377FA8E01A1E545800E9A07D /* FoodViewController.m */; };
@@ -49,6 +48,7 @@
 		37CDE70C1A262A6D00313E47 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CDE6B61A262A6D00313E47 /* UIWebView+AFNetworking.m */; };
 		37CDE71B1A262A8B00313E47 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CDE71A1A262A8B00313E47 /* NetworkManager.m */; };
 		37CDE7211A26523E00313E47 /* NetworkAccessObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CDE7201A26523E00313E47 /* NetworkAccessObject.m */; };
+		37CDE7231A26692900313E47 /* SelectImgViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37CDE7221A26692900313E47 /* SelectImgViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,7 +79,6 @@
 		377A63651A1BCC2800CE8C74 /* FirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
 		377A636A1A1BCD1D00CE8C74 /* SelectImgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectImgViewController.h; sourceTree = "<group>"; };
 		377A636B1A1BCD1D00CE8C74 /* SelectImgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectImgViewController.m; sourceTree = "<group>"; };
-		377A636C1A1BCD1D00CE8C74 /* SelectImgViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectImgViewController.xib; sourceTree = "<group>"; };
 		377A636F1A1BD12A00CE8C74 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		377A63701A1BD12A00CE8C74 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		377A63711A1BD12A00CE8C74 /* GameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
@@ -142,6 +141,7 @@
 		37CDE71A1A262A8B00313E47 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		37CDE71F1A26523E00313E47 /* NetworkAccessObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkAccessObject.h; sourceTree = "<group>"; };
 		37CDE7201A26523E00313E47 /* NetworkAccessObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkAccessObject.m; sourceTree = "<group>"; };
+		37CDE7221A26692900313E47 /* SelectImgViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectImgViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,7 +252,7 @@
 			children = (
 				377A636A1A1BCD1D00CE8C74 /* SelectImgViewController.h */,
 				377A636B1A1BCD1D00CE8C74 /* SelectImgViewController.m */,
-				377A636C1A1BCD1D00CE8C74 /* SelectImgViewController.xib */,
+				37CDE7221A26692900313E47 /* SelectImgViewController.xib */,
 			);
 			name = "Second Scene";
 			path = "VirtualPet/Second Scene";
@@ -433,13 +433,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				377A636E1A1BCD1D00CE8C74 /* SelectImgViewController.xib in Resources */,
 				377A63481A1BCA4900CE8C74 /* LaunchScreen.xib in Resources */,
 				377A63451A1BCA4900CE8C74 /* Images.xcassets in Resources */,
 				377FA8F01A1E76BE00E9A07D /* TableViewCellExtra.xib in Resources */,
 				377A63671A1BCC2800CE8C74 /* FirstViewController.xib in Resources */,
 				3782E76F1A1CF716009A4C10 /* MainMenuViewController.xib in Resources */,
 				377FA8EB1A1E5F5200E9A07D /* TableViewCell.xib in Resources */,
+				37CDE7231A26692900313E47 /* SelectImgViewController.xib in Resources */,
 				377A63731A1BD12A00CE8C74 /* GameViewController.xib in Resources */,
 				377FA8E31A1E545800E9A07D /* FoodViewController.xib in Resources */,
 			);

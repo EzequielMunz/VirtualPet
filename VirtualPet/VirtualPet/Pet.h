@@ -13,6 +13,7 @@ extern NSString* const EVENT_UPDATE_ENERGY;
 extern NSString* const EVENT_SET_EXHAUST;
 extern NSString* const EVENT_LEVEL_UP;
 extern NSString* const EVENT_UPDATE_EXPERIENCE;
+extern NSString* const EVENT_RELOAD_DATA;
 
 @interface Pet : NSObject
 
@@ -34,5 +35,6 @@ extern NSString* const EVENT_UPDATE_EXPERIENCE;
 - (int) getActualExp;
 - (int) getNeededExp;
 - (int) getEnergy;
+- (void) reloadDataName: (NSString*)name level: (int)level actualExp: (int)exp andEnergy: (int)energy;
 
 @end

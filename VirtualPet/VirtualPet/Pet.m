@@ -13,6 +13,7 @@ NSString* const EVENT_UPDATE_ENERGY = @"UPDATE_ENERGY";
 NSString* const EVENT_SET_EXHAUST = @"SET_EXHAUST";
 NSString* const EVENT_LEVEL_UP = @"LEVEL_UP";
 NSString* const EVENT_UPDATE_EXPERIENCE = @"UPDATE_EXPERIENCE";
+NSString* const EVENT_RELOAD_DATA = @"RELOAD_DATA";
 
 @interface Pet ()
 @property (nonatomic) int petEnergy;
@@ -53,6 +54,10 @@ NSString* const EVENT_UPDATE_EXPERIENCE = @"UPDATE_EXPERIENCE";
     
     return _sharedObject;
 }
+
+//********************************************************************
+// Actualizar Estado
+//********************************************************************
 
 // Actualizar energia (Ejercicio)
 - (void) doExcercise
@@ -127,19 +132,21 @@ NSString* const EVENT_UPDATE_EXPERIENCE = @"UPDATE_EXPERIENCE";
     return self.petEnergy;
 }
 
-/*- (instancetype) initWithType: (NSString*) type petName:(NSString *)name ImageNamed:(NSString *)imageName
-{
-    self = [super init];
-    
-    if(self)
-    {
-        self.petImageName = imageName;
-        self.petName = name;
-        self.petType = type;
-    }
-    return self;
-}*/
+//********************************************************************
+// Reload Data from DAO
+//********************************************************************
 
+- (void) reloadDataName: (NSString*)name level: (int)level actualExp: (int)exp andEnergy: (int)energy
+{
+    self.petName = name;
+    self.petLevel = level;
+    self.petActualExperience = exp;
+    self.petEnergy = energy;
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_RELOAD_DATA object:[NSNumber numberWithInt:self.petEnergy]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_LEVEL_UP object:[NSNumber numberWithInt:self.petLevel]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_UPDATE_EXPERIENCE object:@[[NSNumber numberWithInt:self.petActualExperience], [NSNumber numberWithInt:self.petNeededExperience]]];
+}
 
 
 @end

@@ -9,6 +9,7 @@
 #import "GameViewController.h"
 #import "ImagesLoader.h"
 #import "NSTimer+TimerWithAutoInvalidate.h"
+#import "NetworkAccessObject.h"
 
 float const eatAnimationTime = 0.5f;
 float const exhaustAnimationTime = 1.2f;
@@ -36,6 +37,7 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
 @property (strong, nonatomic) NSTimer* energyTimer;
 
 @property (nonatomic, strong) MFMailComposeViewController* myMailView;
+@property (nonatomic, strong) NetworkAccessObject* daoObject;
 
 @end
 
@@ -93,18 +95,21 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
     float actualExp = [[Pet sharedInstance] getActualExp];
     float barValue = actualExp/[[Pet sharedInstance] getNeededExp];
     [self.petExpProgressBar setProgress:barValue];
+    
+    // Instanciamos el DAO
+    self.daoObject = [[NetworkAccessObject alloc] init];
 }
 
 - (void) viewWillAppear:(BOOL)animated
 {
     [self setTitle:[NSString stringWithFormat:@"%@", [Pet sharedInstance].petName]];
     
+    // Se suscribe la vista para las notificaciones
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatePetEnergyInProgressBar:) name:EVENT_UPDATE_ENERGY object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatePetExhaust) name:EVENT_SET_EXHAUST object:nil];
-    
-    // Esto va en la proxima vista. Aca esta por test
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showLevelUp:) name:EVENT_LEVEL_UP object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateExperience) name:EVENT_UPDATE_EXPERIENCE object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData:) name:EVENT_RELOAD_DATA object:nil];
     
 }
 
@@ -148,6 +153,15 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
 //*************************************************************
 // Eventos de Touch
 //*************************************************************
+- (IBAction)btnLoadDataClicked:(id)sender
+{
+    [self.daoObject doGETPetInfo];
+}
+
+- (void) reloadData: (NSNotification*) notif
+{
+    [self.lblPetName setText:[NSString stringWithFormat:@"%@ Lvl: %d", [Pet sharedInstance].petName, [Pet sharedInstance].petLevel]];
+}
 
 - (IBAction)btnFoodClicked:(id)sender
 {
