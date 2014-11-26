@@ -102,7 +102,7 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
 
 - (void) viewWillAppear:(BOOL)animated
 {
-    [self setTitle:[NSString stringWithFormat:@"%@", [Pet sharedInstance].petName]];
+    [self setTitle:@"Home"];
     
     // Se suscribe la vista para las notificaciones
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatePetEnergyInProgressBar:) name:EVENT_UPDATE_ENERGY object:nil];

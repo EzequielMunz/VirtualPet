@@ -93,7 +93,7 @@ NSString* const EVENT_RELOAD_DATA = @"RELOAD_DATA";
 {
     self.petLevel++;
     [self calculateNeededExperience];
-    self.petActualExperience = 0;
+    //self.petActualExperience = 0;
     
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_LEVEL_UP object:[NSNumber numberWithInt:self.petLevel]];
     
@@ -143,9 +143,11 @@ NSString* const EVENT_RELOAD_DATA = @"RELOAD_DATA";
     self.petActualExperience = exp;
     self.petEnergy = energy;
     
+    [self calculateNeededExperience];
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_RELOAD_DATA object:[NSNumber numberWithInt:self.petEnergy]];
-    [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_LEVEL_UP object:[NSNumber numberWithInt:self.petLevel]];
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_UPDATE_EXPERIENCE object:@[[NSNumber numberWithInt:self.petActualExperience], [NSNumber numberWithInt:self.petNeededExperience]]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_UPDATE_ENERGY object:[NSNumber numberWithInt:self.petEnergy]];
 }
 
 
