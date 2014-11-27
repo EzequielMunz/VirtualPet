@@ -109,7 +109,7 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatePetExhaust) name:EVENT_SET_EXHAUST object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showLevelUp:) name:EVENT_LEVEL_UP object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateExperience) name:EVENT_UPDATE_EXPERIENCE object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData:) name:EVENT_RELOAD_DATA object:nil];
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData:) name:EVENT_RELOAD_DATA object:nil];
     
 }
 
@@ -155,7 +155,7 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
 //*************************************************************
 - (IBAction)btnLoadDataClicked:(id)sender
 {
-    [self.daoObject doGETPetInfo];
+    [self.daoObject doGETPetInfo:[self getSuccess]];
 }
 
 - (void) reloadData: (NSNotification*) notif
@@ -293,16 +293,21 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
     float varValue = ((NSNumber*)notif.object).intValue;
     varValue = varValue / 100;
     
+    [self updateEnergyProgress:varValue];
+}
+
+- (void) updateEnergyProgress: (float) value
+{
     [UIView animateWithDuration:1.0 delay:0.0 options:UIViewAnimationOptionCurveLinear animations:^(void)
-    {
-        [self.petEnergyBar setProgress:varValue animated:YES];
-    }completion:^(BOOL finished)
-    {
-        if(finished)
-        {
-            [self.btnExcercise setEnabled:YES];
-        }
-    }];
+     {
+         [self.petEnergyBar setProgress:value animated:YES];
+     }completion:^(BOOL finished)
+     {
+         if(finished)
+         {
+             [self.btnExcercise setEnabled:YES];
+         }
+     }];
 }
 
 - (void) updatePetExhaust
@@ -337,6 +342,32 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
     [[[UIAlertView alloc] initWithTitle:@"Congratulations" message:[NSString stringWithFormat:@"You raised level %d", level] delegate:self cancelButtonTitle:@"CONTINUE" otherButtonTitles:nil, nil] show];
     
     [self.lblPetName setText:[NSString stringWithFormat:@"%@ Lvl: %d", [Pet sharedInstance].petName, level]];
+}
+
+//********************************************
+// Block para info del server
+//********************************************
+
+- (Success) getSuccess {
+    
+    __weak typeof(self) weakerSelf = self;
+    
+    return ^(NSURLSessionDataTask *task, id responseObject){
+        NSLog(@"JSON: %@", responseObject);
+        NSString* name = [responseObject objectForKey:@"name"];
+        int level = ((NSNumber*)[responseObject objectForKey:@"level"]).intValue;
+        int actualExp = ((NSNumber*)[responseObject objectForKey:@"experience"]).intValue;
+        int energy = ((NSNumber*)[responseObject objectForKey:@"energy"]).intValue;
+        
+        [[Pet sharedInstance] reloadDataName:name level:level actualExp:actualExp andEnergy:energy];
+        
+        [weakerSelf.lblPetName setText:[NSString stringWithFormat:@"%@ Lvl: %d", name, level]];
+        [weakerSelf updateExperience];
+        
+        float barEnergy = energy;
+        barEnergy = barEnergy / 100;
+        [weakerSelf updateEnergyProgress:barEnergy];
+    };
 }
 
 #pragma mark - E-Mail Methods

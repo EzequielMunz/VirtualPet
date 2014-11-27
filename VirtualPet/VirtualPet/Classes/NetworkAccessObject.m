@@ -13,11 +13,19 @@
 NSString* const EVENT_PATH_POST = @"/pet";
 NSString* const EVENT_PATH_GET = @"/pet/em3896";
 
+@interface NetworkAccessObject ()
+
+@property (nonatomic, copy) Success mySuccessBlock;
+
+@end
+
 @implementation NetworkAccessObject
 
-- (void) doGETPetInfo
+- (void) doGETPetInfo: (Success) block
 {
-    [[NetworkManager sharedInstance] GET:EVENT_PATH_GET parameters:nil success:[self getSuccess] failure:[self getFailure]];
+    self.mySuccessBlock = block;
+    
+    [[NetworkManager sharedInstance] GET:EVENT_PATH_GET parameters:nil success:self.mySuccessBlock failure:[self getFailure]];
 }
 
 - (void) doPOSTPetLevelUp
@@ -26,7 +34,8 @@ NSString* const EVENT_PATH_GET = @"/pet/em3896";
                               @"name" : [Pet sharedInstance].petName,
                               @"energy" : [NSNumber numberWithInt:[[Pet sharedInstance] getEnergy]],
                               @"level" : [NSNumber numberWithInt:[Pet sharedInstance].petLevel],
-                              @"experience" : [NSNumber numberWithInt:[[Pet sharedInstance] getActualExp]]};
+                              @"experience" : [NSNumber numberWithInt:[[Pet sharedInstance] getActualExp]],
+                              @"pet_type" : [NSNumber numberWithInt:[Pet sharedInstance].petType]};
     
     [[NetworkManager sharedInstance] POST:EVENT_PATH_POST parameters:petInfo success:[self postSuccess] failure:[self postFailure]];
 }
@@ -61,7 +70,7 @@ NSString* const EVENT_PATH_GET = @"/pet/em3896";
 // GET Blocks
 //*************************************************************
 
-- (Success) getSuccess {
+/*- (Success) getSuccess {
     return ^(NSURLSessionDataTask *task, id responseObject){
         NSLog(@"JSON: %@", responseObject);
         NSString* name = [responseObject objectForKey:@"name"];
@@ -71,7 +80,7 @@ NSString* const EVENT_PATH_GET = @"/pet/em3896";
         
         [[Pet sharedInstance] reloadDataName:name level:level actualExp:actualExp andEnergy:energy];
     };
-}
+}*/
 
 - (Failure) getFailure {
     return ^(NSURLSessionDataTask *task, NSError* error){

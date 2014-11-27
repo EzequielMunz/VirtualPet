@@ -13,7 +13,7 @@ typedef void (^Failure)(NSURLSessionDataTask*, NSError*);
 
 @interface NetworkAccessObject : NSObject
 
-- (void) doGETPetInfo;
+- (void) doGETPetInfo: (Success) block;
 - (void) doPOSTPetLevelUp;
 
 @end

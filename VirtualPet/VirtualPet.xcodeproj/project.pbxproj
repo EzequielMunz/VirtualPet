@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3743DC011A25004800270C68 /* NSTimer+TimerWithAutoInvalidate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3743DC001A25004800270C68 /* NSTimer+TimerWithAutoInvalidate.m */; };
 		377A633A1A1BCA4900CE8C74 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 377A63391A1BCA4900CE8C74 /* main.m */; };
-		377A633D1A1BCA4900CE8C74 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 377A633C1A1BCA4900CE8C74 /* AppDelegate.m */; };
 		377A63451A1BCA4900CE8C74 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 377A63441A1BCA4900CE8C74 /* Images.xcassets */; };
 		377A63481A1BCA4900CE8C74 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 377A63461A1BCA4900CE8C74 /* LaunchScreen.xib */; };
 		377A63541A1BCA4900CE8C74 /* VirtualPetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 377A63531A1BCA4900CE8C74 /* VirtualPetTests.m */; };
@@ -20,15 +19,18 @@
 		377A63731A1BD12A00CE8C74 /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 377A63711A1BD12A00CE8C74 /* GameViewController.xib */; };
 		377FA8E21A1E545800E9A07D /* FoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377FA8E01A1E545800E9A07D /* FoodViewController.m */; };
 		377FA8E31A1E545800E9A07D /* FoodViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 377FA8E11A1E545800E9A07D /* FoodViewController.xib */; };
-		377FA8E61A1E59E500E9A07D /* PetFood.m in Sources */ = {isa = PBXBuildFile; fileRef = 377FA8E51A1E59E500E9A07D /* PetFood.m */; };
 		377FA8EA1A1E5F5200E9A07D /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 377FA8E81A1E5F5200E9A07D /* TableViewCell.m */; };
 		377FA8EB1A1E5F5200E9A07D /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 377FA8E91A1E5F5200E9A07D /* TableViewCell.xib */; };
 		377FA8EF1A1E76BE00E9A07D /* TableViewCellExtra.m in Sources */ = {isa = PBXBuildFile; fileRef = 377FA8ED1A1E76BE00E9A07D /* TableViewCellExtra.m */; };
 		377FA8F01A1E76BE00E9A07D /* TableViewCellExtra.xib in Resources */ = {isa = PBXBuildFile; fileRef = 377FA8EE1A1E76BE00E9A07D /* TableViewCellExtra.xib */; };
-		377FA8F31A1FA8D600E9A07D /* Pet.m in Sources */ = {isa = PBXBuildFile; fileRef = 377FA8F21A1FA8D600E9A07D /* Pet.m */; };
-		377FA8F61A1FB90600E9A07D /* ImagesLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 377FA8F51A1FB90600E9A07D /* ImagesLoader.m */; };
 		3782E76E1A1CF716009A4C10 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3782E76C1A1CF716009A4C10 /* MainMenuViewController.m */; };
 		3782E76F1A1CF716009A4C10 /* MainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3782E76D1A1CF716009A4C10 /* MainMenuViewController.xib */; };
+		3784B8AB1A274A680036E52D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3784B89E1A274A680036E52D /* AppDelegate.m */; };
+		3784B8AC1A274A680036E52D /* ImagesLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3784B8A01A274A680036E52D /* ImagesLoader.m */; };
+		3784B8AE1A274A680036E52D /* NetworkAccessObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3784B8A31A274A680036E52D /* NetworkAccessObject.m */; };
+		3784B8AF1A274A680036E52D /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3784B8A51A274A680036E52D /* NetworkManager.m */; };
+		3784B8B01A274A680036E52D /* Pet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3784B8A71A274A680036E52D /* Pet.m */; };
+		3784B8B11A274A680036E52D /* PetFood.m in Sources */ = {isa = PBXBuildFile; fileRef = 3784B8AA1A274A680036E52D /* PetFood.m */; };
 		37CDE6BA1A262A6D00313E47 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CDE6261A262A6D00313E47 /* AFHTTPRequestOperation.m */; };
 		37CDE6BB1A262A6D00313E47 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CDE6281A262A6D00313E47 /* AFHTTPRequestOperationManager.m */; };
 		37CDE6BC1A262A6D00313E47 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CDE62A1A262A6D00313E47 /* AFHTTPSessionManager.m */; };
@@ -46,8 +48,6 @@
 		37CDE70A1A262A6D00313E47 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CDE6B21A262A6D00313E47 /* UIProgressView+AFNetworking.m */; };
 		37CDE70B1A262A6D00313E47 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CDE6B41A262A6D00313E47 /* UIRefreshControl+AFNetworking.m */; };
 		37CDE70C1A262A6D00313E47 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CDE6B61A262A6D00313E47 /* UIWebView+AFNetworking.m */; };
-		37CDE71B1A262A8B00313E47 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CDE71A1A262A8B00313E47 /* NetworkManager.m */; };
-		37CDE7211A26523E00313E47 /* NetworkAccessObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CDE7201A26523E00313E47 /* NetworkAccessObject.m */; };
 		37CDE7231A26692900313E47 /* SelectImgViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37CDE7221A26692900313E47 /* SelectImgViewController.xib */; };
 /* End PBXBuildFile section */
 
@@ -67,8 +67,6 @@
 		377A63341A1BCA4900CE8C74 /* VirtualPet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirtualPet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		377A63381A1BCA4900CE8C74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		377A63391A1BCA4900CE8C74 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		377A633B1A1BCA4900CE8C74 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		377A633C1A1BCA4900CE8C74 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		377A63441A1BCA4900CE8C74 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		377A63471A1BCA4900CE8C74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		377A634D1A1BCA4900CE8C74 /* VirtualPetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VirtualPetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,22 +83,28 @@
 		377FA8DF1A1E545800E9A07D /* FoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodViewController.h; sourceTree = "<group>"; };
 		377FA8E01A1E545800E9A07D /* FoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodViewController.m; sourceTree = "<group>"; };
 		377FA8E11A1E545800E9A07D /* FoodViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodViewController.xib; sourceTree = "<group>"; };
-		377FA8E41A1E59E500E9A07D /* PetFood.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetFood.h; sourceTree = "<group>"; };
-		377FA8E51A1E59E500E9A07D /* PetFood.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetFood.m; sourceTree = "<group>"; };
 		377FA8E71A1E5F5200E9A07D /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
 		377FA8E81A1E5F5200E9A07D /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
 		377FA8E91A1E5F5200E9A07D /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		377FA8EC1A1E76BE00E9A07D /* TableViewCellExtra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCellExtra.h; sourceTree = "<group>"; };
 		377FA8ED1A1E76BE00E9A07D /* TableViewCellExtra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCellExtra.m; sourceTree = "<group>"; };
 		377FA8EE1A1E76BE00E9A07D /* TableViewCellExtra.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCellExtra.xib; sourceTree = "<group>"; };
-		377FA8F11A1FA8D600E9A07D /* Pet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pet.h; sourceTree = "<group>"; };
-		377FA8F21A1FA8D600E9A07D /* Pet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pet.m; sourceTree = "<group>"; };
-		377FA8F41A1FB90600E9A07D /* ImagesLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagesLoader.h; sourceTree = "<group>"; };
-		377FA8F51A1FB90600E9A07D /* ImagesLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesLoader.m; sourceTree = "<group>"; };
 		3782E76B1A1CF716009A4C10 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
 		3782E76C1A1CF716009A4C10 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
 		3782E76D1A1CF716009A4C10 /* MainMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenuViewController.xib; sourceTree = "<group>"; };
-		3782E7701A1CFD37009A4C10 /* PetConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PetConfig.h; sourceTree = "<group>"; };
+		3784B89D1A274A680036E52D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3784B89E1A274A680036E52D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3784B89F1A274A680036E52D /* ImagesLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagesLoader.h; sourceTree = "<group>"; };
+		3784B8A01A274A680036E52D /* ImagesLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesLoader.m; sourceTree = "<group>"; };
+		3784B8A21A274A680036E52D /* NetworkAccessObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkAccessObject.h; sourceTree = "<group>"; };
+		3784B8A31A274A680036E52D /* NetworkAccessObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkAccessObject.m; sourceTree = "<group>"; };
+		3784B8A41A274A680036E52D /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		3784B8A51A274A680036E52D /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		3784B8A61A274A680036E52D /* Pet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pet.h; sourceTree = "<group>"; };
+		3784B8A71A274A680036E52D /* Pet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pet.m; sourceTree = "<group>"; };
+		3784B8A81A274A680036E52D /* PetConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetConfig.h; sourceTree = "<group>"; };
+		3784B8A91A274A680036E52D /* PetFood.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetFood.h; sourceTree = "<group>"; };
+		3784B8AA1A274A680036E52D /* PetFood.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetFood.m; sourceTree = "<group>"; };
 		37CDE6251A262A6D00313E47 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		37CDE6261A262A6D00313E47 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		37CDE6271A262A6D00313E47 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -137,10 +141,6 @@
 		37CDE6B41A262A6D00313E47 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		37CDE6B51A262A6D00313E47 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		37CDE6B61A262A6D00313E47 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
-		37CDE7191A262A8B00313E47 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
-		37CDE71A1A262A8B00313E47 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
-		37CDE71F1A26523E00313E47 /* NetworkAccessObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkAccessObject.h; sourceTree = "<group>"; };
-		37CDE7201A26523E00313E47 /* NetworkAccessObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkAccessObject.m; sourceTree = "<group>"; };
 		37CDE7221A26692900313E47 /* SelectImgViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectImgViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -183,23 +183,11 @@
 		377A63361A1BCA4900CE8C74 /* VirtualPet */ = {
 			isa = PBXGroup;
 			children = (
-				377A633B1A1BCA4900CE8C74 /* AppDelegate.h */,
-				377A633C1A1BCA4900CE8C74 /* AppDelegate.m */,
-				37CDE7191A262A8B00313E47 /* NetworkManager.h */,
-				37CDE71A1A262A8B00313E47 /* NetworkManager.m */,
-				37CDE71F1A26523E00313E47 /* NetworkAccessObject.h */,
-				37CDE7201A26523E00313E47 /* NetworkAccessObject.m */,
 				3743DBFF1A25004800270C68 /* NSTimer+TimerWithAutoInvalidate.h */,
 				3743DC001A25004800270C68 /* NSTimer+TimerWithAutoInvalidate.m */,
-				377FA8F41A1FB90600E9A07D /* ImagesLoader.h */,
-				377FA8F51A1FB90600E9A07D /* ImagesLoader.m */,
-				377FA8F11A1FA8D600E9A07D /* Pet.h */,
-				377FA8F21A1FA8D600E9A07D /* Pet.m */,
-				3782E7701A1CFD37009A4C10 /* PetConfig.h */,
-				377FA8E41A1E59E500E9A07D /* PetFood.h */,
-				377FA8E51A1E59E500E9A07D /* PetFood.m */,
 				377A63441A1BCA4900CE8C74 /* Images.xcassets */,
 				377A63461A1BCA4900CE8C74 /* LaunchScreen.xib */,
+				3784B89C1A274A680036E52D /* Classes */,
 				37CDE6201A262A6D00313E47 /* AFNetworking-master */,
 				377FA8DE1A1E544400E9A07D /* Food Scene */,
 				3782E76A1A1CF6DE009A4C10 /* MainMenuScene */,
@@ -292,6 +280,26 @@
 				3782E76D1A1CF716009A4C10 /* MainMenuViewController.xib */,
 			);
 			path = MainMenuScene;
+			sourceTree = "<group>";
+		};
+		3784B89C1A274A680036E52D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				3784B89D1A274A680036E52D /* AppDelegate.h */,
+				3784B89E1A274A680036E52D /* AppDelegate.m */,
+				3784B89F1A274A680036E52D /* ImagesLoader.h */,
+				3784B8A01A274A680036E52D /* ImagesLoader.m */,
+				3784B8A21A274A680036E52D /* NetworkAccessObject.h */,
+				3784B8A31A274A680036E52D /* NetworkAccessObject.m */,
+				3784B8A41A274A680036E52D /* NetworkManager.h */,
+				3784B8A51A274A680036E52D /* NetworkManager.m */,
+				3784B8A61A274A680036E52D /* Pet.h */,
+				3784B8A71A274A680036E52D /* Pet.m */,
+				3784B8A81A274A680036E52D /* PetConfig.h */,
+				3784B8A91A274A680036E52D /* PetFood.h */,
+				3784B8AA1A274A680036E52D /* PetFood.m */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		37CDE6201A262A6D00313E47 /* AFNetworking-master */ = {
@@ -459,19 +467,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				377FA8F31A1FA8D600E9A07D /* Pet.m in Sources */,
 				377A63721A1BD12A00CE8C74 /* GameViewController.m in Sources */,
 				37CDE6BB1A262A6D00313E47 /* AFHTTPRequestOperationManager.m in Sources */,
 				37CDE7091A262A6D00313E47 /* UIImageView+AFNetworking.m in Sources */,
 				37CDE70B1A262A6D00313E47 /* UIRefreshControl+AFNetworking.m in Sources */,
 				37CDE7071A262A6D00313E47 /* UIAlertView+AFNetworking.m in Sources */,
+				3784B8B01A274A680036E52D /* Pet.m in Sources */,
 				377A636D1A1BCD1D00CE8C74 /* SelectImgViewController.m in Sources */,
-				37CDE71B1A262A8B00313E47 /* NetworkManager.m in Sources */,
 				37CDE6BF1A262A6D00313E47 /* AFURLConnectionOperation.m in Sources */,
-				37CDE7211A26523E00313E47 /* NetworkAccessObject.m in Sources */,
-				377A633D1A1BCA4900CE8C74 /* AppDelegate.m in Sources */,
+				3784B8B11A274A680036E52D /* PetFood.m in Sources */,
+				3784B8AB1A274A680036E52D /* AppDelegate.m in Sources */,
 				37CDE7051A262A6D00313E47 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				37CDE70A1A262A6D00313E47 /* UIProgressView+AFNetworking.m in Sources */,
+				3784B8AE1A274A680036E52D /* NetworkAccessObject.m in Sources */,
 				377A633A1A1BCA4900CE8C74 /* main.m in Sources */,
 				37CDE6C01A262A6D00313E47 /* AFURLRequestSerialization.m in Sources */,
 				377FA8EA1A1E5F5200E9A07D /* TableViewCell.m in Sources */,
@@ -480,12 +488,12 @@
 				37CDE6BA1A262A6D00313E47 /* AFHTTPRequestOperation.m in Sources */,
 				3743DC011A25004800270C68 /* NSTimer+TimerWithAutoInvalidate.m in Sources */,
 				37CDE6BE1A262A6D00313E47 /* AFSecurityPolicy.m in Sources */,
-				377FA8F61A1FB90600E9A07D /* ImagesLoader.m in Sources */,
+				3784B8AF1A274A680036E52D /* NetworkManager.m in Sources */,
 				37CDE6BD1A262A6D00313E47 /* AFNetworkReachabilityManager.m in Sources */,
 				37CDE6C21A262A6D00313E47 /* AFURLSessionManager.m in Sources */,
 				3782E76E1A1CF716009A4C10 /* MainMenuViewController.m in Sources */,
-				377FA8E61A1E59E500E9A07D /* PetFood.m in Sources */,
 				377FA8E21A1E545800E9A07D /* FoodViewController.m in Sources */,
+				3784B8AC1A274A680036E52D /* ImagesLoader.m in Sources */,
 				377FA8EF1A1E76BE00E9A07D /* TableViewCellExtra.m in Sources */,
 				37CDE6C11A262A6D00313E47 /* AFURLResponseSerialization.m in Sources */,
 				37CDE70C1A262A6D00313E47 /* UIWebView+AFNetworking.m in Sources */,

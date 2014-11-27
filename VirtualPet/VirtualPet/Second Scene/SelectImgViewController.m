@@ -49,9 +49,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [self.scrollImages setScrollEnabled:YES];
-    [self.scrollImages setContentSize:CGSizeMake(self.scrollImages.frame.size.width + self.scrollImage4.frame.size.width, self.scrollImages.frame.size.height)];
-    
     [self.lblPetName setText:self.myPetName];
 }
 
@@ -63,6 +60,9 @@
 - (void) viewWillAppear:(BOOL)animated
 {
     [self setTitle:@"Image"];
+    
+    [self.scrollImages setScrollEnabled:YES];
+    [self.scrollImages setContentSize:CGSizeMake(self.scrollImages.frame.size.width + self.scrollImage4.frame.size.width, self.scrollImages.frame.size.height)];
 }
 
 - (void) viewWillDisappear:(BOOL)animated

@@ -145,9 +145,9 @@ NSString* const EVENT_RELOAD_DATA = @"RELOAD_DATA";
     
     [self calculateNeededExperience];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_RELOAD_DATA object:[NSNumber numberWithInt:self.petEnergy]];
+    /*[[NSNotificationCenter defaultCenter] postNotificationName:EVENT_RELOAD_DATA object:[NSNumber numberWithInt:self.petEnergy]];
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_UPDATE_EXPERIENCE object:@[[NSNumber numberWithInt:self.petActualExperience], [NSNumber numberWithInt:self.petNeededExperience]]];
-    [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_UPDATE_ENERGY object:[NSNumber numberWithInt:self.petEnergy]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_UPDATE_ENERGY object:[NSNumber numberWithInt:self.petEnergy]];*/
 }
 
 
