@@ -10,6 +10,7 @@
 #import "ImagesLoader.h"
 #import "NSTimer+TimerWithAutoInvalidate.h"
 #import "NetworkAccessObject.h"
+#import "NotificationManager.h"
 
 float const eatAnimationTime = 0.5f;
 float const exhaustAnimationTime = 1.2f;
@@ -21,7 +22,7 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
 
 @interface GameViewController ()
 
-@property (nonatomic) PetImageTag imageTag;
+@property (nonatomic) PetType imageTag;
 @property (nonatomic, strong) PetFood* myFood;
 @property (nonatomic) CGPoint imageViewFoodPosition;
 
@@ -45,7 +46,7 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
 
 #pragma mark - Constructor
 
-- (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andImageTag:(PetImageTag)tag
+- (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andImageTag:(PetType)tag
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     
@@ -98,6 +99,7 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
     
     // Instanciamos el DAO
     self.daoObject = [[NetworkAccessObject alloc] init];
+
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -342,6 +344,13 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
     [[[UIAlertView alloc] initWithTitle:@"Congratulations" message:[NSString stringWithFormat:@"You raised level %d", level] delegate:self cancelButtonTitle:@"CONTINUE" otherButtonTitles:nil, nil] show];
     
     [self.lblPetName setText:[NSString stringWithFormat:@"%@ Lvl: %d", [Pet sharedInstance].petName, level]];
+    
+    // Enviamos la notificacion de level up
+    NSDictionary* dic = @{@"code": CODE_IDENTIFIER,
+                          @"name": [Pet sharedInstance].petName,
+                          @"level": [NSNumber numberWithInt:[Pet sharedInstance].petLevel]
+                        };
+    [NotificationManager sendNotification:dic];
 }
 
 //********************************************
@@ -358,12 +367,13 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
         int level = ((NSNumber*)[responseObject objectForKey:@"level"]).intValue;
         int actualExp = ((NSNumber*)[responseObject objectForKey:@"experience"]).intValue;
         int energy = ((NSNumber*)[responseObject objectForKey:@"energy"]).intValue;
+        PetType type = ((NSNumber*)[responseObject objectForKey:@"pet_type"]).intValue;
         
-        [[Pet sharedInstance] reloadDataName:name level:level actualExp:actualExp andEnergy:energy];
+        [[Pet sharedInstance] reloadDataName:name level:level actualExp:actualExp energy:energy andPetType:type];
         
         [weakerSelf.lblPetName setText:[NSString stringWithFormat:@"%@ Lvl: %d", name, level]];
         [weakerSelf updateExperience];
-        
+        [weakerSelf.petImageView setImage:[UIImage imageNamed:[Pet sharedInstance].petImageName]];
         float barEnergy = energy;
         barEnergy = barEnergy / 100;
         [weakerSelf updateEnergyProgress:barEnergy];

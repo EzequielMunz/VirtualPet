@@ -19,6 +19,6 @@ extern int const eatAnimationIterations;
 
 @property (nonatomic, strong) NSNumber  *petEnergyValue;
 
-- (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andImageTag:(PetImageTag)tag;
+- (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andImageTag:(PetType)tag;
 
 @end

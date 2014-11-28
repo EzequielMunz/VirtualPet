@@ -24,14 +24,8 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="leon_comiendo_1" translatesAutoresizingMaskIntoConstraints="NO" id="Oir-VY-aKB">
-                    <rect key="frame" x="40" y="113" width="240" height="232"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="Oir-VY-aKB" secondAttribute="height" multiplier="30:29" id="LyL-yx-p1U"/>
-                    </constraints>
-                </imageView>
-                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5Gq-1x-xlY">
-                    <rect key="frame" x="85" y="338" width="150" height="2"/>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5Gq-1x-xlY">
+                    <rect key="frame" x="85" y="350" width="150" height="2"/>
                 </progressView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wolverine" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rz3-DL-De0">
                     <rect key="frame" x="8" y="73" width="304" height="35"/>
@@ -43,16 +37,24 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SWX-4V-6LB">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SWX-4V-6LB">
                     <rect key="frame" x="250" y="356" width="53" height="53"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="53" id="5uV-QZ-zu4"/>
+                        <constraint firstAttribute="height" constant="53" id="dsB-3x-30D"/>
+                    </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SxR-iP-fdG">
                     <rect key="frame" x="98" y="152" width="93" height="128"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VB2-ua-aZ3">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VB2-ua-aZ3">
                     <rect key="frame" x="110" y="368" width="101" height="30"/>
                     <color key="backgroundColor" red="0.27647101429999998" green="0.61766526980000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="5UB-Ci-Chd"/>
+                        <constraint firstAttribute="width" constant="101" id="eDI-8x-PcH"/>
+                    </constraints>
                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" title="Do Excercise">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -92,9 +94,13 @@
                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Pfi-Gr-rdt">
                     <rect key="frame" x="40" y="538" width="240" height="2"/>
                 </progressView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9qG-or-2Pf">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9qG-or-2Pf">
                     <rect key="frame" x="259" y="113" width="53" height="30"/>
                     <color key="backgroundColor" red="0.27647101429999998" green="0.61766526980000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="j3D-wh-h3k"/>
+                        <constraint firstAttribute="width" constant="53" id="qcF-8h-7a6"/>
+                    </constraints>
                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" title="Food">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -120,6 +126,12 @@
                         <action selector="btnLoadDataClicked:" destination="-1" eventType="touchUpInside" id="zO1-OX-8Oy"/>
                     </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="leon_comiendo_1" translatesAutoresizingMaskIntoConstraints="NO" id="Oir-VY-aKB">
+                    <rect key="frame" x="40" y="113" width="240" height="232"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="Oir-VY-aKB" secondAttribute="height" multiplier="30:29" id="LyL-yx-p1U"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="0.91226577009999998" green="1" blue="0.91367501070000001" alpha="1" colorSpace="calibratedRGB"/>
             <gestureRecognizers/>
@@ -127,6 +139,11 @@
                 <constraint firstItem="Suj-cm-Ayf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="18" id="2WR-Xc-cDd"/>
                 <constraint firstItem="Oir-VY-aKB" firstAttribute="top" secondItem="rz3-DL-De0" secondAttribute="bottom" constant="5" id="7xS-Gv-aiq"/>
                 <constraint firstItem="Pfi-Gr-rdt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="BHf-6Y-Dlf"/>
+                <constraint firstAttribute="centerX" secondItem="VB2-ua-aZ3" secondAttribute="centerX" id="BPK-9F-cYQ"/>
+                <constraint firstAttribute="trailing" secondItem="9qG-or-2Pf" secondAttribute="trailing" constant="8" id="JeU-bg-XK4"/>
+                <constraint firstItem="SWX-4V-6LB" firstAttribute="top" secondItem="Oir-VY-aKB" secondAttribute="bottom" constant="11" id="LWR-Wg-R0u"/>
+                <constraint firstItem="VB2-ua-aZ3" firstAttribute="top" secondItem="Oir-VY-aKB" secondAttribute="bottom" constant="23" id="Lc6-fi-s4D"/>
+                <constraint firstAttribute="trailing" secondItem="SWX-4V-6LB" secondAttribute="trailing" constant="17" id="MTL-Os-fOc"/>
                 <constraint firstItem="Pfi-Gr-rdt" firstAttribute="top" secondItem="Suj-cm-Ayf" secondAttribute="bottom" constant="20" id="Obw-Cz-Sg6"/>
                 <constraint firstAttribute="centerX" secondItem="rz3-DL-De0" secondAttribute="centerX" id="Ql8-hg-Vwg"/>
                 <constraint firstItem="Pfi-Gr-rdt" firstAttribute="top" secondItem="nvX-ok-VkA" secondAttribute="bottom" constant="20" id="cug-p5-Zbv"/>
@@ -135,7 +152,11 @@
                 <constraint firstAttribute="bottom" secondItem="Pfi-Gr-rdt" secondAttribute="bottom" constant="28" id="gfp-cI-gOg"/>
                 <constraint firstItem="Oir-VY-aKB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="gjz-vb-vqh"/>
                 <constraint firstAttribute="trailing" secondItem="Oir-VY-aKB" secondAttribute="trailing" constant="40" id="h7O-fe-Fhr"/>
+                <constraint firstItem="5Gq-1x-xlY" firstAttribute="top" secondItem="Oir-VY-aKB" secondAttribute="bottom" constant="5" id="lq1-fq-8yg"/>
+                <constraint firstAttribute="trailing" secondItem="5Gq-1x-xlY" secondAttribute="trailing" constant="85" id="nqG-kO-VG3"/>
+                <constraint firstItem="9qG-or-2Pf" firstAttribute="top" secondItem="rz3-DL-De0" secondAttribute="bottom" constant="5" id="ohq-qD-PSs"/>
                 <constraint firstItem="rz3-DL-De0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="73" id="ptV-xa-GIH"/>
+                <constraint firstItem="5Gq-1x-xlY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="85" id="thz-Te-VeT"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <connections>

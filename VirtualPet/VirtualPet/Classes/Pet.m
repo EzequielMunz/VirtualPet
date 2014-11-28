@@ -93,7 +93,7 @@ NSString* const EVENT_RELOAD_DATA = @"RELOAD_DATA";
 {
     self.petLevel++;
     [self calculateNeededExperience];
-    //self.petActualExperience = 0;
+    self.petActualExperience = 0;
     
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_LEVEL_UP object:[NSNumber numberWithInt:self.petLevel]];
     
@@ -136,12 +136,30 @@ NSString* const EVENT_RELOAD_DATA = @"RELOAD_DATA";
 // Reload Data from DAO
 //********************************************************************
 
-- (void) reloadDataName: (NSString*)name level: (int)level actualExp: (int)exp andEnergy: (int)energy
+- (void) reloadDataName: (NSString*)name level: (int)level actualExp: (int)exp energy: (int)energy andPetType:(PetType)type
 {
     self.petName = name;
     self.petLevel = level;
     self.petActualExperience = exp;
     self.petEnergy = energy;
+    
+    switch (type) {
+        case TYPE_CIERVO:
+            self.petImageName = @"ciervo_comiendo_1";
+            break;
+        case TYPE_GATO:
+            self.petImageName = @"gato_comiendo_1";
+            break;
+        case TYPE_JIRAFA:
+            self.petImageName = @"jirafa_comiendo_1";
+            break;
+        case TYPE_LEON:
+            self.petImageName = @"leon_comiendo_1";
+            break;
+            
+        default:
+            break;
+    }
     
     [self calculateNeededExperience];
     

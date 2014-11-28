@@ -25,7 +25,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *scrollImage3;
 @property (strong, nonatomic) IBOutlet UIButton *scrollImage4;
 
-@property (nonatomic) PetImageTag myTag;
+@property (nonatomic) PetType myTag;
 
 @end
 
@@ -82,27 +82,25 @@
 
 - (IBAction)setImage:(UIButton*)sender
 {
-    PetImageTag enumTag = (PetImageTag) sender.tag;
+    PetType enumTag = (PetType) sender.tag;
+    
+    [[Pet sharedInstance] setPetName:self.myPetName];
     
     switch (enumTag) {
-        case PET_CIERVO:
+        case TYPE_CIERVO:
             [[Pet sharedInstance] setPetType:TYPE_CIERVO];
-            [[Pet sharedInstance] setPetName:self.myPetName];
             [[Pet sharedInstance] setPetImageName:@"ciervo_comiendo_1"];
             break;
-        case PET_GATO:
+        case TYPE_GATO:
             [[Pet sharedInstance] setPetType:TYPE_GATO];
-            [[Pet sharedInstance] setPetName:self.myPetName];
             [[Pet sharedInstance] setPetImageName:@"gato_comiendo_1"];
             break;
-        case PET_JIRAFA:
+        case TYPE_JIRAFA:
             [[Pet sharedInstance] setPetType:TYPE_JIRAFA];
-            [[Pet sharedInstance] setPetName:self.myPetName];
             [[Pet sharedInstance] setPetImageName:@"jirafa_comiendo_1"];
             break;
-        case PET_LEON:
+        case TYPE_LEON:
             [[Pet sharedInstance] setPetType:TYPE_LEON];
-            [[Pet sharedInstance] setPetName:self.myPetName];
             [[Pet sharedInstance] setPetImageName:@"leon_comiendo_1"];
             break;
             

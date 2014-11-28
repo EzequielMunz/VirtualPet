@@ -8,6 +8,7 @@
 
 #import "MainMenuViewController.h"
 #import "FirstViewController.h"
+#import "NotificationManager.h"
 
 @interface MainMenuViewController ()
 @property (strong, nonatomic) IBOutlet UIButton *btnPlay;
@@ -29,6 +30,10 @@
 - (void) viewWillAppear:(BOOL)animated
 {
     [self setTitle:@"Menu"];
+    [NotificationManager sendLocalNotification:@{@"name": @"name",
+                                                 @"level": [NSNumber numberWithInt:2]
+                                                 }];
+    //[NotificationManager suscribeToChannel];
 }
 
 - (void) viewWillDisappear:(BOOL)animated

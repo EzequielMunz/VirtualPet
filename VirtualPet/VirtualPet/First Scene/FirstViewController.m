@@ -56,6 +56,7 @@
     if([self validateName:self.petName])
     {
         SelectImgViewController *selectImgView = [[SelectImgViewController alloc] initWithNibName:@"SelectImgViewController" bundle:[NSBundle mainBundle] andPetName:self.petName];
+        
         [self.navigationController pushViewController:selectImgView animated:YES];
     }
     else

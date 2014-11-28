@@ -12,6 +12,7 @@
 
 NSString* const EVENT_PATH_POST = @"/pet";
 NSString* const EVENT_PATH_GET = @"/pet/em3896";
+NSString* const CODE_IDENTIFIER = @"em3896";
 
 @interface NetworkAccessObject ()
 

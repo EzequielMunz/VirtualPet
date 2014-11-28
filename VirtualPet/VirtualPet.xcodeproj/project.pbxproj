@@ -8,6 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		3743DC011A25004800270C68 /* NSTimer+TimerWithAutoInvalidate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3743DC001A25004800270C68 /* NSTimer+TimerWithAutoInvalidate.m */; };
+		374E813E1A28C1300081EC2F /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374E813C1A28C1300081EC2F /* Bolts.framework */; };
+		374E813F1A28C1300081EC2F /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374E813D1A28C1300081EC2F /* Parse.framework */; };
+		374E81411A28C1DA0081EC2F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374E81401A28C1DA0081EC2F /* AudioToolbox.framework */; };
+		374E81431A28C1E50081EC2F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374E81421A28C1E50081EC2F /* CFNetwork.framework */; };
+		374E81451A28C1F10081EC2F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374E81441A28C1F10081EC2F /* CoreGraphics.framework */; };
+		374E81471A28C1F60081EC2F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374E81461A28C1F60081EC2F /* CoreLocation.framework */; };
+		374E81491A28C20C0081EC2F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 374E81481A28C20C0081EC2F /* libz.dylib */; };
+		374E814B1A28C21C0081EC2F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374E814A1A28C21C0081EC2F /* MobileCoreServices.framework */; };
+		374E814D1A28C2280081EC2F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374E814C1A28C2280081EC2F /* QuartzCore.framework */; };
+		374E814F1A28C2330081EC2F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374E814E1A28C2330081EC2F /* Security.framework */; };
+		374E81531A28C2470081EC2F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374E81521A28C2470081EC2F /* SystemConfiguration.framework */; };
+		374E81561A28EE400081EC2F /* NotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 374E81551A28EE400081EC2F /* NotificationManager.m */; };
 		377A633A1A1BCA4900CE8C74 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 377A63391A1BCA4900CE8C74 /* main.m */; };
 		377A63451A1BCA4900CE8C74 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 377A63441A1BCA4900CE8C74 /* Images.xcassets */; };
 		377A63481A1BCA4900CE8C74 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 377A63461A1BCA4900CE8C74 /* LaunchScreen.xib */; };
@@ -64,6 +76,19 @@
 /* Begin PBXFileReference section */
 		3743DBFF1A25004800270C68 /* NSTimer+TimerWithAutoInvalidate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSTimer+TimerWithAutoInvalidate.h"; path = "../NSTimer+TimerWithAutoInvalidate.h"; sourceTree = "<group>"; };
 		3743DC001A25004800270C68 /* NSTimer+TimerWithAutoInvalidate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSTimer+TimerWithAutoInvalidate.m"; path = "../NSTimer+TimerWithAutoInvalidate.m"; sourceTree = "<group>"; };
+		374E813C1A28C1300081EC2F /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		374E813D1A28C1300081EC2F /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		374E81401A28C1DA0081EC2F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		374E81421A28C1E50081EC2F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		374E81441A28C1F10081EC2F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		374E81461A28C1F60081EC2F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		374E81481A28C20C0081EC2F /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		374E814A1A28C21C0081EC2F /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		374E814C1A28C2280081EC2F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		374E814E1A28C2330081EC2F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		374E81521A28C2470081EC2F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		374E81541A28EE400081EC2F /* NotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationManager.h; sourceTree = "<group>"; };
+		374E81551A28EE400081EC2F /* NotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationManager.m; sourceTree = "<group>"; };
 		377A63341A1BCA4900CE8C74 /* VirtualPet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirtualPet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		377A63381A1BCA4900CE8C74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		377A63391A1BCA4900CE8C74 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -149,6 +174,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				374E81531A28C2470081EC2F /* SystemConfiguration.framework in Frameworks */,
+				374E814F1A28C2330081EC2F /* Security.framework in Frameworks */,
+				374E814D1A28C2280081EC2F /* QuartzCore.framework in Frameworks */,
+				374E814B1A28C21C0081EC2F /* MobileCoreServices.framework in Frameworks */,
+				374E81491A28C20C0081EC2F /* libz.dylib in Frameworks */,
+				374E81471A28C1F60081EC2F /* CoreLocation.framework in Frameworks */,
+				374E81451A28C1F10081EC2F /* CoreGraphics.framework in Frameworks */,
+				374E81431A28C1E50081EC2F /* CFNetwork.framework in Frameworks */,
+				374E81411A28C1DA0081EC2F /* AudioToolbox.framework in Frameworks */,
+				374E813F1A28C1300081EC2F /* Parse.framework in Frameworks */,
+				374E813E1A28C1300081EC2F /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +201,17 @@
 		377A632B1A1BCA4900CE8C74 = {
 			isa = PBXGroup;
 			children = (
+				374E81521A28C2470081EC2F /* SystemConfiguration.framework */,
+				374E814E1A28C2330081EC2F /* Security.framework */,
+				374E814C1A28C2280081EC2F /* QuartzCore.framework */,
+				374E814A1A28C21C0081EC2F /* MobileCoreServices.framework */,
+				374E81481A28C20C0081EC2F /* libz.dylib */,
+				374E81461A28C1F60081EC2F /* CoreLocation.framework */,
+				374E81441A28C1F10081EC2F /* CoreGraphics.framework */,
+				374E81421A28C1E50081EC2F /* CFNetwork.framework */,
+				374E81401A28C1DA0081EC2F /* AudioToolbox.framework */,
+				374E813C1A28C1300081EC2F /* Bolts.framework */,
+				374E813D1A28C1300081EC2F /* Parse.framework */,
 				377A63361A1BCA4900CE8C74 /* VirtualPet */,
 				377A63501A1BCA4900CE8C74 /* VirtualPetTests */,
 				377A63351A1BCA4900CE8C74 /* Products */,
@@ -298,6 +345,8 @@
 				3784B8A81A274A680036E52D /* PetConfig.h */,
 				3784B8A91A274A680036E52D /* PetFood.h */,
 				3784B8AA1A274A680036E52D /* PetFood.m */,
+				374E81541A28EE400081EC2F /* NotificationManager.h */,
+				374E81551A28EE400081EC2F /* NotificationManager.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -410,6 +459,12 @@
 				TargetAttributes = {
 					377A63331A1BCA4900CE8C74 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 332N44E879;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
 					};
 					377A634C1A1BCA4900CE8C74 = {
 						CreatedOnToolsVersion = 6.1;
@@ -479,6 +534,7 @@
 				3784B8AB1A274A680036E52D /* AppDelegate.m in Sources */,
 				37CDE7051A262A6D00313E47 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				37CDE70A1A262A6D00313E47 /* UIProgressView+AFNetworking.m in Sources */,
+				374E81561A28EE400081EC2F /* NotificationManager.m in Sources */,
 				3784B8AE1A274A680036E52D /* NetworkAccessObject.m in Sources */,
 				377A633A1A1BCA4900CE8C74 /* main.m in Sources */,
 				37CDE6C01A262A6D00313E47 /* AFURLRequestSerialization.m in Sources */,
@@ -612,10 +668,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = VirtualPet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6f44e8bd-74d3-4294-ad76-0849a6709531";
 			};
 			name = Debug;
 		};
@@ -623,10 +685,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = VirtualPet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6f44e8bd-74d3-4294-ad76-0849a6709531";
 			};
 			name = Release;
 		};

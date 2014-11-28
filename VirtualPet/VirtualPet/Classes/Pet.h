@@ -35,6 +35,6 @@ extern NSString* const EVENT_RELOAD_DATA;
 - (int) getActualExp;
 - (int) getNeededExp;
 - (int) getEnergy;
-- (void) reloadDataName: (NSString*)name level: (int)level actualExp: (int)exp andEnergy: (int)energy;
+- (void) reloadDataName: (NSString*)name level: (int)level actualExp: (int)exp energy: (int)energy andPetType: (PetType)type;
 
 @end

@@ -11,6 +11,8 @@
 typedef void (^Success)(NSURLSessionDataTask*, id);
 typedef void (^Failure)(NSURLSessionDataTask*, NSError*);
 
+extern NSString* const CODE_IDENTIFIER;
+
 @interface NetworkAccessObject : NSObject
 
 - (void) doGETPetInfo: (Success) block;

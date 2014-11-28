@@ -33,9 +33,32 @@
     
     [self.window setRootViewController:navControllerHome];
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    // Codigo de Parse
+    [Parse setApplicationId:@"guhchukKgURzzZVCHBFOxyD35VHeMQm3EUZEdJvD"
+                  clientKey:@"SnnbrQ9yOemJspA7LRt1MCACFFUYNkbQ1k2IM1vH"];
+    
+    // Register for Push Notitications
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 80000
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes: (UIUserNotificationTypeAlert |UIUserNotificationTypeBadge | UIUserNotificationTypeSound) categories:nil]];
+    }
+    else
+    {
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound)];
+    }
+#else
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound)];
+#endif
+    
+    // Local Notification
+    UILocalNotification *localNotif =
+    [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    if (localNotif) {
+        
+    }
+
     [self.window makeKeyAndVisible];
-    
-    
     
     return YES;
 }
@@ -60,6 +83,58 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+//***********************************************************
+// Metodos para Notifications
+//***********************************************************
+
+# pragma mark - User Notifications
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    // Store the deviceToken in the current installation and save it to Parse.
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    [currentInstallation saveInBackground];
+    
+    NSLog(@"Successfully got a push token: %@", deviceToken);
+}
+
+- (void)application:(UIApplication *)app didReceiveLocalNotification:(UILocalNotification *)notif
+{
+    NSLog(@"Notificacion: %@", notif.userInfo);
+    app.applicationIconBadgeNumber = notif.applicationIconBadgeNumber - 1;
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    [self processPush:userInfo];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+{
+    if([[userInfo objectForKey:@"code"] isEqualToString:@"em3896"])
+    {
+        [self processPush:userInfo];
+    }
+}
+
+- (void) processPush:(NSDictionary*) userInfo
+{
+    [PFPush handlePush:userInfo];
+    
+    NSString* name = [userInfo objectForKey:@"name"];
+    int level = ((NSNumber*)[userInfo objectForKey:@"level"]).intValue;
+    
+    NSString* message = [NSString stringWithFormat:@"El pet %@ ha subido al nivel %d", name, level];
+    
+    [[[UIAlertView alloc] initWithTitle:@"Noti" message:message delegate:self cancelButtonTitle:@" GO!! " otherButtonTitles:nil, nil] show];
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+    NSLog(@"Failed to register for push notifications! Error was: %@", [error localizedDescription]);
 }
 
 @end

@@ -10,15 +10,6 @@
 #define VirtualPet_PetConfig_h
 
 typedef enum{
-    
-    PET_CIERVO = 0,
-    PET_GATO,
-    PET_JIRAFA,
-    PET_LEON
-    
-} PetImageTag;
-
-typedef enum{
     TYPE_CIERVO = 0,
     TYPE_GATO,
     TYPE_JIRAFA,
