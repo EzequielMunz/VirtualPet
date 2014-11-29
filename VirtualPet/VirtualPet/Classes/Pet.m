@@ -25,6 +25,39 @@ NSString* const EVENT_RELOAD_DATA = @"RELOAD_DATA";
 
 @implementation Pet
 
+- (instancetype) initWithType:(PetType)type petName:(NSString *)name level:(int)level andUserID: (NSString*) userID;
+{
+    self = [super init];
+    
+    if(self)
+    {
+        self.userID = userID;
+        self.petName = name;
+        self.petLevel = level;
+        self.petType = type;
+        switch (type) {
+            case TYPE_CIERVO:
+                self.petImageName = @"ciervo_comiendo_1";
+                break;
+            case TYPE_GATO:
+                self.petImageName = @"gato_comiendo_1";
+                break;
+            case TYPE_JIRAFA:
+                self.petImageName = @"jirafa_comiendo_1";
+                break;
+            case TYPE_LEON:
+                self.petImageName = @"leon_comiendo_1";
+                break;
+                
+            default:
+                break;
+        }
+        
+    }
+    
+    return self;
+}
+
 - (instancetype) initWithEnergy: (int) energy
 {
     self = [super init];

@@ -11,6 +11,7 @@
 #import "NSTimer+TimerWithAutoInvalidate.h"
 #import "NetworkAccessObject.h"
 #import "NotificationManager.h"
+#import "PetListViewController.h"
 
 float const eatAnimationTime = 0.5f;
 float const exhaustAnimationTime = 1.2f;
@@ -158,6 +159,12 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
 - (IBAction)btnLoadDataClicked:(id)sender
 {
     [self.daoObject doGETPetInfo:[self getSuccess]];
+}
+
+- (IBAction)btnRankClicked:(id)sender
+{
+    PetListViewController* petList = [[PetListViewController alloc] initWithNibName:@"PetListViewController" bundle:[NSBundle mainBundle]];
+    [self.navigationController pushViewController:petList animated:YES];
 }
 
 - (void) reloadData: (NSNotification*) notif

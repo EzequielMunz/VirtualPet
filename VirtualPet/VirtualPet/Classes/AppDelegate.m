@@ -109,7 +109,10 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
-    [self processPush:userInfo];
+    if([[userInfo objectForKey:@"code"] isEqualToString:@"em3896"])
+    {
+        [self processPush:userInfo];
+    }
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler

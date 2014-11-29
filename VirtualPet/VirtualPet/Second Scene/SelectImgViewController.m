@@ -84,6 +84,7 @@
 {
     PetType enumTag = (PetType) sender.tag;
     
+    [[Pet sharedInstance] setUserID:@"em3896"];
     [[Pet sharedInstance] setPetName:self.myPetName];
     
     switch (enumTag) {
