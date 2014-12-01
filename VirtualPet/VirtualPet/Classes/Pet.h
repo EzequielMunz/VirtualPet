@@ -21,10 +21,11 @@ extern NSString* const EVENT_RELOAD_DATA;
 @property (nonatomic, strong) NSString* petImageName;
 @property (nonatomic) PetType petType;
 @property (nonatomic) BOOL doingExcercise;
+@property (nonatomic, strong) NSString* userID;
 
 @property (nonatomic) int petLevel;
 
-//- (instancetype) initWithType: (NSString*) type petName: (NSString*)name ImageNamed:(NSString*)imageName;
+- (instancetype) initWithType: (PetType) type petName: (NSString*)name level:(int)level andUserID: (NSString*) userID;
 
 + (instancetype) sharedInstance;
 

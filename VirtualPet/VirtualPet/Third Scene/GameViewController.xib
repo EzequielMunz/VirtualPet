@@ -44,10 +44,6 @@
                         <constraint firstAttribute="height" constant="53" id="dsB-3x-30D"/>
                     </constraints>
                 </imageView>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SxR-iP-fdG">
-                    <rect key="frame" x="98" y="152" width="93" height="128"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VB2-ua-aZ3">
                     <rect key="frame" x="110" y="368" width="101" height="30"/>
                     <color key="backgroundColor" red="0.27647101429999998" green="0.61766526980000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -132,6 +128,25 @@
                         <constraint firstAttribute="width" secondItem="Oir-VY-aKB" secondAttribute="height" multiplier="30:29" id="LyL-yx-p1U"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H3z-TF-5oe">
+                    <rect key="frame" x="259" y="157" width="53" height="30"/>
+                    <color key="backgroundColor" red="0.27647101429999998" green="0.61766526980000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="53" id="1MP-4j-fty"/>
+                        <constraint firstAttribute="height" constant="30" id="RAw-Dv-jGM"/>
+                    </constraints>
+                    <color key="tintColor" red="0.91226577009999998" green="1" blue="0.91367501070000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="Rank">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnRankClicked:" destination="-1" eventType="touchUpInside" id="3Xl-N3-OIK"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SxR-iP-fdG">
+                    <rect key="frame" x="90" y="202" width="81" height="88"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.91226577009999998" green="1" blue="0.91367501070000001" alpha="1" colorSpace="calibratedRGB"/>
             <gestureRecognizers/>
@@ -146,12 +161,14 @@
                 <constraint firstAttribute="trailing" secondItem="SWX-4V-6LB" secondAttribute="trailing" constant="17" id="MTL-Os-fOc"/>
                 <constraint firstItem="Pfi-Gr-rdt" firstAttribute="top" secondItem="Suj-cm-Ayf" secondAttribute="bottom" constant="20" id="Obw-Cz-Sg6"/>
                 <constraint firstAttribute="centerX" secondItem="rz3-DL-De0" secondAttribute="centerX" id="Ql8-hg-Vwg"/>
+                <constraint firstItem="H3z-TF-5oe" firstAttribute="top" secondItem="9qG-or-2Pf" secondAttribute="bottom" constant="14" id="Zco-ya-K22"/>
                 <constraint firstItem="Pfi-Gr-rdt" firstAttribute="top" secondItem="nvX-ok-VkA" secondAttribute="bottom" constant="20" id="cug-p5-Zbv"/>
                 <constraint firstAttribute="trailing" secondItem="Pfi-Gr-rdt" secondAttribute="trailing" constant="40" id="d4M-d9-e2N"/>
                 <constraint firstAttribute="centerX" secondItem="nvX-ok-VkA" secondAttribute="centerX" id="eBk-X9-uLc"/>
                 <constraint firstAttribute="bottom" secondItem="Pfi-Gr-rdt" secondAttribute="bottom" constant="28" id="gfp-cI-gOg"/>
                 <constraint firstItem="Oir-VY-aKB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="gjz-vb-vqh"/>
                 <constraint firstAttribute="trailing" secondItem="Oir-VY-aKB" secondAttribute="trailing" constant="40" id="h7O-fe-Fhr"/>
+                <constraint firstAttribute="trailing" secondItem="H3z-TF-5oe" secondAttribute="trailing" constant="8" id="jPe-Jh-2md"/>
                 <constraint firstItem="5Gq-1x-xlY" firstAttribute="top" secondItem="Oir-VY-aKB" secondAttribute="bottom" constant="5" id="lq1-fq-8yg"/>
                 <constraint firstAttribute="trailing" secondItem="5Gq-1x-xlY" secondAttribute="trailing" constant="85" id="nqG-kO-VG3"/>
                 <constraint firstItem="9qG-or-2Pf" firstAttribute="top" secondItem="rz3-DL-De0" secondAttribute="bottom" constant="5" id="ohq-qD-PSs"/>
@@ -162,7 +179,7 @@
             <connections>
                 <outletCollection property="gestureRecognizers" destination="W5f-TR-vTM" appends="YES" id="SCj-CS-Iog"/>
             </connections>
-            <point key="canvasLocation" x="231" y="155"/>
+            <point key="canvasLocation" x="231" y="159"/>
         </view>
         <tapGestureRecognizer id="W5f-TR-vTM">
             <connections>

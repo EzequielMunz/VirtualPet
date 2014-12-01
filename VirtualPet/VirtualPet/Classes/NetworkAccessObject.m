@@ -12,6 +12,7 @@
 
 NSString* const EVENT_PATH_POST = @"/pet";
 NSString* const EVENT_PATH_GET = @"/pet/em3896";
+NSString* const EVENT_PATH_GET_LIST = @"/pet/all";
 NSString* const CODE_IDENTIFIER = @"em3896";
 
 @interface NetworkAccessObject ()
@@ -39,6 +40,11 @@ NSString* const CODE_IDENTIFIER = @"em3896";
                               @"pet_type" : [NSNumber numberWithInt:[Pet sharedInstance].petType]};
     
     [[NetworkManager sharedInstance] POST:EVENT_PATH_POST parameters:petInfo success:[self postSuccess] failure:[self postFailure]];
+}
+
+- (void) doGETPetList: (Success) block
+{
+    [[NetworkManager sharedInstance] GET:EVENT_PATH_GET_LIST parameters:nil success:block failure:[self getFailure]];
 }
 
 //*************************************************************
