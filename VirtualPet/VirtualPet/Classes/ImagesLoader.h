@@ -15,7 +15,7 @@
 @property (nonatomic, strong) NSArray* imgPetEjercicio;
 @property (nonatomic, strong) NSArray* imgPetExhausto;
 
-- (void) loadPetComiendoArrayWithTag: (PetType)tag;
+- (void) loadPetArraysWithTag: (PetType)tag;
 
 + (instancetype) sharedInstance;
 

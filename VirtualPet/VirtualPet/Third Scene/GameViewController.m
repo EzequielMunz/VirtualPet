@@ -71,7 +71,12 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
     
     [self.lblPetName setText:[NSString stringWithFormat:@"%@ Lvl: %d", [Pet sharedInstance].petName, [Pet sharedInstance].petLevel]];
     [self.petImageView setImage:[UIImage imageNamed:[Pet sharedInstance].petImageName]];
-
+    
+    // Iniciar Barra de energia
+    float value = [[Pet sharedInstance] getEnergy];
+    value = value / 100;
+    [self updateEnergyProgress:value];
+    
     [self setTitle: [Pet sharedInstance].petName];
     
     self.imageViewFoodPosition = CGPointMake(self.imgViewFood.frame.origin.x, self.imgViewFood.frame.origin.y);
@@ -88,10 +93,7 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
      [self.petEnergyBar setTransform:CGAffineTransformMakeScale(1.0, 7.0)];
     
     // Cargamos las imagenes en el loader
-    [[ImagesLoader sharedInstance] loadPetComiendoArrayWithTag:self.imageTag];
-    
-    // Inicializar la energia en la progress bar.
-    [self.petEnergyBar setProgress:1];
+    [[ImagesLoader sharedInstance] loadPetArraysWithTag:self.imageTag];
     
     [self.lblExperience setText:[NSString stringWithFormat:@"%d / %d", [[Pet sharedInstance] getActualExp], [[Pet sharedInstance] getNeededExp]]];
     float actualExp = [[Pet sharedInstance] getActualExp];
@@ -112,7 +114,6 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatePetExhaust) name:EVENT_SET_EXHAUST object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showLevelUp:) name:EVENT_LEVEL_UP object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateExperience) name:EVENT_UPDATE_EXPERIENCE object:nil];
-    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData:) name:EVENT_RELOAD_DATA object:nil];
     
 }
 
@@ -165,11 +166,6 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
 {
     PetListViewController* petList = [[PetListViewController alloc] initWithNibName:@"PetListViewController" bundle:[NSBundle mainBundle]];
     [self.navigationController pushViewController:petList animated:YES];
-}
-
-- (void) reloadData: (NSNotification*) notif
-{
-    [self.lblPetName setText:[NSString stringWithFormat:@"%@ Lvl: %d", [Pet sharedInstance].petName, [Pet sharedInstance].petLevel]];
 }
 
 - (IBAction)btnFoodClicked:(id)sender
@@ -377,6 +373,7 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
         PetType type = ((NSNumber*)[responseObject objectForKey:@"pet_type"]).intValue;
         
         [[Pet sharedInstance] reloadDataName:name level:level actualExp:actualExp energy:energy andPetType:type];
+        [[ImagesLoader sharedInstance] loadPetArraysWithTag:type];
         
         [weakerSelf.lblPetName setText:[NSString stringWithFormat:@"%@ Lvl: %d", name, level]];
         [weakerSelf updateExperience];

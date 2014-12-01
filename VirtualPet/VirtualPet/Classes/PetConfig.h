@@ -12,8 +12,8 @@
 typedef enum{
     TYPE_CIERVO = 0,
     TYPE_GATO,
-    TYPE_JIRAFA,
-    TYPE_LEON
+    TYPE_LEON,
+    TYPE_JIRAFA
 } PetType;
 
 #endif

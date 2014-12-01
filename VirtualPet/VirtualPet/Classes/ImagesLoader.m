@@ -23,7 +23,7 @@
     return _sharedObject;
 }
 
-- (void) loadPetComiendoArrayWithTag: (PetType)tag
+- (void) loadPetArraysWithTag: (PetType)tag
 {
     NSArray* arrayEat;
     NSArray* arrayExcescise;

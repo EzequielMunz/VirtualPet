@@ -55,7 +55,7 @@
     UILocalNotification *localNotif =
     [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     if (localNotif) {
-        
+        // Hacer Algo
     }
 
     [self.window makeKeyAndVisible];

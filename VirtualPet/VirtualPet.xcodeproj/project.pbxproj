@@ -29,6 +29,9 @@
 		377A636D1A1BCD1D00CE8C74 /* SelectImgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377A636B1A1BCD1D00CE8C74 /* SelectImgViewController.m */; };
 		377A63721A1BD12A00CE8C74 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377A63701A1BD12A00CE8C74 /* GameViewController.m */; };
 		377A63731A1BD12A00CE8C74 /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 377A63711A1BD12A00CE8C74 /* GameViewController.xib */; };
+		377CCDE41A2CB40C002172C5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 377CCDE31A2CB40C002172C5 /* MapKit.framework */; };
+		377CCDE91A2CB6BF002172C5 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377CCDE71A2CB6BF002172C5 /* MapViewController.m */; };
+		377CCDEA1A2CB6BF002172C5 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 377CCDE81A2CB6BF002172C5 /* MapViewController.xib */; };
 		377FA8E21A1E545800E9A07D /* FoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377FA8E01A1E545800E9A07D /* FoodViewController.m */; };
 		377FA8E31A1E545800E9A07D /* FoodViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 377FA8E11A1E545800E9A07D /* FoodViewController.xib */; };
 		377FA8EA1A1E5F5200E9A07D /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 377FA8E81A1E5F5200E9A07D /* TableViewCell.m */; };
@@ -109,6 +112,10 @@
 		377A636F1A1BD12A00CE8C74 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		377A63701A1BD12A00CE8C74 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		377A63711A1BD12A00CE8C74 /* GameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
+		377CCDE31A2CB40C002172C5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		377CCDE61A2CB6BF002172C5 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		377CCDE71A2CB6BF002172C5 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		377CCDE81A2CB6BF002172C5 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		377FA8DF1A1E545800E9A07D /* FoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodViewController.h; sourceTree = "<group>"; };
 		377FA8E01A1E545800E9A07D /* FoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodViewController.m; sourceTree = "<group>"; };
 		377FA8E11A1E545800E9A07D /* FoodViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodViewController.xib; sourceTree = "<group>"; };
@@ -184,6 +191,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				377CCDE41A2CB40C002172C5 /* MapKit.framework in Frameworks */,
 				374E81531A28C2470081EC2F /* SystemConfiguration.framework in Frameworks */,
 				374E814F1A28C2330081EC2F /* Security.framework in Frameworks */,
 				374E814D1A28C2280081EC2F /* QuartzCore.framework in Frameworks */,
@@ -211,6 +219,7 @@
 		377A632B1A1BCA4900CE8C74 = {
 			isa = PBXGroup;
 			children = (
+				377CCDE31A2CB40C002172C5 /* MapKit.framework */,
 				374E81521A28C2470081EC2F /* SystemConfiguration.framework */,
 				374E814E1A28C2330081EC2F /* Security.framework */,
 				374E814C1A28C2280081EC2F /* QuartzCore.framework */,
@@ -245,6 +254,7 @@
 				377A63441A1BCA4900CE8C74 /* Images.xcassets */,
 				377A63461A1BCA4900CE8C74 /* LaunchScreen.xib */,
 				3785DF701A2A02FE0050FB02 /* PetList Scene */,
+				377CCDE51A2CB6AD002172C5 /* MapView */,
 				3784B89C1A274A680036E52D /* Classes */,
 				37CDE6201A262A6D00313E47 /* AFNetworking-master */,
 				377FA8DE1A1E544400E9A07D /* Food Scene */,
@@ -312,6 +322,16 @@
 				377A63711A1BD12A00CE8C74 /* GameViewController.xib */,
 			);
 			path = "Third Scene";
+			sourceTree = "<group>";
+		};
+		377CCDE51A2CB6AD002172C5 /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				377CCDE61A2CB6BF002172C5 /* MapViewController.h */,
+				377CCDE71A2CB6BF002172C5 /* MapViewController.m */,
+				377CCDE81A2CB6BF002172C5 /* MapViewController.xib */,
+			);
+			path = MapView;
 			sourceTree = "<group>";
 		};
 		377FA8DE1A1E544400E9A07D /* Food Scene */ = {
@@ -521,6 +541,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3785DF7A1A2A04990050FB02 /* PetListCell.xib in Resources */,
+				377CCDEA1A2CB6BF002172C5 /* MapViewController.xib in Resources */,
 				377A63481A1BCA4900CE8C74 /* LaunchScreen.xib in Resources */,
 				377A63451A1BCA4900CE8C74 /* Images.xcassets in Resources */,
 				3785DF751A2A03240050FB02 /* PetListViewController.xib in Resources */,
@@ -548,6 +569,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				377CCDE91A2CB6BF002172C5 /* MapViewController.m in Sources */,
 				377A63721A1BD12A00CE8C74 /* GameViewController.m in Sources */,
 				37CDE6BB1A262A6D00313E47 /* AFHTTPRequestOperationManager.m in Sources */,
 				37CDE7091A262A6D00313E47 /* UIImageView+AFNetworking.m in Sources */,

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pets in the World" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xa3-J3-3qT">
+                    <rect key="frame" x="84" y="66" width="153" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="153" id="jb7-ID-4on"/>
+                        <constraint firstAttribute="height" constant="21" id="np7-qa-bQz"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Dh2-fe-CQu">
+                    <rect key="frame" x="14" y="100" width="292" height="400"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="Dh2-fe-CQu" secondAttribute="height" multiplier="73:100" id="MNS-Dh-F9q"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="KbH-AB-oW0"/>
+                    </connections>
+                </mapView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Dh2-fe-CQu" firstAttribute="top" secondItem="xa3-J3-3qT" secondAttribute="bottom" constant="13" id="0oJ-6g-nin"/>
+                <constraint firstAttribute="centerX" secondItem="xa3-J3-3qT" secondAttribute="centerX" id="1aJ-J4-iNc"/>
+                <constraint firstItem="Dh2-fe-CQu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="14" id="33I-Bg-6ej"/>
+                <constraint firstAttribute="bottom" secondItem="Dh2-fe-CQu" secondAttribute="bottom" constant="68" id="Lx1-Bx-Tui"/>
+                <constraint firstItem="xa3-J3-3qT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="66" id="ROD-iA-2lY"/>
+                <constraint firstAttribute="trailing" secondItem="Dh2-fe-CQu" secondAttribute="trailing" constant="14" id="qxJ-TJ-by5"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+</document>

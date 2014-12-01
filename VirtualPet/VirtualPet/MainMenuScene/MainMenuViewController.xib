@@ -50,16 +50,42 @@
                         <action selector="btnPlayTouched:" destination="-1" eventType="touchUpInside" id="EPr-PW-Ko0"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zjV-8p-aoP">
+                    <rect key="frame" x="98" y="258" width="124" height="42"/>
+                    <color key="backgroundColor" red="0.27647101429999998" green="0.61766526980000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="124" id="TOc-tS-12K"/>
+                        <constraint firstAttribute="height" constant="42" id="Zco-bA-B4R"/>
+                    </constraints>
+                    <color key="tintColor" red="0.91226577009999998" green="1" blue="0.91367501070000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="Load Game">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                            <integer key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="btnLoadGameTouched:" destination="-1" eventType="touchUpInside" id="YsO-3g-5o2"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.91226577010070731" green="1" blue="0.91367501071990531" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="AF0-2c-g6E" firstAttribute="centerX" secondItem="tOu-9W-1Rw" secondAttribute="centerX" id="2y8-J9-AzJ"/>
                 <constraint firstItem="AF0-2c-g6E" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="78" id="7vL-eg-2DP"/>
                 <constraint firstItem="tOu-9W-1Rw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="98" id="JCF-Ce-8CJ"/>
+                <constraint firstAttribute="trailing" secondItem="zjV-8p-aoP" secondAttribute="trailing" constant="98" id="TzV-PO-YlC"/>
+                <constraint firstItem="zjV-8p-aoP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="98" id="Usm-E3-bbU"/>
                 <constraint firstItem="AF0-2c-g6E" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="62" id="Xe1-Tc-dK1"/>
                 <constraint firstItem="tOu-9W-1Rw" firstAttribute="top" secondItem="AF0-2c-g6E" secondAttribute="bottom" constant="58" id="Xhv-Ic-I7E"/>
                 <constraint firstItem="tOu-9W-1Rw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="98" id="afN-lN-SN5"/>
                 <constraint firstItem="tOu-9W-1Rw" firstAttribute="top" secondItem="AF0-2c-g6E" secondAttribute="bottom" constant="58" id="hTl-J2-pfN"/>
+                <constraint firstItem="zjV-8p-aoP" firstAttribute="top" secondItem="tOu-9W-1Rw" secondAttribute="bottom" constant="32" id="mWq-cG-qdd"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

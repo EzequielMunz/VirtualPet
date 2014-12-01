@@ -8,10 +8,14 @@
 
 #import "MainMenuViewController.h"
 #import "FirstViewController.h"
+#import "GameViewController.h"
 #import "NotificationManager.h"
+#import "NetworkAccessObject.h"
+#import "Pet.h"
 
 @interface MainMenuViewController ()
 @property (strong, nonatomic) IBOutlet UIButton *btnPlay;
+@property (strong, nonatomic) NetworkAccessObject* daoObject;
 
 @end
 
@@ -20,6 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    self.daoObject = [[NetworkAccessObject alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,6 +60,30 @@
 {
     FirstViewController *firstView = [[FirstViewController alloc] initWithNibName:@"FirstViewController" bundle:[NSBundle mainBundle]];
     [self.navigationController pushViewController:firstView animated:YES];
+}
+
+- (IBAction)btnLoadGameTouched:(id)sender
+{
+    [self.daoObject doGETPetInfo:[self getSuccess]];
+}
+
+- (Success) getSuccess
+{
+    return ^(NSURLSessionDataTask* data, id responseObject){
+      
+        NSLog(@"JSON: %@", responseObject);
+        NSString* name = [responseObject objectForKey:@"name"];
+        int level = ((NSNumber*)[responseObject objectForKey:@"level"]).intValue;
+        int actualExp = ((NSNumber*)[responseObject objectForKey:@"experience"]).intValue;
+        int energy = ((NSNumber*)[responseObject objectForKey:@"energy"]).intValue;
+        PetType type = ((NSNumber*)[responseObject objectForKey:@"pet_type"]).intValue;
+        
+        [[Pet sharedInstance] reloadDataName:name level:level actualExp:actualExp energy:energy andPetType:type];
+        
+        GameViewController* game = [[GameViewController alloc] initWithNibName:@"GameViewController" bundle:[NSBundle mainBundle] andImageTag:type];
+        [self.navigationController pushViewController:game animated:YES];
+        
+    };
 }
 
 @end
