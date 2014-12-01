@@ -20,6 +20,14 @@
 		374E814F1A28C2330081EC2F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374E814E1A28C2330081EC2F /* Security.framework */; };
 		374E81531A28C2470081EC2F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374E81521A28C2470081EC2F /* SystemConfiguration.framework */; };
 		374E81561A28EE400081EC2F /* NotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 374E81551A28EE400081EC2F /* NotificationManager.m */; };
+		376AB1CD1A2CC2FB006BF26D /* PetListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 376AB1C81A2CC2FB006BF26D /* PetListCell.m */; };
+		376AB1CE1A2CC2FB006BF26D /* PetListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 376AB1C91A2CC2FB006BF26D /* PetListCell.xib */; };
+		376AB1CF1A2CC2FB006BF26D /* PetListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 376AB1CB1A2CC2FB006BF26D /* PetListViewController.m */; };
+		376AB1D01A2CC2FB006BF26D /* PetListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 376AB1CC1A2CC2FB006BF26D /* PetListViewController.xib */; };
+		376AB1D41A2CC31A006BF26D /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 376AB1D21A2CC31A006BF26D /* MapViewController.m */; };
+		376AB1D51A2CC31A006BF26D /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 376AB1D31A2CC31A006BF26D /* MapViewController.xib */; };
+		376AB1D81A2CC95D006BF26D /* LocationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 376AB1D71A2CC95D006BF26D /* LocationHandler.m */; };
+		376AB1DB1A2CFCE8006BF26D /* CustomMapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 376AB1DA1A2CFCE8006BF26D /* CustomMapPoint.m */; };
 		377A633A1A1BCA4900CE8C74 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 377A63391A1BCA4900CE8C74 /* main.m */; };
 		377A63451A1BCA4900CE8C74 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 377A63441A1BCA4900CE8C74 /* Images.xcassets */; };
 		377A63481A1BCA4900CE8C74 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 377A63461A1BCA4900CE8C74 /* LaunchScreen.xib */; };
@@ -30,8 +38,6 @@
 		377A63721A1BD12A00CE8C74 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377A63701A1BD12A00CE8C74 /* GameViewController.m */; };
 		377A63731A1BD12A00CE8C74 /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 377A63711A1BD12A00CE8C74 /* GameViewController.xib */; };
 		377CCDE41A2CB40C002172C5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 377CCDE31A2CB40C002172C5 /* MapKit.framework */; };
-		377CCDE91A2CB6BF002172C5 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377CCDE71A2CB6BF002172C5 /* MapViewController.m */; };
-		377CCDEA1A2CB6BF002172C5 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 377CCDE81A2CB6BF002172C5 /* MapViewController.xib */; };
 		377FA8E21A1E545800E9A07D /* FoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377FA8E01A1E545800E9A07D /* FoodViewController.m */; };
 		377FA8E31A1E545800E9A07D /* FoodViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 377FA8E11A1E545800E9A07D /* FoodViewController.xib */; };
 		377FA8EA1A1E5F5200E9A07D /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 377FA8E81A1E5F5200E9A07D /* TableViewCell.m */; };
@@ -46,10 +52,6 @@
 		3784B8AF1A274A680036E52D /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3784B8A51A274A680036E52D /* NetworkManager.m */; };
 		3784B8B01A274A680036E52D /* Pet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3784B8A71A274A680036E52D /* Pet.m */; };
 		3784B8B11A274A680036E52D /* PetFood.m in Sources */ = {isa = PBXBuildFile; fileRef = 3784B8AA1A274A680036E52D /* PetFood.m */; };
-		3785DF741A2A03240050FB02 /* PetListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3785DF721A2A03240050FB02 /* PetListViewController.m */; };
-		3785DF751A2A03240050FB02 /* PetListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3785DF731A2A03240050FB02 /* PetListViewController.xib */; };
-		3785DF791A2A04990050FB02 /* PetListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3785DF771A2A04990050FB02 /* PetListCell.m */; };
-		3785DF7A1A2A04990050FB02 /* PetListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3785DF781A2A04990050FB02 /* PetListCell.xib */; };
 		37CDE6BA1A262A6D00313E47 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CDE6261A262A6D00313E47 /* AFHTTPRequestOperation.m */; };
 		37CDE6BB1A262A6D00313E47 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CDE6281A262A6D00313E47 /* AFHTTPRequestOperationManager.m */; };
 		37CDE6BC1A262A6D00313E47 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CDE62A1A262A6D00313E47 /* AFHTTPSessionManager.m */; };
@@ -96,6 +98,19 @@
 		374E81521A28C2470081EC2F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		374E81541A28EE400081EC2F /* NotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationManager.h; sourceTree = "<group>"; };
 		374E81551A28EE400081EC2F /* NotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationManager.m; sourceTree = "<group>"; };
+		376AB1C71A2CC2FB006BF26D /* PetListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetListCell.h; sourceTree = "<group>"; };
+		376AB1C81A2CC2FB006BF26D /* PetListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetListCell.m; sourceTree = "<group>"; };
+		376AB1C91A2CC2FB006BF26D /* PetListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PetListCell.xib; sourceTree = "<group>"; };
+		376AB1CA1A2CC2FB006BF26D /* PetListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetListViewController.h; sourceTree = "<group>"; };
+		376AB1CB1A2CC2FB006BF26D /* PetListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetListViewController.m; sourceTree = "<group>"; };
+		376AB1CC1A2CC2FB006BF26D /* PetListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PetListViewController.xib; sourceTree = "<group>"; };
+		376AB1D11A2CC31A006BF26D /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		376AB1D21A2CC31A006BF26D /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		376AB1D31A2CC31A006BF26D /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		376AB1D61A2CC95D006BF26D /* LocationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationHandler.h; sourceTree = "<group>"; };
+		376AB1D71A2CC95D006BF26D /* LocationHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationHandler.m; sourceTree = "<group>"; };
+		376AB1D91A2CFCE8006BF26D /* CustomMapPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomMapPoint.h; sourceTree = "<group>"; };
+		376AB1DA1A2CFCE8006BF26D /* CustomMapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomMapPoint.m; sourceTree = "<group>"; };
 		377A63341A1BCA4900CE8C74 /* VirtualPet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirtualPet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		377A63381A1BCA4900CE8C74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		377A63391A1BCA4900CE8C74 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -113,9 +128,6 @@
 		377A63701A1BD12A00CE8C74 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		377A63711A1BD12A00CE8C74 /* GameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
 		377CCDE31A2CB40C002172C5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		377CCDE61A2CB6BF002172C5 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
-		377CCDE71A2CB6BF002172C5 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
-		377CCDE81A2CB6BF002172C5 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		377FA8DF1A1E545800E9A07D /* FoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodViewController.h; sourceTree = "<group>"; };
 		377FA8E01A1E545800E9A07D /* FoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodViewController.m; sourceTree = "<group>"; };
 		377FA8E11A1E545800E9A07D /* FoodViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodViewController.xib; sourceTree = "<group>"; };
@@ -141,12 +153,6 @@
 		3784B8A81A274A680036E52D /* PetConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetConfig.h; sourceTree = "<group>"; };
 		3784B8A91A274A680036E52D /* PetFood.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetFood.h; sourceTree = "<group>"; };
 		3784B8AA1A274A680036E52D /* PetFood.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetFood.m; sourceTree = "<group>"; };
-		3785DF711A2A03240050FB02 /* PetListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetListViewController.h; sourceTree = "<group>"; };
-		3785DF721A2A03240050FB02 /* PetListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetListViewController.m; sourceTree = "<group>"; };
-		3785DF731A2A03240050FB02 /* PetListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PetListViewController.xib; sourceTree = "<group>"; };
-		3785DF761A2A04990050FB02 /* PetListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetListCell.h; sourceTree = "<group>"; };
-		3785DF771A2A04990050FB02 /* PetListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetListCell.m; sourceTree = "<group>"; };
-		3785DF781A2A04990050FB02 /* PetListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PetListCell.xib; sourceTree = "<group>"; };
 		37CDE6251A262A6D00313E47 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		37CDE6261A262A6D00313E47 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		37CDE6271A262A6D00313E47 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -327,9 +333,13 @@
 		377CCDE51A2CB6AD002172C5 /* MapView */ = {
 			isa = PBXGroup;
 			children = (
-				377CCDE61A2CB6BF002172C5 /* MapViewController.h */,
-				377CCDE71A2CB6BF002172C5 /* MapViewController.m */,
-				377CCDE81A2CB6BF002172C5 /* MapViewController.xib */,
+				376AB1D11A2CC31A006BF26D /* MapViewController.h */,
+				376AB1D21A2CC31A006BF26D /* MapViewController.m */,
+				376AB1D31A2CC31A006BF26D /* MapViewController.xib */,
+				376AB1D61A2CC95D006BF26D /* LocationHandler.h */,
+				376AB1D71A2CC95D006BF26D /* LocationHandler.m */,
+				376AB1D91A2CFCE8006BF26D /* CustomMapPoint.h */,
+				376AB1DA1A2CFCE8006BF26D /* CustomMapPoint.m */,
 			);
 			path = MapView;
 			sourceTree = "<group>";
@@ -385,12 +395,12 @@
 		3785DF701A2A02FE0050FB02 /* PetList Scene */ = {
 			isa = PBXGroup;
 			children = (
-				3785DF711A2A03240050FB02 /* PetListViewController.h */,
-				3785DF721A2A03240050FB02 /* PetListViewController.m */,
-				3785DF731A2A03240050FB02 /* PetListViewController.xib */,
-				3785DF761A2A04990050FB02 /* PetListCell.h */,
-				3785DF771A2A04990050FB02 /* PetListCell.m */,
-				3785DF781A2A04990050FB02 /* PetListCell.xib */,
+				376AB1C71A2CC2FB006BF26D /* PetListCell.h */,
+				376AB1C81A2CC2FB006BF26D /* PetListCell.m */,
+				376AB1C91A2CC2FB006BF26D /* PetListCell.xib */,
+				376AB1CA1A2CC2FB006BF26D /* PetListViewController.h */,
+				376AB1CB1A2CC2FB006BF26D /* PetListViewController.m */,
+				376AB1CC1A2CC2FB006BF26D /* PetListViewController.xib */,
 			);
 			path = "PetList Scene";
 			sourceTree = "<group>";
@@ -540,14 +550,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3785DF7A1A2A04990050FB02 /* PetListCell.xib in Resources */,
-				377CCDEA1A2CB6BF002172C5 /* MapViewController.xib in Resources */,
+				376AB1CE1A2CC2FB006BF26D /* PetListCell.xib in Resources */,
 				377A63481A1BCA4900CE8C74 /* LaunchScreen.xib in Resources */,
 				377A63451A1BCA4900CE8C74 /* Images.xcassets in Resources */,
-				3785DF751A2A03240050FB02 /* PetListViewController.xib in Resources */,
 				377FA8F01A1E76BE00E9A07D /* TableViewCellExtra.xib in Resources */,
 				377A63671A1BCC2800CE8C74 /* FirstViewController.xib in Resources */,
+				376AB1D01A2CC2FB006BF26D /* PetListViewController.xib in Resources */,
 				3782E76F1A1CF716009A4C10 /* MainMenuViewController.xib in Resources */,
+				376AB1D51A2CC31A006BF26D /* MapViewController.xib in Resources */,
 				377FA8EB1A1E5F5200E9A07D /* TableViewCell.xib in Resources */,
 				37CDE7231A26692900313E47 /* SelectImgViewController.xib in Resources */,
 				377A63731A1BD12A00CE8C74 /* GameViewController.xib in Resources */,
@@ -569,25 +579,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				377CCDE91A2CB6BF002172C5 /* MapViewController.m in Sources */,
 				377A63721A1BD12A00CE8C74 /* GameViewController.m in Sources */,
 				37CDE6BB1A262A6D00313E47 /* AFHTTPRequestOperationManager.m in Sources */,
 				37CDE7091A262A6D00313E47 /* UIImageView+AFNetworking.m in Sources */,
+				376AB1D41A2CC31A006BF26D /* MapViewController.m in Sources */,
 				37CDE70B1A262A6D00313E47 /* UIRefreshControl+AFNetworking.m in Sources */,
 				37CDE7071A262A6D00313E47 /* UIAlertView+AFNetworking.m in Sources */,
 				3784B8B01A274A680036E52D /* Pet.m in Sources */,
 				377A636D1A1BCD1D00CE8C74 /* SelectImgViewController.m in Sources */,
 				37CDE6BF1A262A6D00313E47 /* AFURLConnectionOperation.m in Sources */,
-				3785DF741A2A03240050FB02 /* PetListViewController.m in Sources */,
 				3784B8B11A274A680036E52D /* PetFood.m in Sources */,
+				376AB1CF1A2CC2FB006BF26D /* PetListViewController.m in Sources */,
 				3784B8AB1A274A680036E52D /* AppDelegate.m in Sources */,
 				37CDE7051A262A6D00313E47 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				37CDE70A1A262A6D00313E47 /* UIProgressView+AFNetworking.m in Sources */,
+				376AB1D81A2CC95D006BF26D /* LocationHandler.m in Sources */,
 				374E81561A28EE400081EC2F /* NotificationManager.m in Sources */,
 				3784B8AE1A274A680036E52D /* NetworkAccessObject.m in Sources */,
 				377A633A1A1BCA4900CE8C74 /* main.m in Sources */,
-				3785DF791A2A04990050FB02 /* PetListCell.m in Sources */,
+				376AB1CD1A2CC2FB006BF26D /* PetListCell.m in Sources */,
 				37CDE6C01A262A6D00313E47 /* AFURLRequestSerialization.m in Sources */,
+				376AB1DB1A2CFCE8006BF26D /* CustomMapPoint.m in Sources */,
 				377FA8EA1A1E5F5200E9A07D /* TableViewCell.m in Sources */,
 				37CDE7061A262A6D00313E47 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				37CDE6BC1A262A6D00313E47 /* AFHTTPSessionManager.m in Sources */,

@@ -8,8 +8,8 @@
 
 #import "PetListViewController.h"
 #import "NetworkAccessObject.h"
-#import "PetListCell.h"
 #import "Pet.h"
+#import "MapViewController.h"
 
 @interface PetListViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *petRankingList;
@@ -33,6 +33,8 @@
     self.daoObject = [[NetworkAccessObject alloc] init];
     self.petArray = [[NSMutableArray alloc] init];
     
+     [self.daoObject doGETPetList:[self getSuccess]];
+    
     [self.petRankingList registerNib:[UINib nibWithNibName:@"PetListCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"PetListCell"];
     [self.petRankingList reloadData];
 }
@@ -45,8 +47,6 @@
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    [self.daoObject doGETPetList:[self getSuccess]];
 }
 
 /*
@@ -76,22 +76,11 @@
     {
         newCell = [[PetListCell alloc] init];
     }
+    [newCell setDelegate:self];
 
     // Iniciamos los datos de la celda
     Pet* pet = (Pet*)[self.petArraySorted objectAtIndex:indexPath.row];
-    
-    [newCell.petImageView setImage:[UIImage imageNamed:pet.petImageName]];
-    [newCell.petLevelLabel setText:[NSString stringWithFormat:@"%d", pet.petLevel]];
-    [newCell.petNameLabel setText:pet.petName];
-    
-    if([pet.userID isEqualToString:CODE_IDENTIFIER])
-    {
-        [newCell setBackgroundColor:[UIColor greenColor]];
-    }
-    else
-    {
-        [newCell setBackgroundColor:[UIColor colorWithRed:100 green:0 blue:0 alpha:0.2]];
-    }
+    [newCell setPet:pet];
     
     return newCell;
 }
@@ -115,12 +104,7 @@
         NSArray* responseArray = (NSArray*)responseObject;
         
         for (NSDictionary* dic in responseArray) {
-            NSString* name = [dic objectForKey:@"name"];
-            int level = ((NSNumber*)[dic objectForKey:@"level"]).intValue;
-            PetType type = ((NSNumber*)[dic objectForKey:@"pet_type"]).intValue;
-            NSString* userId = [dic objectForKey:@"code"];
-            
-            Pet* newPet = [[Pet alloc] initWithType:type petName:name level:level andUserID:userId];
+            Pet* newPet = [[Pet alloc] initWithDictionary:dic];
             [weakerSelf.petArray addObject:newPet];
         }
         [self sortArray];
@@ -140,6 +124,16 @@
         
         return [level2 compare: level1];
     }];
+}
+
+//****************************************************
+// Map Delegate
+//****************************************************
+
+- (void) goToMapWithLocation:(Pet*) pet
+{
+    MapViewController* mapView = [[MapViewController alloc] initWithNibName:@"MapViewController" bundle:[NSBundle mainBundle] andPet:pet];
+    [self.navigationController pushViewController:mapView animated:YES];
 }
 
 @end

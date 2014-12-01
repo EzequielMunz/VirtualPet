@@ -25,17 +25,18 @@ NSString* const EVENT_RELOAD_DATA = @"RELOAD_DATA";
 
 @implementation Pet
 
-- (instancetype) initWithType:(PetType)type petName:(NSString *)name level:(int)level andUserID: (NSString*) userID;
+- (instancetype) initWithDictionary:(NSDictionary *)dic
 {
     self = [super init];
     
     if(self)
     {
-        self.userID = userID;
-        self.petName = name;
-        self.petLevel = level;
-        self.petType = type;
-        switch (type) {
+        self.petName = [dic objectForKey:@"name"];
+        self.petLevel = ((NSNumber*)[dic objectForKey:@"level"]).intValue;
+        self.petType = ((NSNumber*)[dic objectForKey:@"pet_type"]).intValue;
+        self.userID = [dic objectForKey:@"code"];
+        
+        switch (self.petType) {
             case TYPE_CIERVO:
                 self.petImageName = @"ciervo_comiendo_1";
                 break;
@@ -52,9 +53,9 @@ NSString* const EVENT_RELOAD_DATA = @"RELOAD_DATA";
             default:
                 break;
         }
-        
+
+        self.location = [[CLLocation alloc] initWithLatitude:((NSNumber*)[dic objectForKey:@"position_lat"]).doubleValue longitude:((NSNumber*)[dic objectForKey:@"position_lon"]).doubleValue];
     }
-    
     return self;
 }
 
@@ -130,7 +131,7 @@ NSString* const EVENT_RELOAD_DATA = @"RELOAD_DATA";
     
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_LEVEL_UP object:[NSNumber numberWithInt:self.petLevel]];
     
-    [self.daoObject doPOSTPetLevelUp];
+    [self.daoObject doPOSTPetUpdate];
 }
 
 - (void) calculateNeededExperience

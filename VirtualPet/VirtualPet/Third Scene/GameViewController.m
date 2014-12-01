@@ -12,6 +12,7 @@
 #import "NetworkAccessObject.h"
 #import "NotificationManager.h"
 #import "PetListViewController.h"
+#import "LocationHandler.h"
 
 float const eatAnimationTime = 0.5f;
 float const exhaustAnimationTime = 1.2f;
@@ -40,6 +41,7 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
 
 @property (nonatomic, strong) MFMailComposeViewController* myMailView;
 @property (nonatomic, strong) NetworkAccessObject* daoObject;
+@property (nonatomic, strong) LocationHandler* locationHandler;
 
 @end
 
@@ -102,6 +104,10 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
     
     // Instanciamos el DAO
     self.daoObject = [[NetworkAccessObject alloc] init];
+    
+    // Comenzamos el tracking de la mascota
+    self.locationHandler = [[LocationHandler alloc] init];
+    [self.locationHandler startTracking];
 
 }
 

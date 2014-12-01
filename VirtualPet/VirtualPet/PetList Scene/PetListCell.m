@@ -7,6 +7,13 @@
 //
 
 #import "PetListCell.h"
+#import "MapViewController.h"
+
+@interface PetListCell()
+
+@property (nonatomic, strong) Pet* myPet;
+
+@end
 
 @implementation PetListCell
 
@@ -18,6 +25,29 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void) setPet:(Pet *)pet
+{
+    [self.petImageView setImage:[UIImage imageNamed:pet.petImageName]];
+    [self.petLevelLabel setText:[NSString stringWithFormat:@"%d", pet.petLevel]];
+    [self.petNameLabel setText:pet.petName];
+    
+    if([pet.userID isEqualToString:@"em3896"])
+    {
+        [self setBackgroundColor:[UIColor greenColor]];
+    }
+    else
+    {
+        [self setBackgroundColor:[UIColor colorWithRed:100 green:0 blue:0 alpha:0.2]];
+    }
+    
+    self.myPet = pet;
+}
+
+- (IBAction)btnMapTouched:(id)sender
+{
+    [self.delegate goToMapWithLocation:self.myPet];
 }
 
 @end

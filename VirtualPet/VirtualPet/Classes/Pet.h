@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 #import "PetConfig.h"
 
 extern NSString* const EVENT_UPDATE_ENERGY;
@@ -22,10 +23,11 @@ extern NSString* const EVENT_RELOAD_DATA;
 @property (nonatomic) PetType petType;
 @property (nonatomic) BOOL doingExcercise;
 @property (nonatomic, strong) NSString* userID;
+@property (nonatomic, strong) CLLocation* location;
 
 @property (nonatomic) int petLevel;
 
-- (instancetype) initWithType: (PetType) type petName: (NSString*)name level:(int)level andUserID: (NSString*) userID;
+- (instancetype) initWithDictionary: (NSDictionary*) dic;
 
 + (instancetype) sharedInstance;
 

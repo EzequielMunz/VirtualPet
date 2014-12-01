@@ -30,14 +30,16 @@ NSString* const CODE_IDENTIFIER = @"em3896";
     [[NetworkManager sharedInstance] GET:EVENT_PATH_GET parameters:nil success:self.mySuccessBlock failure:[self getFailure]];
 }
 
-- (void) doPOSTPetLevelUp
+- (void) doPOSTPetUpdate
 {
     NSDictionary* petInfo = @{@"code" : @"em3896",
                               @"name" : [Pet sharedInstance].petName,
                               @"energy" : [NSNumber numberWithInt:[[Pet sharedInstance] getEnergy]],
                               @"level" : [NSNumber numberWithInt:[Pet sharedInstance].petLevel],
                               @"experience" : [NSNumber numberWithInt:[[Pet sharedInstance] getActualExp]],
-                              @"pet_type" : [NSNumber numberWithInt:[Pet sharedInstance].petType]};
+                              @"pet_type" : [NSNumber numberWithInt:[Pet sharedInstance].petType],
+                              @"position_lat" : [NSNumber numberWithFloat:[Pet sharedInstance].location.coordinate.latitude],
+                              @"position_lon" : [NSNumber numberWithFloat:[Pet sharedInstance].location.coordinate.longitude]};
     
     [[NetworkManager sharedInstance] POST:EVENT_PATH_POST parameters:petInfo success:[self postSuccess] failure:[self postFailure]];
 }

@@ -12,6 +12,7 @@
 #import "NotificationManager.h"
 #import "NetworkAccessObject.h"
 #import "Pet.h"
+#import "LocationHandler.h"
 
 @interface MainMenuViewController ()
 @property (strong, nonatomic) IBOutlet UIButton *btnPlay;

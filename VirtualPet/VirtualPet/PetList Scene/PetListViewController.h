@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PetListCell.h"
 
-@interface PetListViewController : UIViewController <UITableViewDataSource>
+@interface PetListViewController : UIViewController <UITableViewDataSource, MapProtocol>
 
 @end
