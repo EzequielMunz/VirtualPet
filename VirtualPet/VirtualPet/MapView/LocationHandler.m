@@ -7,7 +7,7 @@
 //
 
 #import "LocationHandler.h"
-#import "Pet.h"
+#import "MyPet.h"
 #import "NetworkAccessObject.h"
 
 @interface LocationHandler()
@@ -31,7 +31,14 @@
     [self.locationManager setDelegate:self];
     self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
     self.locationManager.distanceFilter = 20; // En Metros
-    [self.locationManager startUpdatingLocation];
+    
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+    {
+        [self.locationManager requestWhenInUseAuthorization];
+    } else
+    {
+        [self.locationManager startUpdatingLocation];
+    }
 }
 
 - (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
@@ -42,9 +49,12 @@
     
     if(abs(interval) < 120.00)
     {
+        // Location: Alaska.
         //[manager stopUpdatingLocation];
-        [Pet sharedInstance].location = myLocation;
-        NSLog(@"Pet Location: %f/%f", [Pet sharedInstance].location.coordinate.latitude, [Pet sharedInstance].location.coordinate.longitude);
+        //[Pet sharedInstance].location = [[CLLocation alloc] initWithLatitude:61.2 longitude:-149.9];
+        // Location Device.
+        [MyPet sharedInstance].location = myLocation;
+        NSLog(@"Pet Location: %f/%f", [MyPet sharedInstance].location.coordinate.latitude, [MyPet sharedInstance].location.coordinate.longitude);
         [self.daoObject doPOSTPetUpdate];
     }
 }

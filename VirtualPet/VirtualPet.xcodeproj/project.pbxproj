@@ -52,6 +52,7 @@
 		3784B8AF1A274A680036E52D /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3784B8A51A274A680036E52D /* NetworkManager.m */; };
 		3784B8B01A274A680036E52D /* Pet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3784B8A71A274A680036E52D /* Pet.m */; };
 		3784B8B11A274A680036E52D /* PetFood.m in Sources */ = {isa = PBXBuildFile; fileRef = 3784B8AA1A274A680036E52D /* PetFood.m */; };
+		37A472CC1A2DFB2C00118D47 /* MyPet.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A472CB1A2DFB2C00118D47 /* MyPet.m */; };
 		37CDE6BA1A262A6D00313E47 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CDE6261A262A6D00313E47 /* AFHTTPRequestOperation.m */; };
 		37CDE6BB1A262A6D00313E47 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CDE6281A262A6D00313E47 /* AFHTTPRequestOperationManager.m */; };
 		37CDE6BC1A262A6D00313E47 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CDE62A1A262A6D00313E47 /* AFHTTPSessionManager.m */; };
@@ -153,6 +154,8 @@
 		3784B8A81A274A680036E52D /* PetConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetConfig.h; sourceTree = "<group>"; };
 		3784B8A91A274A680036E52D /* PetFood.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetFood.h; sourceTree = "<group>"; };
 		3784B8AA1A274A680036E52D /* PetFood.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetFood.m; sourceTree = "<group>"; };
+		37A472CA1A2DFB2C00118D47 /* MyPet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPet.h; sourceTree = "<group>"; };
+		37A472CB1A2DFB2C00118D47 /* MyPet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPet.m; sourceTree = "<group>"; };
 		37CDE6251A262A6D00313E47 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		37CDE6261A262A6D00313E47 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		37CDE6271A262A6D00313E47 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -388,6 +391,8 @@
 				3784B8AA1A274A680036E52D /* PetFood.m */,
 				374E81541A28EE400081EC2F /* NotificationManager.h */,
 				374E81551A28EE400081EC2F /* NotificationManager.m */,
+				37A472CA1A2DFB2C00118D47 /* MyPet.h */,
+				37A472CB1A2DFB2C00118D47 /* MyPet.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -603,6 +608,7 @@
 				377FA8EA1A1E5F5200E9A07D /* TableViewCell.m in Sources */,
 				37CDE7061A262A6D00313E47 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				37CDE6BC1A262A6D00313E47 /* AFHTTPSessionManager.m in Sources */,
+				37A472CC1A2DFB2C00118D47 /* MyPet.m in Sources */,
 				37CDE6BA1A262A6D00313E47 /* AFHTTPRequestOperation.m in Sources */,
 				3743DC011A25004800270C68 /* NSTimer+TimerWithAutoInvalidate.m in Sources */,
 				37CDE6BE1A262A6D00313E47 /* AFSecurityPolicy.m in Sources */,

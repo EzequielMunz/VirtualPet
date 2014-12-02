@@ -37,6 +37,13 @@
     
     [self.petRankingList registerNib:[UINib nibWithNibName:@"PetListCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"PetListCell"];
     [self.petRankingList reloadData];
+    
+    // Boton en la navigation
+    UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+    [button addTarget:self action:@selector(loadFullMap) forControlEvents:UIControlEventTouchUpInside];
+    [button setBackgroundImage:[UIImage imageNamed:@"map-icon"] forState:UIControlStateNormal];
+    UIBarButtonItem* mailButton = [[UIBarButtonItem alloc] initWithCustomView:button];
+    self.navigationItem.rightBarButtonItem = mailButton;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,6 +54,13 @@
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self setTitle:@"Ranking"];
+}
+
+- (void) viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self setTitle:@"---"];
 }
 
 /*
@@ -133,6 +147,17 @@
 - (void) goToMapWithLocation:(Pet*) pet
 {
     MapViewController* mapView = [[MapViewController alloc] initWithNibName:@"MapViewController" bundle:[NSBundle mainBundle] andPet:pet];
+    [self.navigationController pushViewController:mapView animated:YES];
+}
+
+- (void) loadFullMap
+{
+    [self goToMapWithPetArray:self.petArray];
+}
+
+- (void) goToMapWithPetArray: (NSArray*) petArray
+{
+    MapViewController* mapView = [[MapViewController alloc] initWithNibName:@"MapViewController" bundle:[NSBundle mainBundle] andPetArray:self.petArray];
     [self.navigationController pushViewController:mapView animated:YES];
 }
 

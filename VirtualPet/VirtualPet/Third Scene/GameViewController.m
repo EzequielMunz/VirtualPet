@@ -24,7 +24,6 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
 
 @interface GameViewController ()
 
-@property (nonatomic) PetType imageTag;
 @property (nonatomic, strong) PetFood* myFood;
 @property (nonatomic) CGPoint imageViewFoodPosition;
 
@@ -47,20 +46,6 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
 
 @implementation GameViewController
 
-#pragma mark - Constructor
-
-- (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andImageTag:(PetType)tag
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    
-    if (self)
-    {
-        self.imageTag = tag;
-    }
-    
-    return self;
-}
-
 #pragma mark - Ciclo de Vida
 
 //*************************************************************
@@ -71,15 +56,18 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [self.lblPetName setText:[NSString stringWithFormat:@"%@ Lvl: %d", [Pet sharedInstance].petName, [Pet sharedInstance].petLevel]];
-    [self.petImageView setImage:[UIImage imageNamed:[Pet sharedInstance].petImageName]];
+    // Guardamos nuestro pet en el dispositivo
+    
+    
+    [self.lblPetName setText:[NSString stringWithFormat:@"%@ Lvl: %d", [MyPet sharedInstance].petName, [MyPet sharedInstance].petLevel]];
+    [self.petImageView setImage:[UIImage imageNamed:[MyPet sharedInstance].petImageName]];
     
     // Iniciar Barra de energia
-    float value = [[Pet sharedInstance] getEnergy];
+    float value = [[MyPet sharedInstance] getEnergy];
     value = value / 100;
     [self updateEnergyProgress:value];
     
-    [self setTitle: [Pet sharedInstance].petName];
+    [self setTitle: [MyPet sharedInstance].petName];
     
     self.imageViewFoodPosition = CGPointMake(self.imgViewFood.frame.origin.x, self.imgViewFood.frame.origin.y);
     
@@ -95,11 +83,11 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
      [self.petEnergyBar setTransform:CGAffineTransformMakeScale(1.0, 7.0)];
     
     // Cargamos las imagenes en el loader
-    [[ImagesLoader sharedInstance] loadPetArraysWithTag:self.imageTag];
+    [[ImagesLoader sharedInstance] loadPetArraysWithTag:[MyPet sharedInstance].petType];
     
-    [self.lblExperience setText:[NSString stringWithFormat:@"%d / %d", [[Pet sharedInstance] getActualExp], [[Pet sharedInstance] getNeededExp]]];
-    float actualExp = [[Pet sharedInstance] getActualExp];
-    float barValue = actualExp/[[Pet sharedInstance] getNeededExp];
+    [self.lblExperience setText:[NSString stringWithFormat:@"%d / %d", [[MyPet sharedInstance] getActualExp], [[MyPet sharedInstance] getNeededExp]]];
+    float actualExp = [[MyPet sharedInstance] getActualExp];
+    float barValue = actualExp/[[MyPet sharedInstance] getNeededExp];
     [self.petExpProgressBar setProgress:barValue];
     
     // Instanciamos el DAO
@@ -134,7 +122,7 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
     
     [self.petImageView stopAnimating];
     [self.btnExcercise setTitle:@"Do Excercise" forState:UIControlStateNormal];
-    [Pet sharedInstance].doingExcercise = false;
+    [MyPet sharedInstance].doingExcercise = false;
 }
 
 - (void) viewDidDisappear:(BOOL)animated
@@ -184,7 +172,7 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
 - (IBAction)btnDoExcerciseClicked:(id)sender {
     [self animateExcercisingPet];
     
-    NSString* btnText = ([Pet sharedInstance].doingExcercise ? @"Stop" : @"Do Excercise");
+    NSString* btnText = ([MyPet sharedInstance].doingExcercise ? @"Stop" : @"Do Excercise");
     [self.btnExcercise setTitle:btnText forState:UIControlStateNormal];
 }
 
@@ -230,7 +218,7 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
     [self.petImageView setAnimationRepeatCount:eatAnimationIterations];
     [self setNormalStatePetImage];
     [self.petImageView startAnimating];
-    [[Pet sharedInstance] doEat: self.myFood.foodEnergyValue];
+    [[MyPet sharedInstance] doEat: self.myFood.foodEnergyValue];
 }
 
 -(void) animateExcercisingPet
@@ -245,19 +233,19 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
     [self.petImageView setAnimationDuration:eatAnimationTime];
     [self.petImageView setAnimationRepeatCount:0];
     
-    if([Pet sharedInstance].doingExcercise)
+    if([MyPet sharedInstance].doingExcercise)
     {
         [self.petImageView stopAnimating];
         
         // Invalidamos el Timer
         [self.energyTimer autoInvalidate];
-        [Pet sharedInstance].doingExcercise = NO;
+        [MyPet sharedInstance].doingExcercise = NO;
     }
     else
     {
         [self.petImageView startAnimating];
         self.energyTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateEnergyByExcercise) userInfo:nil repeats:YES];
-        [Pet sharedInstance].doingExcercise = YES;
+        [MyPet sharedInstance].doingExcercise = YES;
     }
 }
 
@@ -280,8 +268,8 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
 
 - (void) updateEnergyByExcercise
 {
-    [[Pet sharedInstance] doExcercise];
-    [[Pet sharedInstance] gainExperience];
+    [[MyPet sharedInstance] doExcercise];
+    [[MyPet sharedInstance] gainExperience];
 }
 
 #pragma mark - Food Delegate Metodos
@@ -341,9 +329,9 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
 
 - (void) updateExperience
 {
-    [self.lblExperience setText:[NSString stringWithFormat:@"%d / %d", [[Pet sharedInstance] getActualExp], [[Pet sharedInstance] getNeededExp]]];
-    float actualExp = [[Pet sharedInstance] getActualExp];
-    float barValue = actualExp/[[Pet sharedInstance] getNeededExp];
+    [self.lblExperience setText:[NSString stringWithFormat:@"%d / %d", [[MyPet sharedInstance] getActualExp], [[MyPet sharedInstance] getNeededExp]]];
+    float actualExp = [[MyPet sharedInstance] getActualExp];
+    float barValue = actualExp/[[MyPet sharedInstance] getNeededExp];
     [self.petExpProgressBar setProgress:barValue];
 }
 
@@ -352,14 +340,15 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
     int level = ((NSNumber*)notification.object).intValue;
     [[[UIAlertView alloc] initWithTitle:@"Congratulations" message:[NSString stringWithFormat:@"You raised level %d", level] delegate:self cancelButtonTitle:@"CONTINUE" otherButtonTitles:nil, nil] show];
     
-    [self.lblPetName setText:[NSString stringWithFormat:@"%@ Lvl: %d", [Pet sharedInstance].petName, level]];
+    [self.lblPetName setText:[NSString stringWithFormat:@"%@ Lvl: %d", [MyPet sharedInstance].petName, level]];
     
     // Enviamos la notificacion de level up
     NSDictionary* dic = @{@"code": CODE_IDENTIFIER,
-                          @"name": [Pet sharedInstance].petName,
-                          @"level": [NSNumber numberWithInt:[Pet sharedInstance].petLevel]
+                          @"name": [MyPet sharedInstance].petName,
+                          @"level": [NSNumber numberWithInt:[MyPet sharedInstance].petLevel]
                         };
     [NotificationManager sendNotification:dic];
+    [MyPet saveDataToDisk];
 }
 
 //********************************************
@@ -378,12 +367,12 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
         int energy = ((NSNumber*)[responseObject objectForKey:@"energy"]).intValue;
         PetType type = ((NSNumber*)[responseObject objectForKey:@"pet_type"]).intValue;
         
-        [[Pet sharedInstance] reloadDataName:name level:level actualExp:actualExp energy:energy andPetType:type];
+        [[MyPet sharedInstance] reloadDataName:name level:level actualExp:actualExp energy:energy andPetType:type];
         [[ImagesLoader sharedInstance] loadPetArraysWithTag:type];
         
         [weakerSelf.lblPetName setText:[NSString stringWithFormat:@"%@ Lvl: %d", name, level]];
         [weakerSelf updateExperience];
-        [weakerSelf.petImageView setImage:[UIImage imageNamed:[Pet sharedInstance].petImageName]];
+        [weakerSelf.petImageView setImage:[UIImage imageNamed:[MyPet sharedInstance].petImageName]];
         float barEnergy = energy;
         barEnergy = barEnergy / 100;
         [weakerSelf updateEnergyProgress:barEnergy];
@@ -396,7 +385,7 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
 //********************************************
 - (void) sendEMail
 {
-    NSString* mailBody = [NSString stringWithFormat:MAIL_BODY_MESSAGE, [Pet sharedInstance].petName];
+    NSString* mailBody = [NSString stringWithFormat:MAIL_BODY_MESSAGE, [MyPet sharedInstance].petName];
     NSString* mailSubject = MAIL_SUBJECT;
     self.myMailView = [[MFMailComposeViewController alloc] init];
     self.myMailView.mailComposeDelegate = self;

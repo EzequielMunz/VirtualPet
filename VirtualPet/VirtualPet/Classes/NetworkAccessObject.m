@@ -8,7 +8,7 @@
 
 #import "NetworkAccessObject.h"
 #import "NetworkManager.h"
-#import "Pet.h"
+#import "MyPet.h"
 
 NSString* const EVENT_PATH_POST = @"/pet";
 NSString* const EVENT_PATH_GET = @"/pet/em3896";
@@ -33,13 +33,13 @@ NSString* const CODE_IDENTIFIER = @"em3896";
 - (void) doPOSTPetUpdate
 {
     NSDictionary* petInfo = @{@"code" : @"em3896",
-                              @"name" : [Pet sharedInstance].petName,
-                              @"energy" : [NSNumber numberWithInt:[[Pet sharedInstance] getEnergy]],
-                              @"level" : [NSNumber numberWithInt:[Pet sharedInstance].petLevel],
-                              @"experience" : [NSNumber numberWithInt:[[Pet sharedInstance] getActualExp]],
-                              @"pet_type" : [NSNumber numberWithInt:[Pet sharedInstance].petType],
-                              @"position_lat" : [NSNumber numberWithFloat:[Pet sharedInstance].location.coordinate.latitude],
-                              @"position_lon" : [NSNumber numberWithFloat:[Pet sharedInstance].location.coordinate.longitude]};
+                              @"name" : [MyPet sharedInstance].petName,
+                              @"energy" : [NSNumber numberWithInt:[[MyPet sharedInstance] getEnergy]],
+                              @"level" : [NSNumber numberWithInt:[MyPet sharedInstance].petLevel],
+                              @"experience" : [NSNumber numberWithInt:[[MyPet sharedInstance] getActualExp]],
+                              @"pet_type" : [NSNumber numberWithInt:[MyPet sharedInstance].petType],
+                              @"position_lat" : [NSNumber numberWithFloat:[MyPet sharedInstance].location.coordinate.latitude],
+                              @"position_lon" : [NSNumber numberWithFloat:[MyPet sharedInstance].location.coordinate.longitude]};
     
     [[NetworkManager sharedInstance] POST:EVENT_PATH_POST parameters:petInfo success:[self postSuccess] failure:[self postFailure]];
 }

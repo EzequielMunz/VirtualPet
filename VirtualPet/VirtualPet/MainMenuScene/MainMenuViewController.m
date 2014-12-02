@@ -8,10 +8,11 @@
 
 #import "MainMenuViewController.h"
 #import "FirstViewController.h"
+#import "SelectImgViewController.h"
 #import "GameViewController.h"
 #import "NotificationManager.h"
 #import "NetworkAccessObject.h"
-#import "Pet.h"
+#import "MyPet.h"
 #import "LocationHandler.h"
 
 @interface MainMenuViewController ()
@@ -59,8 +60,24 @@
 */
 - (IBAction)btnPlayTouched:(id)sender
 {
-    FirstViewController *firstView = [[FirstViewController alloc] initWithNibName:@"FirstViewController" bundle:[NSBundle mainBundle]];
-    [self.navigationController pushViewController:firstView animated:YES];
+    if([[NSUserDefaults standardUserDefaults] boolForKey:FIRST_STEP_KEY])
+    {
+        if([[NSUserDefaults standardUserDefaults] boolForKey:SECOND_STEP_KEY])
+        {
+            GameViewController* thirdView = [[GameViewController alloc] initWithNibName:@"GameViewController" bundle:[NSBundle mainBundle]];
+            [self.navigationController pushViewController:thirdView animated:YES];
+        }
+        else
+        {
+            SelectImgViewController* secondView = [[SelectImgViewController alloc] initWithNibName:@"SelectImageViewController" bundle:[NSBundle mainBundle]];
+            [self.navigationController pushViewController:secondView animated:YES];
+        }
+    }
+    else
+    {
+        FirstViewController *firstView = [[FirstViewController alloc] initWithNibName:@"FirstViewController" bundle:[NSBundle mainBundle]];
+        [self.navigationController pushViewController:firstView animated:YES];
+    }
 }
 
 - (IBAction)btnLoadGameTouched:(id)sender
@@ -79,9 +96,9 @@
         int energy = ((NSNumber*)[responseObject objectForKey:@"energy"]).intValue;
         PetType type = ((NSNumber*)[responseObject objectForKey:@"pet_type"]).intValue;
         
-        [[Pet sharedInstance] reloadDataName:name level:level actualExp:actualExp energy:energy andPetType:type];
+        [[MyPet sharedInstance] reloadDataName:name level:level actualExp:actualExp energy:energy andPetType:type];
         
-        GameViewController* game = [[GameViewController alloc] initWithNibName:@"GameViewController" bundle:[NSBundle mainBundle] andImageTag:type];
+        GameViewController* game = [[GameViewController alloc] initWithNibName:@"GameViewController" bundle:[NSBundle mainBundle]];
         [self.navigationController pushViewController:game animated:YES];
         
     };

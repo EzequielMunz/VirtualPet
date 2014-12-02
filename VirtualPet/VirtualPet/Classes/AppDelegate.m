@@ -8,6 +8,10 @@
 
 #import "AppDelegate.h"
 #import "MainMenuViewController.h"
+#import "GameViewController.h"
+#import "SelectImgViewController.h"
+#import "PetConfig.h"
+#import "MyPet.h"
 
 @interface AppDelegate ()
 
@@ -25,8 +29,12 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
+    UINavigationController* navControllerHome;
     MainMenuViewController* home = [[MainMenuViewController alloc] initWithNibName:@"MainMenuViewController" bundle:nil];
-    UINavigationController* navControllerHome = [[UINavigationController alloc] initWithRootViewController:home];
+    
+    navControllerHome = [[UINavigationController alloc] initWithRootViewController:home];
+   
+    //--------------------------
     
     [navControllerHome.navigationBar setBarStyle:UIBarStyleBlackTranslucent];
     [navControllerHome.navigationBar setTintColor:[UIColor whiteColor]];
@@ -66,6 +74,8 @@
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    
+    [MyPet saveDataToDisk];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
@@ -83,6 +93,8 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    
+    [MyPet saveDataToDisk];
 }
 
 //***********************************************************

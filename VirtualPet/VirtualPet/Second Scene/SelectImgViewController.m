@@ -8,12 +8,11 @@
 
 #import "SelectImgViewController.h"
 #import "PetConfig.h"
-#import "Pet.h"
+#import "MyPet.h"
 #import "GameViewController.h"
 
 @interface SelectImgViewController ()
 
-@property (strong, nonatomic) NSString *myPetName;
 @property (nonatomic) BOOL imgSelected;
 
 @property (strong, nonatomic) IBOutlet UILabel *lblPetName;
@@ -31,14 +30,12 @@
 
 @implementation SelectImgViewController
 
-- (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andPetName:(NSString *)name
+- (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     
     if(self)
     {
-        self.myPetName = name;
         self.imgSelected = NO;
         
     }
@@ -49,7 +46,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [self.lblPetName setText:self.myPetName];
+    [self.lblPetName setText:[MyPet sharedInstance].petName];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -84,31 +81,30 @@
 {
     PetType enumTag = (PetType) sender.tag;
     
-    [[Pet sharedInstance] setUserID:@"em3896"];
-    [[Pet sharedInstance] setPetName:self.myPetName];
+    [[MyPet sharedInstance] setUserID:@"em3896"];
     
     switch (enumTag) {
         case TYPE_CIERVO:
-            [[Pet sharedInstance] setPetType:TYPE_CIERVO];
-            [[Pet sharedInstance] setPetImageName:@"ciervo_comiendo_1"];
+            [[MyPet sharedInstance] setPetType:TYPE_CIERVO];
+            [[MyPet sharedInstance] setPetImageName:@"ciervo_comiendo_1"];
             break;
         case TYPE_GATO:
-            [[Pet sharedInstance] setPetType:TYPE_GATO];
-            [[Pet sharedInstance] setPetImageName:@"gato_comiendo_1"];
+            [[MyPet sharedInstance] setPetType:TYPE_GATO];
+            [[MyPet sharedInstance] setPetImageName:@"gato_comiendo_1"];
             break;
         case TYPE_JIRAFA:
-            [[Pet sharedInstance] setPetType:TYPE_JIRAFA];
-            [[Pet sharedInstance] setPetImageName:@"jirafa_comiendo_1"];
+            [[MyPet sharedInstance] setPetType:TYPE_JIRAFA];
+            [[MyPet sharedInstance] setPetImageName:@"jirafa_comiendo_1"];
             break;
         case TYPE_LEON:
-            [[Pet sharedInstance] setPetType:TYPE_LEON];
-            [[Pet sharedInstance] setPetImageName:@"leon_comiendo_1"];
+            [[MyPet sharedInstance] setPetType:TYPE_LEON];
+            [[MyPet sharedInstance] setPetImageName:@"leon_comiendo_1"];
             break;
             
         default:
             break;
     }
-    self.petImageView.image = [UIImage imageNamed:[Pet sharedInstance].petImageName];
+    self.petImageView.image = [UIImage imageNamed:[MyPet sharedInstance].petImageName];
     self.myTag = enumTag;
     self.imgSelected = YES;
 }
@@ -118,7 +114,8 @@
 {
     if(self.imgSelected)
     {
-        GameViewController *gameView = [[GameViewController alloc] initWithNibName:@"GameViewController" bundle:[NSBundle mainBundle] andImageTag:self.myTag];
+        GameViewController *gameView = [[GameViewController alloc] initWithNibName:@"GameViewController" bundle:[NSBundle mainBundle]];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:SECOND_STEP_KEY];
         
         [self.navigationController pushViewController:gameView animated:YES];
     }

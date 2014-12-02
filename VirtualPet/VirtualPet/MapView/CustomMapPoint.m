@@ -10,14 +10,14 @@
 
 @implementation CustomMapPoint
 
-- (instancetype) initWithPet: (Pet*) pet{
+- (instancetype) initWithPet: (Pet*) pet andAddress: (NSString*)address{
     self = [super init];
     
     if(self)
     {
         self.coordinate = pet.location.coordinate;
-        _title = pet.petName;
-        _subtitle = [NSString stringWithFormat:@"Lvl %d", pet.petLevel];
+        _title = [NSString stringWithFormat:@"%@", pet.petName];
+        _subtitle = [NSString stringWithFormat:@"Lvl : %d", pet.petLevel];
         _image = pet.petImageName;
     }
     

@@ -8,6 +8,7 @@
 
 #import "FirstViewController.h"
 #import "SelectImgViewController.h"
+#import "MyPet.h"
 
 @interface FirstViewController ()
 @property (strong, nonatomic) IBOutlet UITextField *txtPetName;
@@ -55,7 +56,10 @@
     
     if([self validateName:self.petName])
     {
-        SelectImgViewController *selectImgView = [[SelectImgViewController alloc] initWithNibName:@"SelectImgViewController" bundle:[NSBundle mainBundle] andPetName:self.petName];
+        SelectImgViewController *selectImgView = [[SelectImgViewController alloc] initWithNibName:@"SelectImgViewController" bundle:[NSBundle mainBundle]];
+        [[MyPet sharedInstance] setPetName:self.petName];
+        
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:FIRST_STEP_KEY];
         
         [self.navigationController pushViewController:selectImgView animated:YES];
     }
@@ -72,7 +76,7 @@
     BOOL validated = NO;
     
     // Validamos si tiene mas de 6 Caracteres.
-    int longitud = [name length];
+    long longitud = [name length];
     if(longitud > 3)
     {
         validated = YES;

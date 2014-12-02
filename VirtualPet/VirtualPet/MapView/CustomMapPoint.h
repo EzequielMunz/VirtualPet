@@ -17,7 +17,7 @@
 @property (nonatomic, readonly, copy) NSString *subtitle;
 @property (nonatomic, readonly, copy) NSString *image;
 
--(instancetype) initWithPet: (Pet*) pet;
+-(instancetype) initWithPet: (Pet*) pet andAddress: (NSString*) address;
 -(MKAnnotationView*) getAnnotationView;
 
 @end

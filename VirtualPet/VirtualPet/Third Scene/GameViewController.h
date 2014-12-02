@@ -10,7 +10,7 @@
 #import <MessageUI/MessageUI.h>
 #import "PetConfig.h"
 #import "FoodViewController.h"
-#import "Pet.h"
+#import "MyPet.h"
 
 @interface GameViewController : UIViewController <FoodDelegate, UIGestureRecognizerDelegate, MFMailComposeViewControllerDelegate>
 
@@ -18,7 +18,5 @@ extern float const eatAnimationTime;
 extern int const eatAnimationIterations;
 
 @property (nonatomic, strong) NSNumber  *petEnergyValue;
-
-- (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andImageTag:(PetType)tag;
 
 @end

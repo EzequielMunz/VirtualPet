@@ -24,20 +24,9 @@ extern NSString* const EVENT_RELOAD_DATA;
 @property (nonatomic) BOOL doingExcercise;
 @property (nonatomic, strong) NSString* userID;
 @property (nonatomic, strong) CLLocation* location;
-
+@property (nonatomic) int petEnergy;
 @property (nonatomic) int petLevel;
 
 - (instancetype) initWithDictionary: (NSDictionary*) dic;
-
-+ (instancetype) sharedInstance;
-
-- (void) doExcercise;
-- (void) doEat: (int) value;
-- (void) gainExperience;
-
-- (int) getActualExp;
-- (int) getNeededExp;
-- (int) getEnergy;
-- (void) reloadDataName: (NSString*)name level: (int)level actualExp: (int)exp energy: (int)energy andPetType: (PetType)type;
 
 @end
