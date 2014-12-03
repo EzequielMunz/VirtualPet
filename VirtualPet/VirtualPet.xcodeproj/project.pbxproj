@@ -52,6 +52,9 @@
 		3784B8AF1A274A680036E52D /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3784B8A51A274A680036E52D /* NetworkManager.m */; };
 		3784B8B01A274A680036E52D /* Pet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3784B8A71A274A680036E52D /* Pet.m */; };
 		3784B8B11A274A680036E52D /* PetFood.m in Sources */ = {isa = PBXBuildFile; fileRef = 3784B8AA1A274A680036E52D /* PetFood.m */; };
+		3789F6D11A2F605500644085 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3789F6D01A2F605500644085 /* CoreData.framework */; };
+		3789F6D41A2F612E00644085 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3789F6D21A2F612E00644085 /* Model.xcdatamodeld */; };
+		3789F6D81A2F617900644085 /* DataModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3789F6D71A2F617900644085 /* DataModelManager.m */; };
 		37A472CC1A2DFB2C00118D47 /* MyPet.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A472CB1A2DFB2C00118D47 /* MyPet.m */; };
 		37CDE6BA1A262A6D00313E47 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CDE6261A262A6D00313E47 /* AFHTTPRequestOperation.m */; };
 		37CDE6BB1A262A6D00313E47 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CDE6281A262A6D00313E47 /* AFHTTPRequestOperationManager.m */; };
@@ -154,6 +157,10 @@
 		3784B8A81A274A680036E52D /* PetConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetConfig.h; sourceTree = "<group>"; };
 		3784B8A91A274A680036E52D /* PetFood.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetFood.h; sourceTree = "<group>"; };
 		3784B8AA1A274A680036E52D /* PetFood.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetFood.m; sourceTree = "<group>"; };
+		3789F6D01A2F605500644085 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		3789F6D31A2F612E00644085 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		3789F6D61A2F617900644085 /* DataModelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModelManager.h; sourceTree = "<group>"; };
+		3789F6D71A2F617900644085 /* DataModelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModelManager.m; sourceTree = "<group>"; };
 		37A472CA1A2DFB2C00118D47 /* MyPet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPet.h; sourceTree = "<group>"; };
 		37A472CB1A2DFB2C00118D47 /* MyPet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPet.m; sourceTree = "<group>"; };
 		37CDE6251A262A6D00313E47 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -200,6 +207,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3789F6D11A2F605500644085 /* CoreData.framework in Frameworks */,
 				377CCDE41A2CB40C002172C5 /* MapKit.framework in Frameworks */,
 				374E81531A28C2470081EC2F /* SystemConfiguration.framework in Frameworks */,
 				374E814F1A28C2330081EC2F /* Security.framework in Frameworks */,
@@ -228,6 +236,7 @@
 		377A632B1A1BCA4900CE8C74 = {
 			isa = PBXGroup;
 			children = (
+				3789F6D01A2F605500644085 /* CoreData.framework */,
 				377CCDE31A2CB40C002172C5 /* MapKit.framework */,
 				374E81521A28C2470081EC2F /* SystemConfiguration.framework */,
 				374E814E1A28C2330081EC2F /* Security.framework */,
@@ -258,6 +267,7 @@
 		377A63361A1BCA4900CE8C74 /* VirtualPet */ = {
 			isa = PBXGroup;
 			children = (
+				3789F6D51A2F614200644085 /* Data Model */,
 				3743DBFF1A25004800270C68 /* NSTimer+TimerWithAutoInvalidate.h */,
 				3743DC001A25004800270C68 /* NSTimer+TimerWithAutoInvalidate.m */,
 				377A63441A1BCA4900CE8C74 /* Images.xcassets */,
@@ -408,6 +418,16 @@
 				376AB1CC1A2CC2FB006BF26D /* PetListViewController.xib */,
 			);
 			path = "PetList Scene";
+			sourceTree = "<group>";
+		};
+		3789F6D51A2F614200644085 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				3789F6D21A2F612E00644085 /* Model.xcdatamodeld */,
+				3789F6D61A2F617900644085 /* DataModelManager.h */,
+				3789F6D71A2F617900644085 /* DataModelManager.m */,
+			);
+			name = "Data Model";
 			sourceTree = "<group>";
 		};
 		37CDE6201A262A6D00313E47 /* AFNetworking-master */ = {
@@ -593,6 +613,7 @@
 				3784B8B01A274A680036E52D /* Pet.m in Sources */,
 				377A636D1A1BCD1D00CE8C74 /* SelectImgViewController.m in Sources */,
 				37CDE6BF1A262A6D00313E47 /* AFURLConnectionOperation.m in Sources */,
+				3789F6D81A2F617900644085 /* DataModelManager.m in Sources */,
 				3784B8B11A274A680036E52D /* PetFood.m in Sources */,
 				376AB1CF1A2CC2FB006BF26D /* PetListViewController.m in Sources */,
 				3784B8AB1A274A680036E52D /* AppDelegate.m in Sources */,
@@ -611,6 +632,7 @@
 				37A472CC1A2DFB2C00118D47 /* MyPet.m in Sources */,
 				37CDE6BA1A262A6D00313E47 /* AFHTTPRequestOperation.m in Sources */,
 				3743DC011A25004800270C68 /* NSTimer+TimerWithAutoInvalidate.m in Sources */,
+				3789F6D41A2F612E00644085 /* Model.xcdatamodeld in Sources */,
 				37CDE6BE1A262A6D00313E47 /* AFSecurityPolicy.m in Sources */,
 				3784B8AF1A274A680036E52D /* NetworkManager.m in Sources */,
 				37CDE6BD1A262A6D00313E47 /* AFNetworkReachabilityManager.m in Sources */,
@@ -831,6 +853,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3789F6D21A2F612E00644085 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3789F6D31A2F612E00644085 /* Model.xcdatamodel */,
+			);
+			currentVersion = 3789F6D31A2F612E00644085 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 377A632C1A1BCA4900CE8C74 /* Project object */;
 }
