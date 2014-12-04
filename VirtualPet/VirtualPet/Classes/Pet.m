@@ -7,6 +7,7 @@
 //
 
 #import "Pet.h"
+#import "DataModelManager.h"
 
 NSString* const EVENT_UPDATE_ENERGY = @"UPDATE_ENERGY";
 NSString* const EVENT_SET_EXHAUST = @"SET_EXHAUST";
@@ -20,36 +21,45 @@ NSString* const EVENT_RELOAD_DATA = @"RELOAD_DATA";
 
 @implementation Pet
 
+@synthesize petEnergy, petLevel, doingExcercise, petName, petImageName, petType, locationLon, locationLat, location, userID;
+
 - (instancetype) initWithDictionary:(NSDictionary *)dic
 {
-    self = [super init];
+    //self = [NSEntityDescription insertNewObjectForEntityForName:@"Pet" inManagedObjectContext:context];
+    
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"Pet" inManagedObjectContext:[[DataModelManager sharedInstance] managedObjectContext]];
+    
+    self = [[Pet alloc] initWithEntity:entity insertIntoManagedObjectContext:nil];
     
     if(self)
     {
-        self.petName = [dic objectForKey:@"name"];
-        self.petLevel = ((NSNumber*)[dic objectForKey:@"level"]).intValue;
-        self.petType = ((NSNumber*)[dic objectForKey:@"pet_type"]).intValue;
-        self.userID = [dic objectForKey:@"code"];
+        petName = [dic objectForKey:@"name"];
+        petLevel = ((NSNumber*)[dic objectForKey:@"level"]).intValue;
+        petType = ((NSNumber*)[dic objectForKey:@"pet_type"]).intValue;
+        userID = [dic objectForKey:@"code"];
+        petEnergy = [dic objectForKey:@"energy"];
         
-        switch (self.petType) {
+        switch (petType) {
             case TYPE_CIERVO:
-                self.petImageName = @"ciervo_comiendo_1";
+                petImageName = @"ciervo_comiendo_1";
                 break;
             case TYPE_GATO:
-                self.petImageName = @"gato_comiendo_1";
+                petImageName = @"gato_comiendo_1";
                 break;
             case TYPE_JIRAFA:
-                self.petImageName = @"jirafa_comiendo_1";
+                petImageName = @"jirafa_comiendo_1";
                 break;
             case TYPE_LEON:
-                self.petImageName = @"leon_comiendo_1";
+                petImageName = @"leon_comiendo_1";
                 break;
                 
             default:
                 break;
         }
 
-        self.location = [[CLLocation alloc] initWithLatitude:((NSNumber*)[dic objectForKey:@"position_lat"]).doubleValue longitude:((NSNumber*)[dic objectForKey:@"position_lon"]).doubleValue];
+        location = [[CLLocation alloc] initWithLatitude:((NSNumber*)[dic objectForKey:@"position_lat"]).doubleValue longitude:((NSNumber*)[dic objectForKey:@"position_lon"]).doubleValue];
+        locationLat = ((NSNumber*)[dic objectForKey:@"position_lat"]).intValue;
+        locationLon = ((NSNumber*)[dic objectForKey:@"position_lon"]).intValue;
     }
     return self;
 }

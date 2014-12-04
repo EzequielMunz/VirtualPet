@@ -101,6 +101,9 @@
         GameViewController* game = [[GameViewController alloc] initWithNibName:@"GameViewController" bundle:[NSBundle mainBundle]];
         [self.navigationController pushViewController:game animated:YES];
         
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:FIRST_STEP_KEY];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:SECOND_STEP_KEY];
+        
     };
 }
 

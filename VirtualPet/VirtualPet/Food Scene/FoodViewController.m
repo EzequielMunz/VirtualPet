@@ -96,7 +96,7 @@
     }
     
     [newCell.myImageView setImage:[UIImage imageNamed:((PetFood*)self.foodArray[indexPath.row]).imagePath]];
-    [newCell.myLblName setText:((PetFood*)self.foodArray[indexPath.row]).foodName];
+    [newCell.myLblName setText:[NSString stringWithFormat: @"%@ (%d)", ((PetFood*)self.foodArray[indexPath.row]).foodName, ((PetFood*)self.foodArray[indexPath.row]).foodEnergyValue]];
     return newCell;
 }
 

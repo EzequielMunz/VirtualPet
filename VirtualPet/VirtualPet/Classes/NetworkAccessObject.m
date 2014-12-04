@@ -12,12 +12,14 @@
 
 NSString* const EVENT_PATH_POST = @"/pet";
 NSString* const EVENT_PATH_GET = @"/pet/em3896";
+NSString* const EVENT_PATH_GET_BY_CODE = @"/pet/";
 NSString* const EVENT_PATH_GET_LIST = @"/pet/all";
 NSString* const CODE_IDENTIFIER = @"em3896";
 
 @interface NetworkAccessObject ()
 
 @property (nonatomic, copy) Success mySuccessBlock;
+@property (nonatomic, weak) NSURLSessionDataTask* runningTask;
 
 @end
 
@@ -28,6 +30,13 @@ NSString* const CODE_IDENTIFIER = @"em3896";
     self.mySuccessBlock = block;
     
     [[NetworkManager sharedInstance] GET:EVENT_PATH_GET parameters:nil success:self.mySuccessBlock failure:[self getFailure]];
+}
+
+- (void) doGETPetInfoByCode: (NSString*) code withBlock: (Success) block
+{
+    NSString* path = [NSString stringWithFormat:@"%@%@", EVENT_PATH_GET_BY_CODE, code];
+    NSLog(@"Path: %@", path);
+    [[NetworkManager sharedInstance] GET:path parameters:nil success:block failure:[self getFailure]];
 }
 
 - (void) doPOSTPetUpdate
@@ -46,7 +55,11 @@ NSString* const CODE_IDENTIFIER = @"em3896";
 
 - (void) doGETPetList: (Success) block
 {
-    [[NetworkManager sharedInstance] GET:EVENT_PATH_GET_LIST parameters:nil success:block failure:[self getFailure]];
+    self.runningTask = [[NetworkManager sharedInstance] GET:EVENT_PATH_GET_LIST parameters:nil success:block failure:[self getFailure]];
+}
+
+- (void) cancelCurrentTask {
+    [self.runningTask cancel];
 }
 
 //*************************************************************

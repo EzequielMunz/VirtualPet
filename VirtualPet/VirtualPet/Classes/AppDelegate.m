@@ -12,8 +12,12 @@
 #import "SelectImgViewController.h"
 #import "PetConfig.h"
 #import "MyPet.h"
+#import "PetDetailViewController.h"
+#import "NetworkAccessObject.h"
 
 @interface AppDelegate ()
+
+@property (nonatomic, strong) NetworkAccessObject* dao;
 
 @end
 
@@ -28,6 +32,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    self.dao = [[NetworkAccessObject alloc] init];
     
     UINavigationController* navControllerHome;
     MainMenuViewController* home = [[MainMenuViewController alloc] initWithNibName:@"MainMenuViewController" bundle:nil];
@@ -95,6 +101,32 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     
     [MyPet saveDataToDisk];
+}
+
+//***********************************************************
+// Abrir desde URL
+//***********************************************************
+
+- (BOOL) application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    NSLog(@"URL: %@", url);
+    
+    NSString* code = [url lastPathComponent];
+    [self.dao doGETPetInfoByCode:code withBlock:[self getCodeSuccess]];
+    
+    return YES;
+}
+
+- (Success) getCodeSuccess
+{
+    __weak typeof (self) weakerSelf = self;
+    
+    return ^(NSURLSessionDataTask *task, id responseObject){
+        Pet* gettedPet = [[Pet alloc] initWithDictionary:responseObject];
+        
+        PetDetailViewController* view = [[PetDetailViewController alloc] initWithNibName:@"PetDetailViewController" bundle:[NSBundle mainBundle] andPet:gettedPet];
+        [(UINavigationController*)weakerSelf.window.rootViewController pushViewController:view animated:YES];
+    };
 }
 
 //***********************************************************

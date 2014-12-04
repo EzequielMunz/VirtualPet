@@ -8,15 +8,19 @@
 
 #import "PetListViewController.h"
 #import "NetworkAccessObject.h"
+#import "NSTimer+TimerWithAutoInvalidate.h"
 #import "Pet.h"
 #import "MapViewController.h"
+#import "PetRanking.h"
 
 @interface PetListViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *petRankingList;
-@property (strong, nonatomic) NSMutableArray* petArray;
-@property (strong, nonatomic) NSArray* petArraySorted;
+
+@property (strong, nonatomic) PetRanking* petRanking;
 
 @property (strong, nonatomic) NetworkAccessObject* daoObject;
+
+@property (strong, nonatomic) NSTimer* timer;
 
 @end
 
@@ -31,9 +35,7 @@
     // Do any additional setup after loading the view from its nib.
     
     self.daoObject = [[NetworkAccessObject alloc] init];
-    self.petArray = [[NSMutableArray alloc] init];
-    
-     [self.daoObject doGETPetList:[self getSuccess]];
+    self.petRanking = [[PetRanking alloc] init];
     
     [self.petRankingList registerNib:[UINib nibWithNibName:@"PetListCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"PetListCell"];
     [self.petRankingList reloadData];
@@ -55,12 +57,24 @@
 {
     [super viewWillAppear:animated];
     [self setTitle:@"Ranking"];
+    
+    [self.petRanking fetchPetRankingData];
+    [self.petRankingList reloadData];
+    
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(getDataFromServer) userInfo:nil repeats:NO];
 }
 
 - (void) viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     [self setTitle:@"---"];
+    
+    [self.timer autoInvalidate];
+}
+
+- (void) getDataFromServer
+{
+    [self.daoObject doGETPetList:[self getSuccess]];
 }
 
 /*
@@ -79,7 +93,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.petArray.count;
+    return self.petRanking.petRankingArray.count;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -93,7 +107,7 @@
     [newCell setDelegate:self];
 
     // Iniciamos los datos de la celda
-    Pet* pet = (Pet*)[self.petArraySorted objectAtIndex:indexPath.row];
+    Pet* pet = (Pet*)[self.petRanking.petRankingSortedArray objectAtIndex:indexPath.row];
     [newCell setPet:pet];
     
     return newCell;
@@ -115,30 +129,21 @@
     return ^(NSURLSessionDataTask *task, id responseObject){
         NSLog(@"JSON: %@", responseObject);
         
+        [weakerSelf.petRanking deletePetRankingData];
+        
         NSArray* responseArray = (NSArray*)responseObject;
+        [weakerSelf.petRanking.petRankingArray removeAllObjects];
         
         for (NSDictionary* dic in responseArray) {
             Pet* newPet = [[Pet alloc] initWithDictionary:dic];
-            [weakerSelf.petArray addObject:newPet];
+            [weakerSelf.petRanking.petRankingArray addObject:newPet];
         }
-        [self sortArray];
+        [weakerSelf.petRanking sortArray];
         [weakerSelf.petRankingList reloadData];
+        [weakerSelf.petRanking insertPetRankingData];
     };
 }
 
-//****************************************************
-// Ordenar Array
-//****************************************************
-
-- (void) sortArray
-{
-    self.petArraySorted = [self.petArray sortedArrayUsingComparator:^NSComparisonResult(id a, id b){
-        NSNumber* level1 = [NSNumber numberWithInt:((Pet*)a).petLevel];
-        NSNumber* level2 = [NSNumber numberWithInt:((Pet*)b).petLevel];
-        
-        return [level2 compare: level1];
-    }];
-}
 
 //****************************************************
 // Map Delegate
@@ -152,13 +157,17 @@
 
 - (void) loadFullMap
 {
-    [self goToMapWithPetArray:self.petArray];
+    [self goToMapWithPetArray:self.petRanking.petRankingArray];
 }
 
 - (void) goToMapWithPetArray: (NSArray*) petArray
 {
-    MapViewController* mapView = [[MapViewController alloc] initWithNibName:@"MapViewController" bundle:[NSBundle mainBundle] andPetArray:self.petArray];
+    MapViewController* mapView = [[MapViewController alloc] initWithNibName:@"MapViewController" bundle:[NSBundle mainBundle] andPetArray:self.petRanking.petRankingArray];
     [self.navigationController pushViewController:mapView animated:YES];
+}
+
+- (void) dealloc {
+    [self.daoObject cancelCurrentTask];
 }
 
 @end

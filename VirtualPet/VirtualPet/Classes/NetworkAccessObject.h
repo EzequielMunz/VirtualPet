@@ -16,7 +16,9 @@ extern NSString* const CODE_IDENTIFIER;
 @interface NetworkAccessObject : NSObject
 
 - (void) doGETPetInfo: (Success) block;
+- (void) doGETPetInfoByCode: (NSString*) code withBlock: (Success) block;
 - (void) doGETPetList: (Success) block;
 - (void) doPOSTPetUpdate;
+- (void) cancelCurrentTask;
 
 @end

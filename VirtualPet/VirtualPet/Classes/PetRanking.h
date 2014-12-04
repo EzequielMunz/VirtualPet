@@ -10,6 +10,13 @@
 
 @interface PetRanking : NSObject
 
-@property (nonatomic, strong) 
+@property (nonatomic, strong) NSMutableArray* petRankingArray;
+@property (nonatomic, strong) NSArray* petRankingSortedArray;
+
+- (void) sortArray;
+
+- (void) fetchPetRankingData;
+- (void) insertPetRankingData;
+- (void) deletePetRankingData;
 
 @end

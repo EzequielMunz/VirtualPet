@@ -7,6 +7,7 @@
 //
 
 #import "DataModelManager.h"
+#import "Pet.h"
 
 @interface DataModelManager ()
 
@@ -17,6 +18,20 @@
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+
++ (instancetype) sharedInstance
+{
+    static dispatch_once_t pred = 0;
+    __strong static id _sharedObject = nil;
+    
+    dispatch_once(&pred , ^{
+        
+        _sharedObject = [[self alloc] init];
+        
+    });
+    
+    return _sharedObject;
+}
 
 - (void)saveContext{
     NSError *error = nil;

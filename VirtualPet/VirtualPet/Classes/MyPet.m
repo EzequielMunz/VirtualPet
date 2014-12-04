@@ -28,6 +28,8 @@ NSString* const KEY_FULL_PET = @"pet_object";
 
 @implementation MyPet
 
+@synthesize petEnergy, petLevel, petActualExperience, petNeededExperience, doingExcercise, daoObject, petName, petImageName, petType, locationLon, locationLat, location;
+
  __strong static id _sharedObject = nil;
 
 - (instancetype) initWithEnergy: (int) energy
@@ -36,11 +38,12 @@ NSString* const KEY_FULL_PET = @"pet_object";
     
     if(self)
     {
-        self.petEnergy = energy;
-        self.petLevel = 1;
-        self.petActualExperience = 0;
-        self.petNeededExperience = 100;
-        self.doingExcercise = NO;
+        
+        petEnergy = energy;
+        petLevel = 1;
+        petActualExperience = 0;
+        petNeededExperience = 100;
+        doingExcercise = NO;
         [self initDataAccessObject];
     }
     
@@ -57,13 +60,15 @@ NSString* const KEY_FULL_PET = @"pet_object";
     
     if(self)
     {
-        [self setPetName: [aDecoder decodeObjectForKey:KEY_NAME]];
-        [self setPetLevel:((NSNumber*)[aDecoder decodeObjectForKey:KEY_LEVEL]).intValue];
-        [self setPetEnergy:((NSNumber*)[aDecoder decodeObjectForKey:KEY_ENERGY]).intValue];
-        [self setPetImageName:[aDecoder decodeObjectForKey:KEY_IMAGE]];
-        [self setPetActualExperience:((NSNumber*)[aDecoder decodeObjectForKey:KEY_EXPERIENCE]).intValue];
-        [self setPetType:(PetType)((NSNumber*)[aDecoder decodeObjectForKey:KEY_TYPE]).intValue];
-        [self setLocation:[aDecoder decodeObjectForKey:KEY_LOCATION]];
+        petName = [aDecoder decodeObjectForKey:KEY_NAME];
+        petLevel = ((NSNumber*)[aDecoder decodeObjectForKey:KEY_LEVEL]).intValue;
+        petEnergy = ((NSNumber*)[aDecoder decodeObjectForKey:KEY_ENERGY]).intValue;
+        petImageName = [aDecoder decodeObjectForKey:KEY_IMAGE];
+        petActualExperience = ((NSNumber*)[aDecoder decodeObjectForKey:KEY_EXPERIENCE]).intValue;
+        petType = (PetType)((NSNumber*)[aDecoder decodeObjectForKey:KEY_TYPE]).intValue;
+        location = [aDecoder decodeObjectForKey:KEY_LOCATION];
+        locationLat = location.coordinate.latitude;
+        locationLon = location.coordinate.longitude;
         [self calculateNeededExperience];
         [self initDataAccessObject];
     }
@@ -104,7 +109,7 @@ NSString* const KEY_FULL_PET = @"pet_object";
 
 - (void) initDataAccessObject
 {
-    self.daoObject = [[NetworkAccessObject alloc] init];
+    daoObject = [[NetworkAccessObject alloc] init];
 }
 
 //********************************************************************

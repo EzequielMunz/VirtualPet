@@ -15,7 +15,7 @@
     
     if(self)
     {
-        self.coordinate = pet.location.coordinate;
+        self.coordinate = CLLocationCoordinate2DMake(pet.locationLat, pet.locationLon);
         _title = [NSString stringWithFormat:@"%@", pet.petName];
         _subtitle = [NSString stringWithFormat:@"Lvl : %d", pet.petLevel];
         _image = pet.petImageName;
