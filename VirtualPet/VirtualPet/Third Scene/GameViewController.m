@@ -37,6 +37,7 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
 @property (strong, nonatomic) IBOutlet UILabel *lblExperience;
 
 @property (strong, nonatomic) NSTimer* energyTimer;
+@property (strong, nonatomic) IBOutlet UIImageView *superSaiyanImgView;
 
 @property (nonatomic, strong) MFMailComposeViewController* myMailView;
 @property (nonatomic, strong) NetworkAccessObject* daoObject;
@@ -96,6 +97,16 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
     // Comenzamos el tracking de la mascota
     self.locationHandler = [[LocationHandler alloc] init];
     [self.locationHandler startTracking];
+    
+    // SUPER SAIYAN MTHFCK
+    NSArray* superSaiyan = @[[UIImage imageNamed:[ImagesLoader sharedInstance].imgSuperSaiyan[0]],
+                             [UIImage imageNamed:[ImagesLoader sharedInstance].imgSuperSaiyan[1]],
+                             [UIImage imageNamed:[ImagesLoader sharedInstance].imgSuperSaiyan[2]]];
+    
+    [self.superSaiyanImgView setAnimationImages:superSaiyan];
+    [self.superSaiyanImgView setAnimationDuration:0.2f];
+    [self.superSaiyanImgView setAnimationRepeatCount:0];
+    [self.superSaiyanImgView startAnimating];
 
 }
 
@@ -219,6 +230,7 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
     [self setNormalStatePetImage];
     [self.petImageView startAnimating];
     [[MyPet sharedInstance] doEat: self.myFood.foodEnergyValue];
+    [self.superSaiyanImgView startAnimating];
 }
 
 -(void) animateExcercisingPet
@@ -320,6 +332,13 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
 - (void) setExhaustFinishImage
 {
     [self.petImageView setImage:[UIImage imageNamed:[ImagesLoader sharedInstance].imgPetExhausto[3]]];
+    [UIView animateWithDuration:1.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^(void){
+        
+        self.superSaiyanImgView.alpha = 0;
+    }completion:^(BOOL finished){
+        [self.superSaiyanImgView stopAnimating];
+        self.superSaiyanImgView.alpha = 1;
+    }];
 }
 
 - (void) setNormalStatePetImage
@@ -338,9 +357,22 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
 - (void) showLevelUp :(NSNotification*) notification
 {
     int level = ((NSNumber*)notification.object).intValue;
-    [[[UIAlertView alloc] initWithTitle:@"Congratulations" message:[NSString stringWithFormat:@"You raised level %d", level] delegate:self cancelButtonTitle:@"CONTINUE" otherButtonTitles:nil, nil] show];
+    //[[[UIAlertView alloc] initWithTitle:@"Congratulations" message:[NSString stringWithFormat:@"You raised level %d", level] delegate:self cancelButtonTitle:@"CONTINUE" otherButtonTitles:nil, nil] show];
     
     [self.lblPetName setText:[NSString stringWithFormat:@"%@ Lvl: %d", [MyPet sharedInstance].petName, level]];
+    
+    CGRect rect = self.superSaiyanImgView.frame;
+    CGPoint center = self.superSaiyanImgView.center;
+    float originY = self.superSaiyanImgView.center.y - self.superSaiyanImgView.frame.size.height/2;
+    
+    [self.superSaiyanImgView setFrame:CGRectMake(rect.origin.x, originY, rect.size.width + 200, rect.size.height + 200)];
+    [self.superSaiyanImgView setCenter:center];
+    [UIView animateWithDuration:1.0f delay:0.0 options:UIViewAnimationOptionCurveLinear animations:^(void){
+        [self.superSaiyanImgView setFrame:rect];
+
+    }completion:^(BOOL finished) {
+        
+    }];
     
     // Enviamos la notificacion de level up
     NSDictionary* dic = @{@"code": CODE_IDENTIFIER,

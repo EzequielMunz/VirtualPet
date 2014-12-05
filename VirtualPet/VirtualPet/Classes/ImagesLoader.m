@@ -56,6 +56,8 @@
     self.imgPetComiendo = [NSArray arrayWithArray:arrayEat];
     self.imgPetEjercicio = [NSArray arrayWithArray:arrayExcescise];
     self.imgPetExhausto = [NSArray arrayWithArray:arrayExhaust];
+    
+    self.imgSuperSaiyan = @[@"Super-1", @"Super-2", @"Super-3"];
 }
 
 @end

@@ -37,7 +37,7 @@ NSString* const EVENT_RELOAD_DATA = @"RELOAD_DATA";
         petLevel = ((NSNumber*)[dic objectForKey:@"level"]).intValue;
         petType = ((NSNumber*)[dic objectForKey:@"pet_type"]).intValue;
         userID = [dic objectForKey:@"code"];
-        petEnergy = [dic objectForKey:@"energy"];
+        petEnergy = ((NSNumber*)[dic objectForKey:@"energy"]).intValue;
         
         switch (petType) {
             case TYPE_CIERVO:

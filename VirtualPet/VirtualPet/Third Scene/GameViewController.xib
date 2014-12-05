@@ -16,6 +16,7 @@
                 <outlet property="petEnergyBar" destination="5Gq-1x-xlY" id="8WP-3e-vDs"/>
                 <outlet property="petExpProgressBar" destination="Pfi-Gr-rdt" id="A5M-cu-kdy"/>
                 <outlet property="petImageView" destination="Oir-VY-aKB" id="tD3-2W-F3s"/>
+                <outlet property="superSaiyanImgView" destination="U22-MO-bqO" id="Alc-h1-Dtx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,6 +25,12 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U22-MO-bqO">
+                    <rect key="frame" x="48" y="46" width="225" height="264"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="U22-MO-bqO" secondAttribute="height" multiplier="75:88" id="7DC-gj-tcb"/>
+                    </constraints>
+                </imageView>
                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5Gq-1x-xlY">
                     <rect key="frame" x="85" y="350" width="150" height="2"/>
                 </progressView>
@@ -37,13 +44,6 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SWX-4V-6LB">
-                    <rect key="frame" x="250" y="356" width="53" height="53"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="53" id="5uV-QZ-zu4"/>
-                        <constraint firstAttribute="height" constant="53" id="dsB-3x-30D"/>
-                    </constraints>
-                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VB2-ua-aZ3">
                     <rect key="frame" x="110" y="368" width="101" height="30"/>
                     <color key="backgroundColor" red="0.27647101429999998" green="0.61766526980000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -151,15 +151,28 @@
                         <action selector="btnRankClicked:" destination="-1" eventType="touchUpInside" id="3Xl-N3-OIK"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SxR-iP-fdG">
-                    <rect key="frame" x="90" y="202" width="81" height="88"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SWX-4V-6LB">
+                    <rect key="frame" x="250" y="356" width="53" height="53"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="53" id="5uV-QZ-zu4"/>
+                        <constraint firstAttribute="height" constant="53" id="dsB-3x-30D"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SxR-iP-fdG">
+                    <rect key="frame" x="94" y="200" width="73" height="83"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="SxR-iP-fdG" secondAttribute="height" multiplier="73:83" id="60M-Pr-D5q"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="0.91226577009999998" green="1" blue="0.91367501070000001" alpha="1" colorSpace="calibratedRGB"/>
             <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="Suj-cm-Ayf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="18" id="2WR-Xc-cDd"/>
+                <constraint firstItem="SxR-iP-fdG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="94" id="5Ld-VI-gzI"/>
+                <constraint firstItem="U22-MO-bqO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="48" id="5Re-lK-d7V"/>
+                <constraint firstAttribute="trailing" secondItem="U22-MO-bqO" secondAttribute="trailing" constant="47" id="5wj-s9-Tw6"/>
                 <constraint firstItem="Oir-VY-aKB" firstAttribute="top" secondItem="rz3-DL-De0" secondAttribute="bottom" constant="5" id="7xS-Gv-aiq"/>
                 <constraint firstItem="Pfi-Gr-rdt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="BHf-6Y-Dlf"/>
                 <constraint firstAttribute="centerX" secondItem="VB2-ua-aZ3" secondAttribute="centerX" id="BPK-9F-cYQ"/>
@@ -177,17 +190,20 @@
                 <constraint firstItem="Oir-VY-aKB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="gjz-vb-vqh"/>
                 <constraint firstAttribute="trailing" secondItem="Oir-VY-aKB" secondAttribute="trailing" constant="40" id="h7O-fe-Fhr"/>
                 <constraint firstAttribute="trailing" secondItem="H3z-TF-5oe" secondAttribute="trailing" constant="8" id="jPe-Jh-2md"/>
+                <constraint firstItem="SxR-iP-fdG" firstAttribute="top" secondItem="rz3-DL-De0" secondAttribute="bottom" constant="92" id="kxx-z5-K4L"/>
                 <constraint firstItem="5Gq-1x-xlY" firstAttribute="top" secondItem="Oir-VY-aKB" secondAttribute="bottom" constant="5" id="lq1-fq-8yg"/>
                 <constraint firstAttribute="trailing" secondItem="5Gq-1x-xlY" secondAttribute="trailing" constant="85" id="nqG-kO-VG3"/>
                 <constraint firstItem="9qG-or-2Pf" firstAttribute="top" secondItem="rz3-DL-De0" secondAttribute="bottom" constant="5" id="ohq-qD-PSs"/>
                 <constraint firstItem="rz3-DL-De0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="73" id="ptV-xa-GIH"/>
                 <constraint firstItem="5Gq-1x-xlY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="85" id="thz-Te-VeT"/>
+                <constraint firstItem="U22-MO-bqO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="46" id="zJd-Hc-RQ5"/>
+                <constraint firstAttribute="trailing" secondItem="SxR-iP-fdG" secondAttribute="trailing" constant="153" id="zaz-zz-xUs"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <connections>
                 <outletCollection property="gestureRecognizers" destination="W5f-TR-vTM" appends="YES" id="SCj-CS-Iog"/>
             </connections>
-            <point key="canvasLocation" x="-146" y="16"/>
+            <point key="canvasLocation" x="-147" y="14"/>
         </view>
         <tapGestureRecognizer id="W5f-TR-vTM">
             <connections>
