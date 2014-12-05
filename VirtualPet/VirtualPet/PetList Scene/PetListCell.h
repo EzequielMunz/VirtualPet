@@ -17,9 +17,9 @@
 @end
 
 @interface PetListCell : UITableViewCell
-@property (strong, nonatomic) IBOutlet UIImageView *petImageView;
 @property (strong, nonatomic) IBOutlet UILabel *petNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *petLevelLabel;
+@property (strong, nonatomic) IBOutlet UIButton *petImageBtn;
 
 @property (weak, nonatomic) id <MapProtocol> delegate;
 

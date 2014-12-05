@@ -55,7 +55,7 @@
         // Location Device.
         [MyPet sharedInstance].location = myLocation;
         NSLog(@"Pet Location: %f/%f", [MyPet sharedInstance].location.coordinate.latitude, [MyPet sharedInstance].location.coordinate.longitude);
-        [self.daoObject doPOSTPetUpdate];
+        [self.daoObject doPOSTPetUpdate:nil];
     }
 }
 

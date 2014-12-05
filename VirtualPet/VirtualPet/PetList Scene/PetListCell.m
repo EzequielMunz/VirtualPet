@@ -9,6 +9,9 @@
 #import "PetListCell.h"
 #import "MapViewController.h"
 
+
+NSString* const URL_PATH = @"tamagotchi://Pet/";
+
 @interface PetListCell()
 
 @property (nonatomic, strong) Pet* myPet;
@@ -29,7 +32,7 @@
 
 - (void) setPet:(Pet *)pet
 {
-    [self.petImageView setImage:[UIImage imageNamed:pet.petImageName]];
+    [self.petImageBtn setBackgroundImage:[UIImage imageNamed:pet.petImageName] forState:UIControlStateNormal];
     [self.petLevelLabel setText:[NSString stringWithFormat:@"%d", pet.petLevel]];
     [self.petNameLabel setText:pet.petName];
     
@@ -48,6 +51,15 @@
 - (IBAction)btnMapTouched:(id)sender
 {
     [self.delegate goToMapWithLocation:self.myPet];
+}
+
+- (IBAction)btnImagePetTouched:(id)sender
+{
+    // Iniciar la URL
+    NSString* fullPath = [NSString stringWithFormat:@"%@%@", URL_PATH, self.myPet.userID];
+ 
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:fullPath]];
+
 }
 
 @end

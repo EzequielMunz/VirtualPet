@@ -18,7 +18,7 @@ extern NSString* const CODE_IDENTIFIER;
 - (void) doGETPetInfo: (Success) block;
 - (void) doGETPetInfoByCode: (NSString*) code withBlock: (Success) block;
 - (void) doGETPetList: (Success) block;
-- (void) doPOSTPetUpdate;
+- (void) doPOSTPetUpdate: (Success) block;
 - (void) cancelCurrentTask;
 
 @end

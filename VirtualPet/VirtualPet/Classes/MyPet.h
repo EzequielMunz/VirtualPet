@@ -10,6 +10,9 @@
 
 @interface MyPet : Pet <NSCoding>
 
+@property (nonatomic) int petNeededExperience;
+@property (nonatomic) int petActualExperience;
+
 + (instancetype) sharedInstance;
 
 + (void) saveDataToDisk;

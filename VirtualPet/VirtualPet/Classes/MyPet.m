@@ -20,8 +20,6 @@ NSString* const KEY_FULL_PET = @"pet_object";
 
 @interface MyPet ()
 
-@property (nonatomic) int petNeededExperience;
-@property (nonatomic) int petActualExperience;
 @property (nonatomic, strong) NetworkAccessObject* daoObject;
 
 @end
@@ -202,12 +200,12 @@ NSString* const KEY_FULL_PET = @"pet_object";
 - (void) levelUp
 {
     self.petLevel++;
+    self.petActualExperience = self.petActualExperience - self.petNeededExperience;
     [self calculateNeededExperience];
-    self.petActualExperience = 0;
     
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_LEVEL_UP object:[NSNumber numberWithInt:self.petLevel]];
     
-    [self.daoObject doPOSTPetUpdate];
+    [self.daoObject doPOSTPetUpdate:nil];
 }
 
 - (void) calculateNeededExperience

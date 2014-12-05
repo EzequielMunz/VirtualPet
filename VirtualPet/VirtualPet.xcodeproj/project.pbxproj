@@ -20,6 +20,7 @@
 		374E814F1A28C2330081EC2F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374E814E1A28C2330081EC2F /* Security.framework */; };
 		374E81531A28C2470081EC2F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374E81521A28C2470081EC2F /* SystemConfiguration.framework */; };
 		374E81561A28EE400081EC2F /* NotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 374E81551A28EE400081EC2F /* NotificationManager.m */; };
+		375EA5A61A31EED1003899BE /* PetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 375EA5A51A31EED1003899BE /* PetTests.m */; };
 		376AB1CD1A2CC2FB006BF26D /* PetListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 376AB1C81A2CC2FB006BF26D /* PetListCell.m */; };
 		376AB1CE1A2CC2FB006BF26D /* PetListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 376AB1C91A2CC2FB006BF26D /* PetListCell.xib */; };
 		376AB1CF1A2CC2FB006BF26D /* PetListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 376AB1CB1A2CC2FB006BF26D /* PetListViewController.m */; };
@@ -105,6 +106,7 @@
 		374E81521A28C2470081EC2F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		374E81541A28EE400081EC2F /* NotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationManager.h; sourceTree = "<group>"; };
 		374E81551A28EE400081EC2F /* NotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationManager.m; sourceTree = "<group>"; };
+		375EA5A51A31EED1003899BE /* PetTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetTests.m; sourceTree = "<group>"; };
 		376AB1C71A2CC2FB006BF26D /* PetListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetListCell.h; sourceTree = "<group>"; };
 		376AB1C81A2CC2FB006BF26D /* PetListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetListCell.m; sourceTree = "<group>"; };
 		376AB1C91A2CC2FB006BF26D /* PetListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PetListCell.xib; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 		377A63501A1BCA4900CE8C74 /* VirtualPetTests */ = {
 			isa = PBXGroup;
 			children = (
+				375EA5A51A31EED1003899BE /* PetTests.m */,
 				377A63531A1BCA4900CE8C74 /* VirtualPetTests.m */,
 				377A63511A1BCA4900CE8C74 /* Supporting Files */,
 			);
@@ -677,6 +680,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				377A63541A1BCA4900CE8C74 /* VirtualPetTests.m in Sources */,
+				375EA5A61A31EED1003899BE /* PetTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

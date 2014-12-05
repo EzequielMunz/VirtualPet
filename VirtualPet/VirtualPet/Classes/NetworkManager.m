@@ -11,6 +11,7 @@
 #import "AFNetworking.h"
 
 NSString* const SESSION_URL = @"http://tamagotchi.herokuapp.com";
+NSString* const LOCAL_SERVER_URL = @"http://169.254.226.91:3000";
 
 @interface NetworkManager ()
 
@@ -38,7 +39,7 @@ NSString* const SESSION_URL = @"http://tamagotchi.herokuapp.com";
         sessionConfiguration.requestCachePolicy = NSURLRequestUseProtocolCachePolicy;
         sessionConfiguration.timeoutIntervalForRequest = 20.0f;
         
-        _sharedObject = [[NetworkManager alloc] initWithBaseURL:[NSURL URLWithString:SESSION_URL] sessionConfiguration:sessionConfiguration];
+        _sharedObject = [[NetworkManager alloc] initWithBaseURL:[NSURL URLWithString:LOCAL_SERVER_URL] sessionConfiguration:sessionConfiguration];
         
         _sharedObject.requestSerializer = [AFJSONRequestSerializer serializer];
         
