@@ -39,7 +39,7 @@ NSString* const LOCAL_SERVER_URL = @"http://169.254.226.91:3000";
         sessionConfiguration.requestCachePolicy = NSURLRequestUseProtocolCachePolicy;
         sessionConfiguration.timeoutIntervalForRequest = 20.0f;
         
-        _sharedObject = [[NetworkManager alloc] initWithBaseURL:[NSURL URLWithString:LOCAL_SERVER_URL] sessionConfiguration:sessionConfiguration];
+        _sharedObject = [[NetworkManager alloc] initWithBaseURL:[NSURL URLWithString:SESSION_URL] sessionConfiguration:sessionConfiguration];
         
         _sharedObject.requestSerializer = [AFJSONRequestSerializer serializer];
         
