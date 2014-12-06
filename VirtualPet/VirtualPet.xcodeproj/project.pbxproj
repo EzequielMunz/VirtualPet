@@ -23,6 +23,8 @@
 		375EA5A61A31EED1003899BE /* PetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 375EA5A51A31EED1003899BE /* PetTests.m */; };
 		375EA5A81A3229B0003899BE /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 375EA5A71A3229B0003899BE /* Images-2.xcassets */; };
 		375EA5AA1A322A02003899BE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 375EA5A91A322A02003899BE /* Images.xcassets */; };
+		375EA5AF1A32462D003899BE /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 375EA5AD1A32462D003899BE /* ContactsViewController.m */; };
+		375EA5B01A32462D003899BE /* ContactsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 375EA5AE1A32462D003899BE /* ContactsViewController.xib */; };
 		376AB1CD1A2CC2FB006BF26D /* PetListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 376AB1C81A2CC2FB006BF26D /* PetListCell.m */; };
 		376AB1CE1A2CC2FB006BF26D /* PetListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 376AB1C91A2CC2FB006BF26D /* PetListCell.xib */; };
 		376AB1CF1A2CC2FB006BF26D /* PetListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 376AB1CB1A2CC2FB006BF26D /* PetListViewController.m */; };
@@ -31,6 +33,11 @@
 		376AB1D51A2CC31A006BF26D /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 376AB1D31A2CC31A006BF26D /* MapViewController.xib */; };
 		376AB1D81A2CC95D006BF26D /* LocationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 376AB1D71A2CC95D006BF26D /* LocationHandler.m */; };
 		376AB1DB1A2CFCE8006BF26D /* CustomMapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 376AB1DA1A2CFCE8006BF26D /* CustomMapPoint.m */; };
+		3779E8161A33398C004A69A4 /* ContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3779E8141A33398C004A69A4 /* ContactCell.m */; };
+		3779E8171A33398C004A69A4 /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3779E8151A33398C004A69A4 /* ContactCell.xib */; };
+		3779E81A1A333B4F004A69A4 /* ContactManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3779E8191A333B4F004A69A4 /* ContactManager.m */; };
+		3779E81D1A333B72004A69A4 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 3779E81C1A333B72004A69A4 /* Contact.m */; };
+		3779E81F1A333E57004A69A4 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3779E81E1A333E57004A69A4 /* AddressBook.framework */; };
 		377A633A1A1BCA4900CE8C74 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 377A63391A1BCA4900CE8C74 /* main.m */; };
 		377A63481A1BCA4900CE8C74 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 377A63461A1BCA4900CE8C74 /* LaunchScreen.xib */; };
 		377A63541A1BCA4900CE8C74 /* VirtualPetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 377A63531A1BCA4900CE8C74 /* VirtualPetTests.m */; };
@@ -110,6 +117,9 @@
 		375EA5A51A31EED1003899BE /* PetTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetTests.m; sourceTree = "<group>"; };
 		375EA5A71A3229B0003899BE /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-2.xcassets"; sourceTree = "<group>"; };
 		375EA5A91A322A02003899BE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		375EA5AC1A32462D003899BE /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsViewController.h; sourceTree = "<group>"; };
+		375EA5AD1A32462D003899BE /* ContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsViewController.m; sourceTree = "<group>"; };
+		375EA5AE1A32462D003899BE /* ContactsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactsViewController.xib; sourceTree = "<group>"; };
 		376AB1C71A2CC2FB006BF26D /* PetListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetListCell.h; sourceTree = "<group>"; };
 		376AB1C81A2CC2FB006BF26D /* PetListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetListCell.m; sourceTree = "<group>"; };
 		376AB1C91A2CC2FB006BF26D /* PetListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PetListCell.xib; sourceTree = "<group>"; };
@@ -123,6 +133,14 @@
 		376AB1D71A2CC95D006BF26D /* LocationHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationHandler.m; sourceTree = "<group>"; };
 		376AB1D91A2CFCE8006BF26D /* CustomMapPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomMapPoint.h; sourceTree = "<group>"; };
 		376AB1DA1A2CFCE8006BF26D /* CustomMapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomMapPoint.m; sourceTree = "<group>"; };
+		3779E8131A33398C004A69A4 /* ContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactCell.h; sourceTree = "<group>"; };
+		3779E8141A33398C004A69A4 /* ContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactCell.m; sourceTree = "<group>"; };
+		3779E8151A33398C004A69A4 /* ContactCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
+		3779E8181A333B4F004A69A4 /* ContactManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactManager.h; sourceTree = "<group>"; };
+		3779E8191A333B4F004A69A4 /* ContactManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactManager.m; sourceTree = "<group>"; };
+		3779E81B1A333B72004A69A4 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
+		3779E81C1A333B72004A69A4 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
+		3779E81E1A333E57004A69A4 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		377A63341A1BCA4900CE8C74 /* VirtualPet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirtualPet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		377A63381A1BCA4900CE8C74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		377A63391A1BCA4900CE8C74 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -219,6 +237,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3779E81F1A333E57004A69A4 /* AddressBook.framework in Frameworks */,
 				3789F6D11A2F605500644085 /* CoreData.framework in Frameworks */,
 				377CCDE41A2CB40C002172C5 /* MapKit.framework in Frameworks */,
 				374E81531A28C2470081EC2F /* SystemConfiguration.framework in Frameworks */,
@@ -245,9 +264,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		375EA5AB1A324616003899BE /* ContactsView */ = {
+			isa = PBXGroup;
+			children = (
+				375EA5AC1A32462D003899BE /* ContactsViewController.h */,
+				375EA5AD1A32462D003899BE /* ContactsViewController.m */,
+				375EA5AE1A32462D003899BE /* ContactsViewController.xib */,
+				3779E8131A33398C004A69A4 /* ContactCell.h */,
+				3779E8141A33398C004A69A4 /* ContactCell.m */,
+				3779E8151A33398C004A69A4 /* ContactCell.xib */,
+				3779E8181A333B4F004A69A4 /* ContactManager.h */,
+				3779E8191A333B4F004A69A4 /* ContactManager.m */,
+				3779E81B1A333B72004A69A4 /* Contact.h */,
+				3779E81C1A333B72004A69A4 /* Contact.m */,
+			);
+			path = ContactsView;
+			sourceTree = "<group>";
+		};
 		377A632B1A1BCA4900CE8C74 = {
 			isa = PBXGroup;
 			children = (
+				3779E81E1A333E57004A69A4 /* AddressBook.framework */,
 				3789F6D01A2F605500644085 /* CoreData.framework */,
 				377CCDE31A2CB40C002172C5 /* MapKit.framework */,
 				374E81521A28C2470081EC2F /* SystemConfiguration.framework */,
@@ -284,6 +321,7 @@
 				3743DBFF1A25004800270C68 /* NSTimer+TimerWithAutoInvalidate.h */,
 				3743DC001A25004800270C68 /* NSTimer+TimerWithAutoInvalidate.m */,
 				377A63461A1BCA4900CE8C74 /* LaunchScreen.xib */,
+				375EA5AB1A324616003899BE /* ContactsView */,
 				3786ADB01A30D7F00037755B /* PetDetail Scene */,
 				3785DF701A2A02FE0050FB02 /* PetList Scene */,
 				377CCDE51A2CB6AD002172C5 /* MapView */,
@@ -606,6 +644,7 @@
 				375EA5A81A3229B0003899BE /* Images-2.xcassets in Resources */,
 				377A63481A1BCA4900CE8C74 /* LaunchScreen.xib in Resources */,
 				377FA8F01A1E76BE00E9A07D /* TableViewCellExtra.xib in Resources */,
+				375EA5B01A32462D003899BE /* ContactsViewController.xib in Resources */,
 				377A63671A1BCC2800CE8C74 /* FirstViewController.xib in Resources */,
 				376AB1D01A2CC2FB006BF26D /* PetListViewController.xib in Resources */,
 				3782E76F1A1CF716009A4C10 /* MainMenuViewController.xib in Resources */,
@@ -613,6 +652,7 @@
 				376AB1D51A2CC31A006BF26D /* MapViewController.xib in Resources */,
 				375EA5AA1A322A02003899BE /* Images.xcassets in Resources */,
 				377FA8EB1A1E5F5200E9A07D /* TableViewCell.xib in Resources */,
+				3779E8171A33398C004A69A4 /* ContactCell.xib in Resources */,
 				37CDE7231A26692900313E47 /* SelectImgViewController.xib in Resources */,
 				377A63731A1BD12A00CE8C74 /* GameViewController.xib in Resources */,
 				377FA8E31A1E545800E9A07D /* FoodViewController.xib in Resources */,
@@ -637,6 +677,7 @@
 				37CDE6BB1A262A6D00313E47 /* AFHTTPRequestOperationManager.m in Sources */,
 				37CDE7091A262A6D00313E47 /* UIImageView+AFNetworking.m in Sources */,
 				376AB1D41A2CC31A006BF26D /* MapViewController.m in Sources */,
+				3779E81A1A333B4F004A69A4 /* ContactManager.m in Sources */,
 				37CDE70B1A262A6D00313E47 /* UIRefreshControl+AFNetworking.m in Sources */,
 				37CDE7071A262A6D00313E47 /* UIAlertView+AFNetworking.m in Sources */,
 				3784B8B01A274A680036E52D /* Pet.m in Sources */,
@@ -661,11 +702,14 @@
 				37CDE6BC1A262A6D00313E47 /* AFHTTPSessionManager.m in Sources */,
 				37A472CC1A2DFB2C00118D47 /* MyPet.m in Sources */,
 				37CDE6BA1A262A6D00313E47 /* AFHTTPRequestOperation.m in Sources */,
+				3779E81D1A333B72004A69A4 /* Contact.m in Sources */,
 				3743DC011A25004800270C68 /* NSTimer+TimerWithAutoInvalidate.m in Sources */,
 				3789F6DE1A2F64CC00644085 /* PetRanking.m in Sources */,
+				3779E8161A33398C004A69A4 /* ContactCell.m in Sources */,
 				3789F6D41A2F612E00644085 /* Model.xcdatamodeld in Sources */,
 				37CDE6BE1A262A6D00313E47 /* AFSecurityPolicy.m in Sources */,
 				3784B8AF1A274A680036E52D /* NetworkManager.m in Sources */,
+				375EA5AF1A32462D003899BE /* ContactsViewController.m in Sources */,
 				37CDE6BD1A262A6D00313E47 /* AFNetworkReachabilityManager.m in Sources */,
 				37CDE6C21A262A6D00313E47 /* AFURLSessionManager.m in Sources */,
 				3782E76E1A1CF716009A4C10 /* MainMenuViewController.m in Sources */,
