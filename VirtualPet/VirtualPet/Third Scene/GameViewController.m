@@ -13,14 +13,11 @@
 #import "NotificationManager.h"
 #import "PetListViewController.h"
 #import "LocationHandler.h"
+#import "ContactsViewController.h"
 
 float const eatAnimationTime = 0.5f;
 float const exhaustAnimationTime = 1.2f;
 int const eatAnimationIterations = 4;
-
-
-NSString* const MAIL_BODY_MESSAGE = @"Buenas! Soy %@, cómo va? Quería comentarte que estuve usando la App <Nombre_de_la_app> para comerme todo y está genial. Bajatela YA!!   Saludos!";
-NSString* const MAIL_SUBJECT = @"Que app copada";
 
 @interface GameViewController ()
 
@@ -39,7 +36,6 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
 @property (strong, nonatomic) NSTimer* energyTimer;
 @property (strong, nonatomic) IBOutlet UIImageView *superSaiyanImgView;
 
-@property (nonatomic, strong) MFMailComposeViewController* myMailView;
 @property (nonatomic, strong) NetworkAccessObject* daoObject;
 @property (nonatomic, strong) LocationHandler* locationHandler;
 
@@ -75,7 +71,7 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
     [self.mouthFrame setAlpha:0];
     
     UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
-    [button addTarget:self action:@selector(sendEMail) forControlEvents:UIControlEventTouchUpInside];
+    [button addTarget:self action:@selector(openContactsView) forControlEvents:UIControlEventTouchUpInside];
     [button setBackgroundImage:[UIImage imageNamed:@"email"] forState:UIControlStateNormal];
     UIBarButtonItem* mailButton = [[UIBarButtonItem alloc] initWithCustomView:button];
     self.navigationItem.rightBarButtonItem = mailButton;
@@ -411,41 +407,14 @@ NSString* const MAIL_SUBJECT = @"Que app copada";
     };
 }
 
-#pragma mark - E-Mail Methods
 //********************************************
-// Metodo para abrir la pantalla de MAIL
+// Go to contact view
 //********************************************
-- (void) sendEMail
-{
-    NSString* mailBody = [NSString stringWithFormat:MAIL_BODY_MESSAGE, [MyPet sharedInstance].petName];
-    NSString* mailSubject = MAIL_SUBJECT;
-    self.myMailView = [[MFMailComposeViewController alloc] init];
-    self.myMailView.mailComposeDelegate = self;
-    [self.myMailView setSubject:mailSubject];
-    [self.myMailView setMessageBody:mailBody isHTML:NO];
-    [self.myMailView setTitle:@"EMAIL"];
-    [self presentViewController:self.myMailView animated:YES completion:nil];
-}
 
-- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+- (void) openContactsView
 {
-    switch (result) {
-        case MFMailComposeResultSent:
-            [[[UIAlertView alloc] initWithTitle:@"Success" message:@"Messagge sent succesfully" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
-        break;
-        case MFMailComposeResultCancelled:
-            [[[UIAlertView alloc] initWithTitle:@"Cancelled" message:@"Mail has been cancelled" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
-        break;
-        case MFMailComposeResultFailed:
-            [[[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an error sending the E-Mail" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
-        break;
-        case MFMailComposeResultSaved:
-            [[[UIAlertView alloc] initWithTitle:@"Save" message:@"Messagge saved" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
-        break;
-        default:
-            break;
-    }
-    [self dismissViewControllerAnimated:YES completion:nil];
+    ContactsViewController* view = [[ContactsViewController alloc] initWithNibName:@"ContactsViewController" bundle:[NSBundle mainBundle]];
+    [self.navigationController pushViewController:view animated:YES];
 }
 
 @end
