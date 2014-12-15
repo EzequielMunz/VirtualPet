@@ -29,7 +29,9 @@ extern NSString* const EVENT_RELOAD_DATA;
 @property (nonatomic, assign) double locationLon;
 @property (nonatomic, assign) int petEnergy;
 @property (nonatomic, assign) int petLevel;
+@property (nonatomic, assign) int health;
 
 - (instancetype) initWithDictionary: (NSDictionary*) dic;
+- (instancetype) initWithDictionaryForFight: (NSDictionary*) dic;
 
 @end

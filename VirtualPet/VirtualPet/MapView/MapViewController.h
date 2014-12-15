@@ -10,7 +10,7 @@
 #import <MapKit/MapKit.h>
 #import "Pet.h"
 
-@interface MapViewController : UIViewController <MKMapViewDelegate>
+@interface MapViewController : UIViewController <MKMapViewDelegate, MKOverlay>
 
 - (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andPet: (Pet*)pet;
 

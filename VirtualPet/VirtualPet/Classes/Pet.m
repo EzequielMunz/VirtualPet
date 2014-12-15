@@ -21,7 +21,7 @@ NSString* const EVENT_RELOAD_DATA = @"RELOAD_DATA";
 
 @implementation Pet
 
-@synthesize petEnergy, petLevel, doingExcercise, petName, petImageName, petType, locationLon, locationLat, location, userID;
+@synthesize petEnergy, petLevel, doingExcercise, petName, petImageName, petType, locationLon, locationLat, location, userID, health;
 
 - (instancetype) initWithDictionary:(NSDictionary *)dic
 {
@@ -60,6 +60,23 @@ NSString* const EVENT_RELOAD_DATA = @"RELOAD_DATA";
         location = [[CLLocation alloc] initWithLatitude:((NSNumber*)[dic objectForKey:@"position_lat"]).doubleValue longitude:((NSNumber*)[dic objectForKey:@"position_lon"]).doubleValue];
         locationLat = ((NSNumber*)[dic objectForKey:@"position_lat"]).intValue;
         locationLon = ((NSNumber*)[dic objectForKey:@"position_lon"]).intValue;
+    }
+    return self;
+}
+
+- (instancetype) initWithDictionaryForFight: (NSDictionary*) dic;
+{
+    //self = [NSEntityDescription insertNewObjectForEntityForName:@"Pet" inManagedObjectContext:context];
+    
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"Pet" inManagedObjectContext:[[DataModelManager sharedInstance] managedObjectContext]];
+    
+    self = [[Pet alloc] initWithEntity:entity insertIntoManagedObjectContext:nil];
+    
+    if(self)
+    {
+        petName = [dic objectForKey:@"name"];
+        petImageName = [dic objectForKey:@"image"];
+        health = ((NSNumber*)[dic objectForKey:@"health"]).intValue;
     }
     return self;
 }

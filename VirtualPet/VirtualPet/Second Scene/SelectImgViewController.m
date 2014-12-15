@@ -56,6 +56,7 @@
 
 - (void) viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     [self setTitle:@"Image"];
     
     [self.scrollImages setScrollEnabled:YES];
@@ -65,6 +66,7 @@
 - (void) viewWillDisappear:(BOOL)animated
 {
     [self setTitle:@"---"];
+    [super viewWillDisappear:animated];
 }
 
 /*

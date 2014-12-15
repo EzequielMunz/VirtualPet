@@ -19,7 +19,7 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Super Duper Pet App" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEz-Om-5ND">
                     <rect key="frame" x="36" y="73" width="248" height="78"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="78" id="40y-pE-Uic"/>
+                        <constraint firstAttribute="height" constant="78" id="Heu-cA-oPt"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="26"/>
                     <color key="textColor" red="0.0" green="0.7632205647039938" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -27,6 +27,9 @@
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type 6 or More Characters" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="R0e-tT-CF7">
                     <rect key="frame" x="39" y="269" width="242" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="242" id="p5p-aY-gY9"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
                     <connections>
@@ -37,8 +40,8 @@
                     <rect key="frame" x="114" y="347" width="92" height="30"/>
                     <color key="backgroundColor" red="0.27647101429999998" green="0.61766526980000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="92" id="gbq-bi-mAP"/>
-                        <constraint firstAttribute="height" constant="30" id="qMH-zI-fkl"/>
+                        <constraint firstAttribute="height" constant="30" id="hrR-OP-eZD"/>
+                        <constraint firstAttribute="width" constant="92" id="nu9-MU-AjL"/>
                     </constraints>
                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" title="Continue">
@@ -58,6 +61,9 @@
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pet Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2lK-8X-wPj">
                     <rect key="frame" x="122" y="214" width="76" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="76" id="nso-dj-cP0"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
@@ -65,16 +71,16 @@
             </subviews>
             <color key="backgroundColor" red="0.91226577009999998" green="1" blue="0.91367501070000001" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="EEz-Om-5ND" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0An-dX-IPN"/>
-                <constraint firstItem="EEz-Om-5ND" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="73" id="18f-0z-6Jj"/>
-                <constraint firstItem="EeK-HA-9VD" firstAttribute="top" secondItem="R0e-tT-CF7" secondAttribute="bottom" constant="48" id="8yr-1f-25H"/>
-                <constraint firstItem="EEz-Om-5ND" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="36" id="GRd-M0-pni"/>
-                <constraint firstItem="EEz-Om-5ND" firstAttribute="centerX" secondItem="2lK-8X-wPj" secondAttribute="centerX" id="MaC-Na-l2f"/>
-                <constraint firstItem="EEz-Om-5ND" firstAttribute="centerX" secondItem="EeK-HA-9VD" secondAttribute="centerX" id="Sxc-FR-aCD"/>
-                <constraint firstItem="R0e-tT-CF7" firstAttribute="top" secondItem="2lK-8X-wPj" secondAttribute="bottom" constant="34" id="Tgt-Gb-KyW"/>
-                <constraint firstItem="R0e-tT-CF7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="39" id="gjJ-Dy-lML"/>
-                <constraint firstItem="2lK-8X-wPj" firstAttribute="top" secondItem="EEz-Om-5ND" secondAttribute="bottom" constant="63" id="lpp-b2-XJU"/>
-                <constraint firstItem="EEz-Om-5ND" firstAttribute="centerX" secondItem="R0e-tT-CF7" secondAttribute="centerX" id="yXD-vw-bv2"/>
+                <constraint firstItem="EEz-Om-5ND" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="73" id="4zT-JG-flV"/>
+                <constraint firstItem="2lK-8X-wPj" firstAttribute="top" secondItem="EEz-Om-5ND" secondAttribute="bottom" constant="63" id="73r-sl-F42"/>
+                <constraint firstItem="R0e-tT-CF7" firstAttribute="top" secondItem="2lK-8X-wPj" secondAttribute="bottom" constant="34" id="G2j-Iv-Zgi"/>
+                <constraint firstAttribute="centerX" secondItem="EeK-HA-9VD" secondAttribute="centerX" id="MKB-5d-a4u"/>
+                <constraint firstItem="EeK-HA-9VD" firstAttribute="top" secondItem="R0e-tT-CF7" secondAttribute="bottom" constant="48" id="RYq-W7-uKc"/>
+                <constraint firstItem="R0e-tT-CF7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="39" id="UXU-vW-xW6"/>
+                <constraint firstAttribute="trailing" secondItem="R0e-tT-CF7" secondAttribute="trailing" constant="39" id="WwF-sH-ku2"/>
+                <constraint firstAttribute="trailing" secondItem="EEz-Om-5ND" secondAttribute="trailing" constant="36" id="brY-ak-vPY"/>
+                <constraint firstAttribute="centerX" secondItem="2lK-8X-wPj" secondAttribute="centerX" id="tQl-I0-eWj"/>
+                <constraint firstItem="EEz-Om-5ND" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="36" id="zXR-hS-f33"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <point key="canvasLocation" x="140" y="155"/>

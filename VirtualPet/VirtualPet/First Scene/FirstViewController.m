@@ -26,12 +26,14 @@
 
 - (void) viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     [self setTitle:@"Name"];
 }
 
 - (void) viewWillDisappear:(BOOL)animated
 {
     [self setTitle:@"---"];
+    [super viewWillDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning {

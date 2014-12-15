@@ -40,14 +40,14 @@
 
 - (void) viewWillAppear:(BOOL)animated
 {
-    //[super viewWillAppear:animated];
+    [super viewWillAppear:animated];
     
     [self setTitle:@"Food"];
 }
 
 - (void) viewWillDisappear:(BOOL)animated
 {
-    //[super viewWillDisappear:animated];
+    [super viewWillDisappear:animated];
     
     [self setTitle:@"---"];
 }
@@ -79,22 +79,17 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString* simpleTableIdentifier;
-    if(indexPath.row % 2)
-    {
+    //if(indexPath.row % 2)
+    //{
         simpleTableIdentifier = @"TableViewCellExtra";
-    }
-    else
-    {
-        simpleTableIdentifier = @"TableViewCell";
-    }
+    //}
+    //else
+    //{
+    //    simpleTableIdentifier = @"TableViewCell";
+    //}
     
     TableViewCell* newCell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    
-    if(!newCell)
-    {
-        newCell = [[TableViewCell alloc] init];
-    }
-    
+
     [newCell.myImageView setImage:[UIImage imageNamed:((PetFood*)self.foodArray[indexPath.row]).imagePath]];
     [newCell.myLblName setText:[NSString stringWithFormat: @"%@ (%d)", ((PetFood*)self.foodArray[indexPath.row]).foodName, ((PetFood*)self.foodArray[indexPath.row]).foodEnergyValue]];
     return newCell;

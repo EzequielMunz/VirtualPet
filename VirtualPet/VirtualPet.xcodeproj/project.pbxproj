@@ -46,7 +46,11 @@
 		377A636D1A1BCD1D00CE8C74 /* SelectImgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377A636B1A1BCD1D00CE8C74 /* SelectImgViewController.m */; };
 		377A63721A1BD12A00CE8C74 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377A63701A1BD12A00CE8C74 /* GameViewController.m */; };
 		377A63731A1BD12A00CE8C74 /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 377A63711A1BD12A00CE8C74 /* GameViewController.xib */; };
+		377ADC7F1A3B211C005DD9B6 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 377ADC7E1A3B211C005DD9B6 /* CoreMotion.framework */; };
+		377ADC841A3B2181005DD9B6 /* FightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377ADC821A3B2180005DD9B6 /* FightViewController.m */; };
+		377ADC851A3B2181005DD9B6 /* FightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 377ADC831A3B2181005DD9B6 /* FightViewController.xib */; };
 		377CCDE41A2CB40C002172C5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 377CCDE31A2CB40C002172C5 /* MapKit.framework */; };
+		377E506F1A3F137A0078B005 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 377E506E1A3F137A0078B005 /* MultipeerConnectivity.framework */; };
 		377FA8E21A1E545800E9A07D /* FoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377FA8E01A1E545800E9A07D /* FoodViewController.m */; };
 		377FA8E31A1E545800E9A07D /* FoodViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 377FA8E11A1E545800E9A07D /* FoodViewController.xib */; };
 		377FA8EA1A1E5F5200E9A07D /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 377FA8E81A1E5F5200E9A07D /* TableViewCell.m */; };
@@ -156,7 +160,12 @@
 		377A636F1A1BD12A00CE8C74 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		377A63701A1BD12A00CE8C74 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		377A63711A1BD12A00CE8C74 /* GameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
+		377ADC7E1A3B211C005DD9B6 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		377ADC811A3B2180005DD9B6 /* FightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FightViewController.h; sourceTree = "<group>"; };
+		377ADC821A3B2180005DD9B6 /* FightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FightViewController.m; sourceTree = "<group>"; };
+		377ADC831A3B2181005DD9B6 /* FightViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FightViewController.xib; sourceTree = "<group>"; };
 		377CCDE31A2CB40C002172C5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		377E506E1A3F137A0078B005 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
 		377FA8DF1A1E545800E9A07D /* FoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodViewController.h; sourceTree = "<group>"; };
 		377FA8E01A1E545800E9A07D /* FoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodViewController.m; sourceTree = "<group>"; };
 		377FA8E11A1E545800E9A07D /* FoodViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodViewController.xib; sourceTree = "<group>"; };
@@ -237,6 +246,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				377E506F1A3F137A0078B005 /* MultipeerConnectivity.framework in Frameworks */,
+				377ADC7F1A3B211C005DD9B6 /* CoreMotion.framework in Frameworks */,
 				3779E81F1A333E57004A69A4 /* AddressBook.framework in Frameworks */,
 				3789F6D11A2F605500644085 /* CoreData.framework in Frameworks */,
 				377CCDE41A2CB40C002172C5 /* MapKit.framework in Frameworks */,
@@ -284,6 +295,8 @@
 		377A632B1A1BCA4900CE8C74 = {
 			isa = PBXGroup;
 			children = (
+				377E506E1A3F137A0078B005 /* MultipeerConnectivity.framework */,
+				377ADC7E1A3B211C005DD9B6 /* CoreMotion.framework */,
 				3779E81E1A333E57004A69A4 /* AddressBook.framework */,
 				3789F6D01A2F605500644085 /* CoreData.framework */,
 				377CCDE31A2CB40C002172C5 /* MapKit.framework */,
@@ -321,6 +334,7 @@
 				3743DBFF1A25004800270C68 /* NSTimer+TimerWithAutoInvalidate.h */,
 				3743DC001A25004800270C68 /* NSTimer+TimerWithAutoInvalidate.m */,
 				377A63461A1BCA4900CE8C74 /* LaunchScreen.xib */,
+				377ADC801A3B216D005DD9B6 /* Fight Scene */,
 				375EA5AB1A324616003899BE /* ContactsView */,
 				3786ADB01A30D7F00037755B /* PetDetail Scene */,
 				3785DF701A2A02FE0050FB02 /* PetList Scene */,
@@ -394,6 +408,16 @@
 				377A63711A1BD12A00CE8C74 /* GameViewController.xib */,
 			);
 			path = "Third Scene";
+			sourceTree = "<group>";
+		};
+		377ADC801A3B216D005DD9B6 /* Fight Scene */ = {
+			isa = PBXGroup;
+			children = (
+				377ADC811A3B2180005DD9B6 /* FightViewController.h */,
+				377ADC821A3B2180005DD9B6 /* FightViewController.m */,
+				377ADC831A3B2181005DD9B6 /* FightViewController.xib */,
+			);
+			path = "Fight Scene";
 			sourceTree = "<group>";
 		};
 		377CCDE51A2CB6AD002172C5 /* MapView */ = {
@@ -643,6 +667,7 @@
 				376AB1CE1A2CC2FB006BF26D /* PetListCell.xib in Resources */,
 				375EA5A81A3229B0003899BE /* Images-2.xcassets in Resources */,
 				377A63481A1BCA4900CE8C74 /* LaunchScreen.xib in Resources */,
+				377ADC851A3B2181005DD9B6 /* FightViewController.xib in Resources */,
 				377FA8F01A1E76BE00E9A07D /* TableViewCellExtra.xib in Resources */,
 				375EA5B01A32462D003899BE /* ContactsViewController.xib in Resources */,
 				377A63671A1BCC2800CE8C74 /* FirstViewController.xib in Resources */,
@@ -690,6 +715,7 @@
 				3784B8AB1A274A680036E52D /* AppDelegate.m in Sources */,
 				37CDE7051A262A6D00313E47 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				37CDE70A1A262A6D00313E47 /* UIProgressView+AFNetworking.m in Sources */,
+				377ADC841A3B2181005DD9B6 /* FightViewController.m in Sources */,
 				376AB1D81A2CC95D006BF26D /* LocationHandler.m in Sources */,
 				374E81561A28EE400081EC2F /* NotificationManager.m in Sources */,
 				3784B8AE1A274A680036E52D /* NetworkAccessObject.m in Sources */,

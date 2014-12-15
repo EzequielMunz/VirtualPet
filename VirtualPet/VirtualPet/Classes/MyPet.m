@@ -26,7 +26,7 @@ NSString* const KEY_FULL_PET = @"pet_object";
 
 @implementation MyPet
 
-@synthesize petEnergy, petLevel, petActualExperience, petNeededExperience, doingExcercise, daoObject, petName, petImageName, petType, locationLon, locationLat, location;
+@synthesize petEnergy, petLevel, petActualExperience, petNeededExperience, doingExcercise, daoObject, petName, petImageName, petType, locationLon, locationLat, location, isTired, health;
 
  __strong static id _sharedObject = nil;
 
@@ -38,6 +38,8 @@ NSString* const KEY_FULL_PET = @"pet_object";
     {
         
         petEnergy = energy;
+        health = 100;
+        isTired = NO;
         petLevel = 1;
         petActualExperience = 0;
         petNeededExperience = 100;
@@ -162,6 +164,7 @@ NSString* const KEY_FULL_PET = @"pet_object";
     else
     {
         self.doingExcercise = NO;
+        self.isTired = YES;
         [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_SET_EXHAUST object:[NSNumber numberWithInt:self.petEnergy]];
     }
 }
@@ -170,6 +173,7 @@ NSString* const KEY_FULL_PET = @"pet_object";
 - (void) doEat: (int) value
 {
     self.petEnergy += value;
+    self.isTired = NO;
     if(self.petEnergy > 100)
     {
         self.petEnergy = 100;

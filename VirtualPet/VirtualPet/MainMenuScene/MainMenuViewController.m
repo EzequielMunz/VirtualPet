@@ -37,6 +37,7 @@
 
 - (void) viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     [self setTitle:@"Menu"];
     [NotificationManager sendLocalNotification:@{@"name": @"name",
                                                  @"level": [NSNumber numberWithInt:2]
@@ -47,6 +48,7 @@
 - (void) viewWillDisappear:(BOOL)animated
 {
     [self setTitle:@"---"];
+    [super viewWillDisappear:animated];
 }
 
 /*

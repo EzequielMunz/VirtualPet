@@ -8,7 +8,7 @@
 
 #import "MapViewController.h"
 #import "CustomMapPoint.h"
-
+#import "MyPet.h"
 
 @interface MapViewController ()
 
@@ -106,6 +106,35 @@
     return address;
 }
 
+-  (void)showLines {
+    MKPlacemark* sourceCoordinate = [[MKPlacemark alloc] initWithCoordinate:[MyPet sharedInstance].location.coordinate addressDictionary:nil];
+    MKMapItem* sourceMapItem = [[MKMapItem alloc] initWithPlacemark:sourceCoordinate];
+    [sourceMapItem setName:@"My Pet"];
+    
+    MKPlacemark* destinationCoordinate = [[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake(self.myPet.locationLat, self.myPet.locationLon) addressDictionary:nil];
+    MKMapItem* destinationMapItem = [[MKMapItem alloc] initWithPlacemark:destinationCoordinate];
+    [destinationMapItem setName:@"Enemy Pet"];
+    
+    MKDirectionsRequest* request = [[MKDirectionsRequest alloc] init];
+    [request setSource:sourceMapItem];
+    [request setDestination:destinationMapItem];
+    [request setTransportType:MKDirectionsTransportTypeAny];
+    
+    MKDirections* directions = [[MKDirections alloc] initWithRequest:request];
+    
+    [directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse* response, NSError* error){
+       
+        NSArray* routes = [response routes];
+        
+        [routes enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop){
+           
+            MKRoute* route = obj;
+            
+            MKPolyline* line = [route polyline];
+            [self.myMapView addOverlay:line];
+        }];
+    }];
+}
 
 //************************************************************
 // Metodos del Delegate
@@ -115,6 +144,7 @@
 {
     MKCoordinateRegion region;
     NSString* address = [self doReverseGeocoding];
+    [mapView removeAnnotations:self.annotationsArray];
     
     if(self.isFullMap)
     {
@@ -132,12 +162,17 @@
     else
     {
         region.center = self.myPet.location.coordinate;
-        region.span.latitudeDelta = 0.02;
-        region.span.longitudeDelta = 0.02;
+        region.span.latitudeDelta = 100;
+        region.span.longitudeDelta = 100;
         
         // Seteamos el PIN
         CustomMapPoint* annotation = [[CustomMapPoint alloc] initWithPet:self.myPet andAddress:address];
         [self.annotationsArray addObject:annotation];
+        
+        CustomMapPoint* myAnnotation = [[CustomMapPoint alloc] initWithPet:[MyPet sharedInstance] andAddress:@"Doesn't matter"];
+        [self.annotationsArray addObject:myAnnotation];
+        
+        [self showLines];
     }
     
     [mapView addAnnotations:self.annotationsArray];
@@ -166,5 +201,18 @@
          return nil;
     }
 }
+
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
+{
+    // create a polylineView using polyline _overlay object
+    MKPolylineRenderer *polylineView = [[MKPolylineRenderer alloc] initWithPolyline:overlay];
+    
+    polylineView.strokeColor =  [UIColor redColor];   // applying line-width
+    polylineView.lineWidth = 2.0;
+    polylineView.alpha = 0.5;
+    
+    return polylineView;
+}
+
 
 @end

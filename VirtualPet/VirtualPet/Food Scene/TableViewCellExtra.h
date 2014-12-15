@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TableViewCell.h"
 
-@interface TableViewCellExtra : UITableViewCell
+@interface TableViewCellExtra : TableViewCell
 @property (strong, nonatomic) IBOutlet UIImageView *myImageView;
 @property (strong, nonatomic) IBOutlet UILabel *myLblName;
 

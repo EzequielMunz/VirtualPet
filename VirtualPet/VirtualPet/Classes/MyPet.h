@@ -15,6 +15,8 @@
 
 + (instancetype) sharedInstance;
 
+@property (nonatomic) BOOL isTired;
+
 + (void) saveDataToDisk;
 
 - (void) doExcercise;

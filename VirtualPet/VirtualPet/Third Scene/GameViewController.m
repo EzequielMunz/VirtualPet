@@ -14,6 +14,7 @@
 #import "PetListViewController.h"
 #import "LocationHandler.h"
 #import "ContactsViewController.h"
+#import "FightViewController.h"
 
 float const eatAnimationTime = 0.5f;
 float const exhaustAnimationTime = 1.2f;
@@ -108,6 +109,7 @@ int const eatAnimationIterations = 4;
 
 - (void) viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     [self setTitle:@"Home"];
     
     // Se suscribe la vista para las notificaciones
@@ -115,6 +117,8 @@ int const eatAnimationIterations = 4;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatePetExhaust) name:EVENT_SET_EXHAUST object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showLevelUp:) name:EVENT_LEVEL_UP object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateExperience) name:EVENT_UPDATE_EXPERIENCE object:nil];
+    
+    [self becomeFirstResponder];
     
 }
 
@@ -130,6 +134,9 @@ int const eatAnimationIterations = 4;
     [self.petImageView stopAnimating];
     [self.btnExcercise setTitle:@"Do Excercise" forState:UIControlStateNormal];
     [MyPet sharedInstance].doingExcercise = false;
+    
+    [self resignFirstResponder];
+    [super viewWillDisappear:animated];
 }
 
 - (void) viewDidDisappear:(BOOL)animated
@@ -416,5 +423,35 @@ int const eatAnimationIterations = 4;
     ContactsViewController* view = [[ContactsViewController alloc] initWithNibName:@"ContactsViewController" bundle:[NSBundle mainBundle]];
     [self.navigationController pushViewController:view animated:YES];
 }
+
+//********************************************
+// Motion - Accelerometer
+//********************************************
+
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    if(motion == UIEventSubtypeMotionShake)
+    {
+        // Entrenar
+        /*if(![MyPet sharedInstance].isTired)
+        {
+            [self animateExcercisingPet];
+            
+            NSString* btnText = ([MyPet sharedInstance].doingExcercise ? @"Stop" : @"Do Excercise");
+            [self.btnExcercise setTitle:btnText forState:UIControlStateNormal];
+        }*/
+        
+        // Push FIGHT!!!!!!!
+        [MyPet sharedInstance].health = 100;
+        FightViewController* view = [[FightViewController alloc] init];
+        [self.navigationController pushViewController:view animated:YES];
+    }
+}
+
+- (BOOL)canBecomeFirstResponder
+{
+    return YES;
+}
+
 
 @end

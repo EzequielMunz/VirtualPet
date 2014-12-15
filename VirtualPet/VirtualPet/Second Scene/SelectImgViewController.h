@@ -10,8 +10,6 @@
 
 @interface SelectImgViewController : UIViewController
 
-- (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andPetName:(NSString*) name;
-
 - (IBAction)setImage:(UIButton*)sender;
 
 @end
