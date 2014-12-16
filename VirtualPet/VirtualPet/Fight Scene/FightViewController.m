@@ -178,6 +178,7 @@
     //  Append text to text box
     dispatch_async(dispatch_get_main_queue(), ^{
         self.textBox.text = [self.textBox.text stringByAppendingString:finalText];
+        [self.textBox scrollRangeToVisible:NSMakeRange([self.textBox.text length], 0)];
     });
     
 }
@@ -225,6 +226,9 @@
             {
                 [MyPet sharedInstance].health = 0;
                 [self sendText:[NSString stringWithFormat:@"%@ has been defeated", [MyPet sharedInstance].petName]];
+                ////////////////////////////////// Sonido de Derrota //////////////////////////////////
+                
+                ///////////////////////////////////////////////////////////////////////////////////////
                 [self.motionManager stopAccelerometerUpdates];
                 [self.chatBox setEnabled:YES];
             }
@@ -313,12 +317,19 @@
         self.enemyPet.health = 0;
         [self sendText:[NSString stringWithFormat:@"%@ Win the Fight!!!!!", [MyPet sharedInstance].petName]];
         [self.chatBox setEnabled:YES];
+        /////////////////////////////////// Sonido de Victoria /////////////////////////////////////
+        
+        ////////////////////////////////////////////////////////////////////////////////////////////
     }
     else
     {
         [self checkAccelerometer];
     }
     [self reloadViewData];
+    
+    ////////////////////////////// Sonido de Golpe Aca ////////////////////////////////////
+    
+    ///////////////////////////////////////////////////////////////////////////////////////
 }
 
 @end
