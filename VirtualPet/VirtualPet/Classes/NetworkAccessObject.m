@@ -41,7 +41,7 @@ NSString* const CODE_IDENTIFIER = @"em3896";
 
 - (void) doPOSTPetUpdate: (Success) block
 {
-    NSDictionary* petInfo = @{@"code" : @"em3896",
+    NSDictionary* petInfo = @{@"code" : CODE_IDENTIFIER,
                               @"name" : [MyPet sharedInstance].petName,
                               @"energy" : [NSNumber numberWithInt:[[MyPet sharedInstance] getEnergy]],
                               @"level" : [NSNumber numberWithInt:[MyPet sharedInstance].petLevel],

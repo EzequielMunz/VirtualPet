@@ -38,7 +38,6 @@ NSString* const KEY_FULL_PET = @"pet_object";
     {
         
         petEnergy = energy;
-        health = 100;
         isTired = NO;
         petLevel = 1;
         petActualExperience = 0;
