@@ -30,5 +30,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *nameMine;
 @property (strong, nonatomic) IBOutlet UILabel *healthEnemy;
 @property (strong, nonatomic) IBOutlet UILabel *healthMine;
+@property (strong, nonatomic) IBOutlet UIImageView *imgHitMine;
+@property (strong, nonatomic) IBOutlet UIImageView *imgHitEnemy;
 
 @end

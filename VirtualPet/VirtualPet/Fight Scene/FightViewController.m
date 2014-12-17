@@ -10,6 +10,10 @@
 #import "NSTimer+TimerWithAutoInvalidate.h"
 #import "MyPet.h"
 
+NSString* const PATH_HIT_COMMON = @"Hit (Normal)";
+NSString* const PATH_HIT_BLOODY = @"Hit (Sangriento)";
+NSString* const PATH_HIT_CRITISH = @"Hit (Critish)";
+
 @interface FightViewController ()
 
 @property (nonatomic) float maxPower;
@@ -43,7 +47,6 @@
 {
     [super viewDidAppear:animated];
     [MyPet sharedInstance].health = 1000;
-    
 }
 
 - (void) viewDidDisappear:(BOOL)animated
@@ -232,6 +235,14 @@
                 [self.motionManager stopAccelerometerUpdates];
                 [self.chatBox setEnabled:YES];
             }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.imgHitMine.image = [UIImage imageNamed:PATH_HIT_COMMON];
+                [self.imgHitMine setAlpha:1];
+                [UIView animateWithDuration:0.5f animations:^(void){
+                    [self.imgHitMine setAlpha:0];
+                }];
+            });
+            
             [self reloadViewData];
         }
     }
@@ -325,6 +336,13 @@
     {
         [self checkAccelerometer];
     }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.imgHitEnemy.image = [UIImage imageNamed:PATH_HIT_COMMON];
+        [self.imgHitEnemy setAlpha:0];
+        [UIView animateWithDuration:0.5f animations:^(void){
+            [self.imgHitEnemy setAlpha:0];
+        }];
+    });
     [self reloadViewData];
     
     ////////////////////////////// Sonido de Golpe Aca ////////////////////////////////////

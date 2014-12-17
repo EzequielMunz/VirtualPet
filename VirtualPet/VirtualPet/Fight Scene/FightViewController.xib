@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <objects>
@@ -11,6 +12,8 @@
                 <outlet property="healthEnemy" destination="GsK-4y-ZxT" id="UJE-5J-Xuk"/>
                 <outlet property="healthMine" destination="Ulb-7m-JvC" id="Mth-0w-jo1"/>
                 <outlet property="imgEnemy" destination="fcz-Pc-eeX" id="ekF-X8-Hv4"/>
+                <outlet property="imgHitEnemy" destination="RmO-6X-kHx" id="4xU-jt-ZcM"/>
+                <outlet property="imgHitMine" destination="sZ4-Hx-ylw" id="2ii-AR-3LH"/>
                 <outlet property="imgMine" destination="s5O-on-XF8" id="A4f-pa-nzM"/>
                 <outlet property="nameEnemy" destination="0BB-Jh-pQX" id="uUp-qM-KGL"/>
                 <outlet property="nameMine" destination="AKf-6L-Bbh" id="go3-DI-8lJ"/>
@@ -87,6 +90,14 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="sZ4-Hx-ylw">
+                    <rect key="frame" x="25" y="143" width="90" height="90"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="RmO-6X-kHx">
+                    <rect key="frame" x="209" y="143" width="90" height="90"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
