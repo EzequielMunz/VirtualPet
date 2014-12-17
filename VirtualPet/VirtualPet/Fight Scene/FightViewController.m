@@ -13,6 +13,10 @@
 NSString* const PATH_HIT_COMMON = @"Hit (Normal)";
 NSString* const PATH_HIT_BLOODY = @"Hit (Sangriento)";
 NSString* const PATH_HIT_CRITISH = @"Hit (Critish)";
+NSString* const SOUND_WIN = @"mario_wins";
+NSString* const SOUND_LOSE = @"mario_dies";
+NSString* const SOUND_HIT = @"hit";
+NSString* const SOUND_BACKGROUND = @"mk_theme";
 
 @interface FightViewController ()
 
@@ -35,8 +39,6 @@ NSString* const PATH_HIT_CRITISH = @"Hit (Critish)";
     
     [self setUpUI];
     [self setUpMultipeer];
-    //[self reloadViewData];
-    [self playSound:@"mario_wins1"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -91,7 +93,8 @@ NSString* const PATH_HIT_CRITISH = @"Hit (Critish)";
     [self.advertiser start];
 }
 
-- (void) setUpUI{
+- (void) setUpUI
+{
     //  Setup the browse button
     [self.browserButton addTarget:self action:@selector(showBrowserVC) forControlEvents:UIControlEventTouchUpInside];
     
@@ -112,12 +115,14 @@ NSString* const PATH_HIT_CRITISH = @"Hit (Critish)";
 #pragma marks MCBrowserViewControllerDelegate
 
 // Notifies the delegate, when the user taps the done button
-- (void)browserViewControllerDidFinish:(MCBrowserViewController *)browserViewController{
+- (void)browserViewControllerDidFinish:(MCBrowserViewController *)browserViewController
+{
     [self.browserVC dismissViewControllerAnimated:YES completion:nil];
     [self sendText:@"Connected"];
     [self checkAccelerometer];
     [self.chatBox setEnabled:NO];
     [self sendData:[NSNumber numberWithInt:0]];
+    [self playSound:SOUND_BACKGROUND];
 }
 
 // Notifies delegate that the user taps the cancel button.
@@ -169,13 +174,16 @@ NSString* const PATH_HIT_CRITISH = @"Hit (Critish)";
     [self receiveMessage: message fromPeer: self.myPeerID];
 }
 
-- (void) receiveMessage: (NSString *) message fromPeer: (MCPeerID *) peer{
+- (void) receiveMessage: (NSString *) message fromPeer: (MCPeerID *) peer
+{
     //  Create the final text to append
     NSString *finalText;
-    if (peer == self.myPeerID) {
+    if (peer == self.myPeerID)
+    {
         finalText = [NSString stringWithFormat:@"-Me: %@\r\n", message];
     }
-    else{
+    else
+    {
         finalText = [NSString stringWithFormat:@"-%@: %@\r\n", peer.displayName, message];
     }
     
@@ -230,9 +238,7 @@ NSString* const PATH_HIT_CRITISH = @"Hit (Critish)";
             {
                 [MyPet sharedInstance].health = 0;
                 [self sendText:[NSString stringWithFormat:@"%@ has been defeated", [MyPet sharedInstance].petName]];
-                ////////////////////////////////// Sonido de Derrota //////////////////////////////////
-                
-                ///////////////////////////////////////////////////////////////////////////////////////
+                [self playSound:SOUND_LOSE];
                 [self.motionManager stopAccelerometerUpdates];
                 [self.chatBox setEnabled:YES];
             }
@@ -281,13 +287,13 @@ NSString* const PATH_HIT_CRITISH = @"Hit (Critish)";
 - (void) checkAccelerometer
 {
     [self.motionManager startAccelerometerUpdatesToQueue:[[NSOperationQueue alloc] init] withHandler:^(CMAccelerometerData* accelerometer, NSError* error){
-       
+        
         //NSLog(@"X: %f", accelerometer.acceleration.x); // -> Derecha + <- Izquierda -
         //NSLog(@"Y: %f", accelerometer.acceleration.y); // Siempre Positivo
         //NSLog(@"Z: %f", accelerometer.acceleration.z); // Siempre Positivo
         
         float power = 0.0;
-
+        
         if(accelerometer.acceleration.x > 4)
         {
             power = accelerometer.acceleration.x;
@@ -329,9 +335,7 @@ NSString* const PATH_HIT_CRITISH = @"Hit (Critish)";
         self.enemyPet.health = 0;
         [self sendText:[NSString stringWithFormat:@"%@ Win the Fight!!!!!", [MyPet sharedInstance].petName]];
         [self.chatBox setEnabled:YES];
-        /////////////////////////////////// Sonido de Victoria /////////////////////////////////////
-        
-        ////////////////////////////////////////////////////////////////////////////////////////////
+        [self playSound:SOUND_WIN];
     }
     else
     {
@@ -345,17 +349,15 @@ NSString* const PATH_HIT_CRITISH = @"Hit (Critish)";
         }];
     });
     [self reloadViewData];
-    
-    ////////////////////////////// Sonido de Golpe Aca ////////////////////////////////////
-    
-    ///////////////////////////////////////////////////////////////////////////////////////
+    [self playSound:SOUND_HIT];
 }
 
 //*****************************************
 // Sonidos
 //*****************************************
 
--(void) playSound: (NSString*)file {
+-(void) playSound: (NSString*)file
+{
     NSString *soundPath = [[NSBundle mainBundle] pathForResource:file ofType:@"aif"];
     SystemSoundID soundID;
     AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath: soundPath], &soundID);
