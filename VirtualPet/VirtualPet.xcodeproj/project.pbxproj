@@ -72,10 +72,10 @@
 		3789F6D41A2F612E00644085 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3789F6D21A2F612E00644085 /* Model.xcdatamodeld */; };
 		3789F6D81A2F617900644085 /* DataModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3789F6D71A2F617900644085 /* DataModelManager.m */; };
 		3789F6DE1A2F64CC00644085 /* PetRanking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3789F6DD1A2F64CC00644085 /* PetRanking.m */; };
-		378F9F0B1A4201D8000D2FF7 /* hit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 378F9F071A4201D8000D2FF7 /* hit.mp3 */; };
-		378F9F0C1A4201D8000D2FF7 /* mario_dies.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 378F9F081A4201D8000D2FF7 /* mario_dies.mp3 */; };
-		378F9F0D1A4201D8000D2FF7 /* mario_wins.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 378F9F091A4201D8000D2FF7 /* mario_wins.mp3 */; };
-		378F9F0E1A4201D8000D2FF7 /* mk_theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 378F9F0A1A4201D8000D2FF7 /* mk_theme.mp3 */; };
+		378F9F141A420634000D2FF7 /* hit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 378F9F101A420634000D2FF7 /* hit.mp3 */; };
+		378F9F151A420634000D2FF7 /* mario_dies.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 378F9F111A420634000D2FF7 /* mario_dies.mp3 */; };
+		378F9F161A420634000D2FF7 /* mario_wins.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 378F9F121A420634000D2FF7 /* mario_wins.mp3 */; };
+		378F9F171A420634000D2FF7 /* mk_theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 378F9F131A420634000D2FF7 /* mk_theme.mp3 */; };
 		37A472CC1A2DFB2C00118D47 /* MyPet.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A472CB1A2DFB2C00118D47 /* MyPet.m */; };
 		37CDE6BA1A262A6D00313E47 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CDE6261A262A6D00313E47 /* AFHTTPRequestOperation.m */; };
 		37CDE6BB1A262A6D00313E47 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CDE6281A262A6D00313E47 /* AFHTTPRequestOperationManager.m */; };
@@ -206,10 +206,10 @@
 		3789F6D71A2F617900644085 /* DataModelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModelManager.m; sourceTree = "<group>"; };
 		3789F6DC1A2F64CC00644085 /* PetRanking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetRanking.h; sourceTree = "<group>"; };
 		3789F6DD1A2F64CC00644085 /* PetRanking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetRanking.m; sourceTree = "<group>"; };
-		378F9F071A4201D8000D2FF7 /* hit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = hit.mp3; path = ../../../../../Sounds/hit.mp3; sourceTree = "<group>"; };
-		378F9F081A4201D8000D2FF7 /* mario_dies.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = mario_dies.mp3; path = ../../../../../Sounds/mario_dies.mp3; sourceTree = "<group>"; };
-		378F9F091A4201D8000D2FF7 /* mario_wins.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = mario_wins.mp3; path = ../../../../../Sounds/mario_wins.mp3; sourceTree = "<group>"; };
-		378F9F0A1A4201D8000D2FF7 /* mk_theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = mk_theme.mp3; path = ../../../../../Sounds/mk_theme.mp3; sourceTree = "<group>"; };
+		378F9F101A420634000D2FF7 /* hit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hit.mp3; sourceTree = "<group>"; };
+		378F9F111A420634000D2FF7 /* mario_dies.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mario_dies.mp3; sourceTree = "<group>"; };
+		378F9F121A420634000D2FF7 /* mario_wins.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mario_wins.mp3; sourceTree = "<group>"; };
+		378F9F131A420634000D2FF7 /* mk_theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mk_theme.mp3; sourceTree = "<group>"; };
 		37A472CA1A2DFB2C00118D47 /* MyPet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPet.h; sourceTree = "<group>"; };
 		37A472CB1A2DFB2C00118D47 /* MyPet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPet.m; sourceTree = "<group>"; };
 		37CDE6251A262A6D00313E47 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -325,7 +325,7 @@
 		377A63361A1BCA4900CE8C74 /* VirtualPet */ = {
 			isa = PBXGroup;
 			children = (
-				377B3F8F1A41D39F0048FE0C /* Resources */,
+				378F9F0F1A420634000D2FF7 /* Resources */,
 				375EA5A91A322A02003899BE /* Images.xcassets */,
 				3789F6D51A2F614200644085 /* Data Model */,
 				3743DBFF1A25004800270C68 /* NSTimer+TimerWithAutoInvalidate.h */,
@@ -415,17 +415,6 @@
 				377ADC831A3B2181005DD9B6 /* FightViewController.xib */,
 			);
 			path = "Fight Scene";
-			sourceTree = "<group>";
-		};
-		377B3F8F1A41D39F0048FE0C /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				378F9F071A4201D8000D2FF7 /* hit.mp3 */,
-				378F9F081A4201D8000D2FF7 /* mario_dies.mp3 */,
-				378F9F091A4201D8000D2FF7 /* mario_wins.mp3 */,
-				378F9F0A1A4201D8000D2FF7 /* mk_theme.mp3 */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		377B3F921A41D7470048FE0C /* Frameworks */ = {
@@ -549,6 +538,17 @@
 				3789F6D71A2F617900644085 /* DataModelManager.m */,
 			);
 			name = "Data Model";
+			sourceTree = "<group>";
+		};
+		378F9F0F1A420634000D2FF7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				378F9F101A420634000D2FF7 /* hit.mp3 */,
+				378F9F111A420634000D2FF7 /* mario_dies.mp3 */,
+				378F9F121A420634000D2FF7 /* mario_wins.mp3 */,
+				378F9F131A420634000D2FF7 /* mk_theme.mp3 */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		37CDE6201A262A6D00313E47 /* AFNetworking-master */ = {
@@ -700,22 +700,22 @@
 				375EA5A81A3229B0003899BE /* Images-2.xcassets in Resources */,
 				377A63481A1BCA4900CE8C74 /* LaunchScreen.xib in Resources */,
 				377ADC851A3B2181005DD9B6 /* FightViewController.xib in Resources */,
-				378F9F0D1A4201D8000D2FF7 /* mario_wins.mp3 in Resources */,
+				378F9F161A420634000D2FF7 /* mario_wins.mp3 in Resources */,
+				378F9F171A420634000D2FF7 /* mk_theme.mp3 in Resources */,
 				377FA8F01A1E76BE00E9A07D /* TableViewCellExtra.xib in Resources */,
+				378F9F141A420634000D2FF7 /* hit.mp3 in Resources */,
 				375EA5B01A32462D003899BE /* ContactsViewController.xib in Resources */,
 				377A63671A1BCC2800CE8C74 /* FirstViewController.xib in Resources */,
 				376AB1D01A2CC2FB006BF26D /* PetListViewController.xib in Resources */,
 				3782E76F1A1CF716009A4C10 /* MainMenuViewController.xib in Resources */,
+				378F9F151A420634000D2FF7 /* mario_dies.mp3 in Resources */,
 				3786ADB51A30D8140037755B /* PetDetailViewController.xib in Resources */,
 				376AB1D51A2CC31A006BF26D /* MapViewController.xib in Resources */,
 				375EA5AA1A322A02003899BE /* Images.xcassets in Resources */,
 				377FA8EB1A1E5F5200E9A07D /* TableViewCell.xib in Resources */,
-				378F9F0E1A4201D8000D2FF7 /* mk_theme.mp3 in Resources */,
 				3779E8171A33398C004A69A4 /* ContactCell.xib in Resources */,
 				37CDE7231A26692900313E47 /* SelectImgViewController.xib in Resources */,
 				377A63731A1BD12A00CE8C74 /* GameViewController.xib in Resources */,
-				378F9F0C1A4201D8000D2FF7 /* mario_dies.mp3 in Resources */,
-				378F9F0B1A4201D8000D2FF7 /* hit.mp3 in Resources */,
 				377FA8E31A1E545800E9A07D /* FoodViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -898,6 +898,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -906,7 +907,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6f44e8bd-74d3-4294-ad76-0849a6709531";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -916,6 +917,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -924,7 +926,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6f44e8bd-74d3-4294-ad76-0849a6709531";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
