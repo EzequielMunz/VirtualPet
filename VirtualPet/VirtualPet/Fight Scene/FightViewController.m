@@ -25,6 +25,8 @@ NSString* const SOUND_BACKGROUND = @"mk_theme";
 @property (atomic) bool hitting;
 @property (nonatomic, strong) Pet* enemyPet;
 
+@property (nonatomic, strong) AVAudioPlayer* player;
+
 @end
 
 @implementation FightViewController
@@ -122,7 +124,7 @@ NSString* const SOUND_BACKGROUND = @"mk_theme";
     [self checkAccelerometer];
     [self.chatBox setEnabled:NO];
     [self sendData:[NSNumber numberWithInt:0]];
-    [self playSound:SOUND_BACKGROUND];
+    [self playBackgroundMusic];
 }
 
 // Notifies delegate that the user taps the cancel button.
@@ -213,6 +215,7 @@ NSString* const SOUND_BACKGROUND = @"mk_theme";
         {
             [self.chatBox setEnabled:NO];
             [self checkAccelerometer];
+            [self playBackgroundMusic];
         }
         
         //  append message to text box on main thread
@@ -238,6 +241,7 @@ NSString* const SOUND_BACKGROUND = @"mk_theme";
             {
                 [MyPet sharedInstance].health = 0;
                 [self sendText:[NSString stringWithFormat:@"%@ has been defeated", [MyPet sharedInstance].petName]];
+                [self stopBackgroundMusic];
                 [self playSound:SOUND_LOSE];
                 [self.motionManager stopAccelerometerUpdates];
                 [self.chatBox setEnabled:YES];
@@ -335,6 +339,7 @@ NSString* const SOUND_BACKGROUND = @"mk_theme";
         self.enemyPet.health = 0;
         [self sendText:[NSString stringWithFormat:@"%@ Win the Fight!!!!!", [MyPet sharedInstance].petName]];
         [self.chatBox setEnabled:YES];
+        [self stopBackgroundMusic];
         [self playSound:SOUND_WIN];
     }
     else
@@ -358,10 +363,27 @@ NSString* const SOUND_BACKGROUND = @"mk_theme";
 
 -(void) playSound: (NSString*)file
 {
-    NSString *soundPath = [[NSBundle mainBundle] pathForResource:file ofType:@"aif"];
+    NSString *soundPath = [[NSBundle mainBundle] pathForResource:file ofType:@"mp3"];
     SystemSoundID soundID;
     AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath: soundPath], &soundID);
     AudioServicesPlaySystemSound (soundID);
+}
+
+-(void) playBackgroundMusic
+{
+    NSError* error;
+    NSString* path = [[NSBundle mainBundle] pathForResource:SOUND_BACKGROUND ofType:@"mp3"];
+    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:path] error:&error];
+    self.player.numberOfLoops = 0;
+    [self.player play];
+}
+
+-(void) stopBackgroundMusic
+{
+    if(self.player && [self.player isPlaying])
+    {
+        [self.player stop];
+    }
 }
 
 @end
