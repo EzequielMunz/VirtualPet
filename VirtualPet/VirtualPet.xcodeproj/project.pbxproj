@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3743DC011A25004800270C68 /* NSTimer+TimerWithAutoInvalidate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3743DC001A25004800270C68 /* NSTimer+TimerWithAutoInvalidate.m */; };
+		374ADD861A41C89E00C63832 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374ADD851A41C89E00C63832 /* AVFoundation.framework */; };
 		374E813E1A28C1300081EC2F /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374E813C1A28C1300081EC2F /* Bolts.framework */; };
 		374E813F1A28C1300081EC2F /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374E813D1A28C1300081EC2F /* Parse.framework */; };
 		374E81411A28C1DA0081EC2F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374E81401A28C1DA0081EC2F /* AudioToolbox.framework */; };
@@ -49,6 +50,7 @@
 		377ADC7F1A3B211C005DD9B6 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 377ADC7E1A3B211C005DD9B6 /* CoreMotion.framework */; };
 		377ADC841A3B2181005DD9B6 /* FightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377ADC821A3B2180005DD9B6 /* FightViewController.m */; };
 		377ADC851A3B2181005DD9B6 /* FightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 377ADC831A3B2181005DD9B6 /* FightViewController.xib */; };
+		377B3F911A41D39F0048FE0C /* mario_wins1.aif in Resources */ = {isa = PBXBuildFile; fileRef = 377B3F901A41D39F0048FE0C /* mario_wins1.aif */; };
 		377CCDE41A2CB40C002172C5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 377CCDE31A2CB40C002172C5 /* MapKit.framework */; };
 		377E506F1A3F137A0078B005 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 377E506E1A3F137A0078B005 /* MultipeerConnectivity.framework */; };
 		377FA8E21A1E545800E9A07D /* FoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377FA8E01A1E545800E9A07D /* FoodViewController.m */; };
@@ -105,6 +107,7 @@
 /* Begin PBXFileReference section */
 		3743DBFF1A25004800270C68 /* NSTimer+TimerWithAutoInvalidate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSTimer+TimerWithAutoInvalidate.h"; path = "../NSTimer+TimerWithAutoInvalidate.h"; sourceTree = "<group>"; };
 		3743DC001A25004800270C68 /* NSTimer+TimerWithAutoInvalidate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSTimer+TimerWithAutoInvalidate.m"; path = "../NSTimer+TimerWithAutoInvalidate.m"; sourceTree = "<group>"; };
+		374ADD851A41C89E00C63832 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		374E813C1A28C1300081EC2F /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		374E813D1A28C1300081EC2F /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		374E81401A28C1DA0081EC2F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -164,6 +167,7 @@
 		377ADC811A3B2180005DD9B6 /* FightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FightViewController.h; sourceTree = "<group>"; };
 		377ADC821A3B2180005DD9B6 /* FightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FightViewController.m; sourceTree = "<group>"; };
 		377ADC831A3B2181005DD9B6 /* FightViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FightViewController.xib; sourceTree = "<group>"; };
+		377B3F901A41D39F0048FE0C /* mario_wins1.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = mario_wins1.aif; sourceTree = "<group>"; };
 		377CCDE31A2CB40C002172C5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		377E506E1A3F137A0078B005 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
 		377FA8DF1A1E545800E9A07D /* FoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodViewController.h; sourceTree = "<group>"; };
@@ -246,6 +250,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				374ADD861A41C89E00C63832 /* AVFoundation.framework in Frameworks */,
 				377E506F1A3F137A0078B005 /* MultipeerConnectivity.framework in Frameworks */,
 				377ADC7F1A3B211C005DD9B6 /* CoreMotion.framework in Frameworks */,
 				3779E81F1A333E57004A69A4 /* AddressBook.framework in Frameworks */,
@@ -295,22 +300,7 @@
 		377A632B1A1BCA4900CE8C74 = {
 			isa = PBXGroup;
 			children = (
-				377E506E1A3F137A0078B005 /* MultipeerConnectivity.framework */,
-				377ADC7E1A3B211C005DD9B6 /* CoreMotion.framework */,
-				3779E81E1A333E57004A69A4 /* AddressBook.framework */,
-				3789F6D01A2F605500644085 /* CoreData.framework */,
-				377CCDE31A2CB40C002172C5 /* MapKit.framework */,
-				374E81521A28C2470081EC2F /* SystemConfiguration.framework */,
-				374E814E1A28C2330081EC2F /* Security.framework */,
-				374E814C1A28C2280081EC2F /* QuartzCore.framework */,
-				374E814A1A28C21C0081EC2F /* MobileCoreServices.framework */,
-				374E81481A28C20C0081EC2F /* libz.dylib */,
-				374E81461A28C1F60081EC2F /* CoreLocation.framework */,
-				374E81441A28C1F10081EC2F /* CoreGraphics.framework */,
-				374E81421A28C1E50081EC2F /* CFNetwork.framework */,
-				374E81401A28C1DA0081EC2F /* AudioToolbox.framework */,
-				374E813C1A28C1300081EC2F /* Bolts.framework */,
-				374E813D1A28C1300081EC2F /* Parse.framework */,
+				377B3F921A41D7470048FE0C /* Frameworks */,
 				377A63361A1BCA4900CE8C74 /* VirtualPet */,
 				377A63501A1BCA4900CE8C74 /* VirtualPetTests */,
 				377A63351A1BCA4900CE8C74 /* Products */,
@@ -329,6 +319,7 @@
 		377A63361A1BCA4900CE8C74 /* VirtualPet */ = {
 			isa = PBXGroup;
 			children = (
+				377B3F8F1A41D39F0048FE0C /* Resources */,
 				375EA5A91A322A02003899BE /* Images.xcassets */,
 				3789F6D51A2F614200644085 /* Data Model */,
 				3743DBFF1A25004800270C68 /* NSTimer+TimerWithAutoInvalidate.h */,
@@ -418,6 +409,38 @@
 				377ADC831A3B2181005DD9B6 /* FightViewController.xib */,
 			);
 			path = "Fight Scene";
+			sourceTree = "<group>";
+		};
+		377B3F8F1A41D39F0048FE0C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				377B3F901A41D39F0048FE0C /* mario_wins1.aif */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		377B3F921A41D7470048FE0C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				374ADD851A41C89E00C63832 /* AVFoundation.framework */,
+				377E506E1A3F137A0078B005 /* MultipeerConnectivity.framework */,
+				377ADC7E1A3B211C005DD9B6 /* CoreMotion.framework */,
+				3779E81E1A333E57004A69A4 /* AddressBook.framework */,
+				3789F6D01A2F605500644085 /* CoreData.framework */,
+				377CCDE31A2CB40C002172C5 /* MapKit.framework */,
+				374E81521A28C2470081EC2F /* SystemConfiguration.framework */,
+				374E814E1A28C2330081EC2F /* Security.framework */,
+				374E814C1A28C2280081EC2F /* QuartzCore.framework */,
+				374E814A1A28C21C0081EC2F /* MobileCoreServices.framework */,
+				374E81481A28C20C0081EC2F /* libz.dylib */,
+				374E81461A28C1F60081EC2F /* CoreLocation.framework */,
+				374E81441A28C1F10081EC2F /* CoreGraphics.framework */,
+				374E81421A28C1E50081EC2F /* CFNetwork.framework */,
+				374E81401A28C1DA0081EC2F /* AudioToolbox.framework */,
+				374E813C1A28C1300081EC2F /* Bolts.framework */,
+				374E813D1A28C1300081EC2F /* Parse.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		377CCDE51A2CB6AD002172C5 /* MapView */ = {
@@ -681,6 +704,7 @@
 				37CDE7231A26692900313E47 /* SelectImgViewController.xib in Resources */,
 				377A63731A1BD12A00CE8C74 /* GameViewController.xib in Resources */,
 				377FA8E31A1E545800E9A07D /* FoodViewController.xib in Resources */,
+				377B3F911A41D39F0048FE0C /* mario_wins1.aif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

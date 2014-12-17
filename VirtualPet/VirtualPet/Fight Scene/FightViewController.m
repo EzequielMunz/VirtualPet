@@ -36,6 +36,7 @@ NSString* const PATH_HIT_CRITISH = @"Hit (Critish)";
     [self setUpUI];
     [self setUpMultipeer];
     //[self reloadViewData];
+    [self playSound:@"mario_wins1"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -348,6 +349,17 @@ NSString* const PATH_HIT_CRITISH = @"Hit (Critish)";
     ////////////////////////////// Sonido de Golpe Aca ////////////////////////////////////
     
     ///////////////////////////////////////////////////////////////////////////////////////
+}
+
+//*****************************************
+// Sonidos
+//*****************************************
+
+-(void) playSound: (NSString*)file {
+    NSString *soundPath = [[NSBundle mainBundle] pathForResource:file ofType:@"aif"];
+    SystemSoundID soundID;
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath: soundPath], &soundID);
+    AudioServicesPlaySystemSound (soundID);
 }
 
 @end

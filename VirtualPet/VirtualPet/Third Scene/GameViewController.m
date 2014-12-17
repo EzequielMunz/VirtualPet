@@ -104,7 +104,6 @@ int const eatAnimationIterations = 4;
     [self.superSaiyanImgView setAnimationDuration:0.2f];
     [self.superSaiyanImgView setAnimationRepeatCount:0];
     [self.superSaiyanImgView startAnimating];
-
 }
 
 - (void) viewWillAppear:(BOOL)animated
