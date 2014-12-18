@@ -14,8 +14,10 @@
 #import "NetworkAccessObject.h"
 #import "MyPet.h"
 #import "LocationHandler.h"
+#import "VirtualPet-Swift.h"
 
 @interface MainMenuViewController ()
+
 @property (strong, nonatomic) IBOutlet UIButton *btnPlay;
 @property (strong, nonatomic) NetworkAccessObject* daoObject;
 
@@ -107,6 +109,12 @@
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:SECOND_STEP_KEY];
         
     };
+}
+
+- (IBAction)btnCreditsTouched:(id)sender
+{
+    CreditsViewController* view = [[CreditsViewController alloc] initWithNibName:@"CreditsViewController" bundle:[NSBundle mainBundle]];
+    [self.navigationController pushViewController:view animated:YES];
 }
 
 @end

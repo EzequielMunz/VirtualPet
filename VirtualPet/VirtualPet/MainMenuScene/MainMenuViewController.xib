@@ -73,6 +73,27 @@
                         <action selector="btnLoadGameTouched:" destination="-1" eventType="touchUpInside" id="YsO-3g-5o2"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="364-WY-BgW">
+                    <rect key="frame" x="98" y="333" width="124" height="37"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="37" id="Gmd-cN-IYU"/>
+                        <constraint firstAttribute="width" constant="124" id="fx4-lD-Vy7"/>
+                    </constraints>
+                    <state key="normal" title="Credits">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                            <integer key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="btnCreditsTouched:" destination="-1" eventType="touchUpInside" id="J2w-En-8OV"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.91226577010070731" green="1" blue="0.91367501071990531" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -80,7 +101,9 @@
                 <constraint firstItem="AF0-2c-g6E" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="78" id="7vL-eg-2DP"/>
                 <constraint firstItem="tOu-9W-1Rw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="98" id="JCF-Ce-8CJ"/>
                 <constraint firstAttribute="trailing" secondItem="zjV-8p-aoP" secondAttribute="trailing" constant="98" id="TzV-PO-YlC"/>
+                <constraint firstItem="364-WY-BgW" firstAttribute="top" secondItem="zjV-8p-aoP" secondAttribute="bottom" constant="33" id="UX2-iU-oB6"/>
                 <constraint firstItem="zjV-8p-aoP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="98" id="Usm-E3-bbU"/>
+                <constraint firstItem="364-WY-BgW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="98" id="W3i-bh-Ci4"/>
                 <constraint firstItem="AF0-2c-g6E" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="62" id="Xe1-Tc-dK1"/>
                 <constraint firstItem="tOu-9W-1Rw" firstAttribute="top" secondItem="AF0-2c-g6E" secondAttribute="bottom" constant="58" id="Xhv-Ic-I7E"/>
                 <constraint firstItem="tOu-9W-1Rw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="98" id="afN-lN-SN5"/>
@@ -89,7 +112,7 @@
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-            <point key="canvasLocation" x="255" y="351"/>
+            <point key="canvasLocation" x="-244" y="51"/>
         </view>
     </objects>
 </document>
