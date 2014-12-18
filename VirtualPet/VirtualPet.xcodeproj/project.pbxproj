@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3743DC011A25004800270C68 /* NSTimer+TimerWithAutoInvalidate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3743DC001A25004800270C68 /* NSTimer+TimerWithAutoInvalidate.m */; };
+		3748400C1A4301F700A72A73 /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3748400A1A4301F700A72A73 /* CreditsViewController.swift */; };
+		3748400D1A4301F700A72A73 /* CreditsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3748400B1A4301F700A72A73 /* CreditsViewController.xib */; };
 		374ADD861A41C89E00C63832 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374ADD851A41C89E00C63832 /* AVFoundation.framework */; };
 		374E813E1A28C1300081EC2F /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374E813C1A28C1300081EC2F /* Bolts.framework */; };
 		374E813F1A28C1300081EC2F /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374E813D1A28C1300081EC2F /* Parse.framework */; };
@@ -110,6 +112,9 @@
 /* Begin PBXFileReference section */
 		3743DBFF1A25004800270C68 /* NSTimer+TimerWithAutoInvalidate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSTimer+TimerWithAutoInvalidate.h"; path = "../NSTimer+TimerWithAutoInvalidate.h"; sourceTree = "<group>"; };
 		3743DC001A25004800270C68 /* NSTimer+TimerWithAutoInvalidate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSTimer+TimerWithAutoInvalidate.m"; path = "../NSTimer+TimerWithAutoInvalidate.m"; sourceTree = "<group>"; };
+		374840091A4301F700A72A73 /* VirtualPet-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VirtualPet-Bridging-Header.h"; sourceTree = "<group>"; };
+		3748400A1A4301F700A72A73 /* CreditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
+		3748400B1A4301F700A72A73 /* CreditsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreditsViewController.xib; sourceTree = "<group>"; };
 		374ADD851A41C89E00C63832 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		374E813C1A28C1300081EC2F /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		374E813D1A28C1300081EC2F /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -286,6 +291,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		374840081A43017C00A72A73 /* CreditsScene */ = {
+			isa = PBXGroup;
+			children = (
+				3748400A1A4301F700A72A73 /* CreditsViewController.swift */,
+				3748400B1A4301F700A72A73 /* CreditsViewController.xib */,
+				374840091A4301F700A72A73 /* VirtualPet-Bridging-Header.h */,
+			);
+			path = CreditsScene;
+			sourceTree = "<group>";
+		};
 		375EA5AB1A324616003899BE /* ContactsView */ = {
 			isa = PBXGroup;
 			children = (
@@ -325,6 +340,7 @@
 		377A63361A1BCA4900CE8C74 /* VirtualPet */ = {
 			isa = PBXGroup;
 			children = (
+				374840081A43017C00A72A73 /* CreditsScene */,
 				378F9F0F1A420634000D2FF7 /* Resources */,
 				375EA5A91A322A02003899BE /* Images.xcassets */,
 				3789F6D51A2F614200644085 /* Data Model */,
@@ -711,6 +727,7 @@
 				378F9F151A420634000D2FF7 /* mario_dies.mp3 in Resources */,
 				3786ADB51A30D8140037755B /* PetDetailViewController.xib in Resources */,
 				376AB1D51A2CC31A006BF26D /* MapViewController.xib in Resources */,
+				3748400D1A4301F700A72A73 /* CreditsViewController.xib in Resources */,
 				375EA5AA1A322A02003899BE /* Images.xcassets in Resources */,
 				377FA8EB1A1E5F5200E9A07D /* TableViewCell.xib in Resources */,
 				3779E8171A33398C004A69A4 /* ContactCell.xib in Resources */,
@@ -763,6 +780,7 @@
 				37CDE7061A262A6D00313E47 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				37CDE6BC1A262A6D00313E47 /* AFHTTPSessionManager.m in Sources */,
 				37A472CC1A2DFB2C00118D47 /* MyPet.m in Sources */,
+				3748400C1A4301F700A72A73 /* CreditsViewController.swift in Sources */,
 				37CDE6BA1A262A6D00313E47 /* AFHTTPRequestOperation.m in Sources */,
 				3779E81D1A333B72004A69A4 /* Contact.m in Sources */,
 				3743DC011A25004800270C68 /* NSTimer+TimerWithAutoInvalidate.m in Sources */,
@@ -897,6 +915,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -908,6 +927,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "VirtualPet/CreditsScene/VirtualPet-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -916,6 +937,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -927,6 +949,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "VirtualPet/CreditsScene/VirtualPet-Bridging-Header.h";
 			};
 			name = Release;
 		};

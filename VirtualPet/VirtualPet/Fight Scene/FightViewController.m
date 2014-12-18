@@ -318,6 +318,7 @@ NSString* const SOUND_BACKGROUND = @"mk_theme";
             self.hitting = YES;
             [self hitEnemyPet: power];
             return;
+            
         }
     }];
 }
